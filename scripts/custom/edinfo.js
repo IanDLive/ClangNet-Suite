@@ -18,14 +18,17 @@
         var sender = event.getSender();
         var arguments = event.getArguments();
         var args = event.getArgs();
+        var action = args[0];
+        var argShipName = args[1];
+        var argBuildURL = args[2];
 
         // Retrieve the text from the relevant text files so they can be combined into a response.
-        var elitePBPath = 'C:/Users/Administrator/Dropbox/ElitePB/';
-        var shipModel = $.readFile(elitePBPath + 'EDship.txt');
+        var elitePBPath = 'C:/Users/Administrator/Google Drive/ElitePB/';
+        var shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
         var shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
-        var inDock = $.readFile(elitePBPath + 'EDdocked.txt');
-        var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt');
-        var systemBody = $.readFile(elitePBPath + 'EDbody.txt');
+        var inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
+        var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
+        var systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
         var inaraCmdrId = $.readFile(elitePBPath + 'Custom/Inara/CMDRID.txt');
         var inaraShipId = $.readFile(elitePBPath + 'Custom/Coriolis/' + shipName + '.txt');
         var currentGame;
@@ -34,8 +37,11 @@
 
         // Determine whether the stream is online and if Elite: Dangerous is being played.
         currentGame = $.getGame($.channelName);
-        if ($.isOnline($.channelName)) {
-            if (currentGame.equalsIgnoreCase('elite: dangerous')) {
+        if ($.isOnline($.channelName)) { 
+            if (currentGame.equalsIgnoreCase('elite: dangerous')) { 
+                if (shipName === undefined || shipName == null) {
+                    shipName = '[SHIP NOT NAMED]';
+                }
                 // Construct the response for ClangNet to return, dependent on the command that is invoked.
                 if (command.equalsIgnoreCase('edship')) {
                     strShip = String(shipModel);
@@ -54,7 +60,54 @@
                     }
                 }
                 if (command.equalsIgnoreCase('edshipbuild')) {
-                    $.say($.lang.get('edinfo.playing.shipbuild', shipModel, inaraCmdrId, inaraShipId));
+                    // $.say($.lang.get('edinfo.playing.shipbuild', shipModel, inaraCmdrId, inaraShipId));
+                    // Check to see if there is a subcommand added to the command itself.
+                    if (action === undefined) {
+                        // Check to see if the ship build info exists in the ClangNet database.
+                        if (!$.inidb.exists('edShipBuild', shipName)) {
+                            $.say($.lang.get('edinfo.playing.shipbuild.notlogged'));
+                            return;
+                        } else {
+                            var currentBuild = $.getIniDbString('edShipBuild', shipName);
+                            $.say($.lang.get('edinfo.playing.shipbuild.current', shipModel, currentBuild));
+                        }
+                    } else {
+                        // Add a ship to the database.
+                        if (action.equalsIgnoreCase('add')) {
+                            if (argShipName !== undefined || argShipName != null) {
+                                    if (argBuildURL !== undefined || argBuildURL != null) {
+                                    $.setIniDbString('edShipBuild', argShipName, argBuildURL);
+                                    $.say($.lang.get('edinfo.playing.shipbuild.addsuccess', argShipName, argBuildURL));
+                                } else {
+                                    $.say($.lang.get('edinfo.playing.shipbuild.addnoURL'));
+                                }
+                            } else {
+                                $.say($.lang.get('edinfo.playing.shipbuild.addnoname'));
+                            }
+                        }
+                        // Delete a ship from the database.
+                        if (action.equalsIgnoreCase('delete')) {
+                            if (argShipName !== undefined || argShipName != null) {
+                                $.inidb.del('edShipBuild', argShipName);
+                                $.say($.lang.get('edinfo.playing.shipbuild.delsuccess', argShipName));
+                            } else {
+                                $.say($.lang.get('edinfo.playing.shipbuild.delnoname'));
+                            }
+                        }
+                        // Update a ship within the database.
+                        if (action.equalsIgnoreCase('update')) {
+                            if (argShipName !== undefined || argShipName != null) {
+                                if (argBuildURL !== undefined || argBuildURL != null) {
+                                    $.getSetIniDbString('edShipBuild', argShipName, argBuildURL);
+                                    $.say($.lang.get('edinfo.playing.shipbuild.updatesuccess', argShipName, argBuildURL));
+                                } else {
+                                    $.say($.lang.get('edinfo.playing.shipbuild.updatenoURL'));
+                                }
+                            } else {
+                                $.say($.lang.get('edinfo.playing.shipbuild.updatenoname'));
+                            }
+                        }
+                    }
                 }
                 if (command.equalsIgnoreCase('edcareers')) {
                     $.say($.lang.get('edinfo.playing.edcareers'));
@@ -87,6 +140,9 @@
             $.registerChatCommand('./custom/edinfo.js', 'edship', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edsystem', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edshipbuild', 7);
+            $.registerChatSubcommand('edshipbuild', 'add', 1);
+            $.registerChatSubcommand('edshipbuild', 'delete', 1);
+            $.registerChatSubcommand('edshipbuild', 'update', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
