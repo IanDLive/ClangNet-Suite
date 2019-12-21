@@ -34,10 +34,10 @@
       <Publish>True</Publish>
     </Content>
     <Content Include="scripts\discord\custom\clangnetsass-discord.js" />
-    <Content Include="web\panel\js\pages\custom\extra\fettle.js">
+    <Content Include="web\panel\js\pages\custom\fettle.js">
       <Publish>True</Publish>
     </Content>
-    <Content Include="web\panel\pages\custom\extra\custom-fettle.html">
+    <Content Include="web\panel\pages\custom\custom-fettle.html">
       <Publish>True</Publish>
     </Content>
     <None Include="InSolutionRelease.pubxml" />
@@ -90,10 +90,8 @@
     <Folder Include="web\panel\js\" />
     <Folder Include="web\panel\js\pages\" />
     <Folder Include="web\panel\js\pages\custom\" />
-    <Folder Include="web\panel\js\pages\custom\extra\" />
     <Folder Include="web\panel\pages\" />
     <Folder Include="web\panel\pages\custom\" />
-    <Folder Include="web\panel\pages\custom\extra\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

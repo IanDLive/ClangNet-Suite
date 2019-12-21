@@ -3,7 +3,11 @@
 // Retrieves the info from OBS text files and places it as a ClangNet response in chat.
 //
 
-(function() {
+(function () {
+    function initText() {
+        $.consoleLn("***** Elite: Dangerous commands module online *****");
+    }
+
     // Command Event
     $.bind('command', function(event) {
         // All of the default methods are stored in the event argument.
@@ -22,8 +26,8 @@
         var inDock = $.readFile(elitePBPath + 'EDdocked.txt');
         var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt');
         var systemBody = $.readFile(elitePBPath + 'EDbody.txt');
-        var inaraCmdrId = $.readFile(elitePBPath + 'Custom/InaraCMDRID.txt');
-        var inaraShipId = $.readFile(elitePBPath + 'Custom/' + shipName + '.txt');
+        var inaraCmdrId = $.readFile(elitePBPath + 'Custom/Inara/CMDRID.txt');
+        var inaraShipId = $.readFile(elitePBPath + 'Custom/Coriolis/' + shipName + '.txt');
         var currentGame;
         var strShip;
         var strShipInitial;
@@ -72,18 +76,21 @@
     });
 
     // initReady event to register the commands.
-    $.bind('initReady', function() {
-        // 'script' is the script location.  IT MUST BE IN SCRIPTS!!!
-        // 'command' is the command name without the '!' prefix.
-        // 'permission' is the group number from 0, 1, 2, 3, 4, 5, 6 and 7.
-        // These are also used for the 'permcom' command.
-        // $.registerChatCommand('script', 'command', 'permission');
-        $.registerChatCommand('./custom/edinfo.js', 'edship', 7);
-        $.registerChatCommand('./custom/edinfo.js', 'edsystem', 7);
-        $.registerChatCommand('./custom/edinfo.js', 'edshipbuild', 7);
-        $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
-        $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
-        $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
+    $.bind('initReady', function () {
+        if ($.bot.isModuleEnabled('./custom/edinfo.js')) {
+            initText();
+            // 'script' is the script location.  IT MUST BE IN SCRIPTS!!!
+            // 'command' is the command name without the '!' prefix.
+            // 'permission' is the group number from 0, 1, 2, 3, 4, 5, 6 and 7.
+            // These are also used for the 'permcom' command.
+            // $.registerChatCommand('script', 'command', 'permission');
+            $.registerChatCommand('./custom/edinfo.js', 'edship', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edsystem', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edshipbuild', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
+        }
     });
 }) ();
 
