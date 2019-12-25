@@ -44,7 +44,7 @@ $.lang.register('clangnetsass.howlong.discord', '$1, you have followed the IanDL
 
 // !howserver command response
 // --------------------------
-$.lang.register('clangnetsass.howserver', 'Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed.');
+$.lang.register('clangnetsass.howserver', 'Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
 
 // !se-mods command response
 // -------------------------
