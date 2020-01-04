@@ -210,6 +210,11 @@
             $.say($.lang.get('clangnetsass.por-youtube'));
         }
 
+        // --- !cdkeys command ---
+        if (command.equalsIgnoreCase('cdkeys')) {
+            $.say($.lang.get('clangnetsass.cdkeys'));
+        }
+
         // --- !chatrules command (MOD LEVEL) ---
         if (command.equalsIgnoreCase('chatrules')) {
             apiURL = 'http://decapi.me/twitch/chat_rules/iandlive';
@@ -246,6 +251,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'viewplaylist', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
     });
 }) ();
