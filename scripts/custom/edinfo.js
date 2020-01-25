@@ -5,8 +5,8 @@
 
 (function () {
     // General variables for the functions.
-    // var elitePBPath = 'C:/Users/Administrator/Google Drive/ElitePB/';
-    var elitePBPath = 'E:/My Online Libraries/Google Drive/ElitePB/';
+    var elitePBPath = 'C:/Users/Administrator/Google Drive/ElitePB/';
+    // var elitePBPath = 'E:/My Online Libraries/Google Drive/ElitePB/';
     var shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
     var shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
     var inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
@@ -59,7 +59,7 @@
         }
         if ($.isOnline($.channelName) || allowOffline == true) { 
             if (currentGame.equalsIgnoreCase('elite: dangerous')) { 
-                if (shipName == undefined || shipName == null) {
+                if (shipName === undefined || shipName == null) {
                     shipName = '[SHIP NOT NAMED]';
                 }
                 // Construct the response for ClangNet to return, dependent on the command that is invoked.
@@ -115,7 +115,7 @@
                                 $.say($.lang.get('edinfo.playing.shipbuild.delnoname'));
                                 return;
                             } else {
-                                if ($.inidb.exist('edShipBuild', argShipName)) {
+                                if ($.inidb.exists('edShipBuild', argShipName)) {
                                     $.inidb.del('edShipBuild', argShipName);
                                     $.say($.lang.get('edinfo.playing.shipbuild.delsuccess', argShipName));
                                     return;
