@@ -124,8 +124,7 @@
      * @function reminderBot
      */
     function reminderBot() {
-        $.consoleLn('Fettle ReminderBot Tick');
-        if ($.bot.isModuleEnabled('.custom/fettleSystem.js')) {
+        if ($.bot.isModuleEnabled('./custom/fettleSystem.js')) {
             if (hydrationtoggle == true) {
                 hydrationReminder(null, checkTimer('hydrationtimer'), 'reminder');
             }

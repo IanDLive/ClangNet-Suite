@@ -39,7 +39,7 @@ $.lang.register('fettlesystem.hunger.command', '$1 has been live for just over $
 /**
  * Fettle Toggle Strings
  */
-$.lang.register('fettlesystem.toggle.usage', 'Usage: !$1 toggle [ hydration | hunger ].');
+$.lang.register('fettlesystem.toggle.usage', 'Usage: !$1 toggle [ hydrationtoggle | hungertoggle ].');
 $.lang.register('fettlesystem.toggle.setting.pass', '$1 has been set to $2.');
 $.lang.register('fettlesystem.toggle.setting.fail', '$1 toggle not found.');
 
