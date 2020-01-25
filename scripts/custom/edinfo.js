@@ -4,6 +4,20 @@
 //
 
 (function () {
+    // General variables for the functions.
+    // var elitePBPath = 'C:/Users/Administrator/Google Drive/ElitePB/';
+    var elitePBPath = 'E:/My Online Libraries/Google Drive/ElitePB/';
+    var shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
+    var shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
+    var inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
+    var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
+    var systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
+    var inaraCmdrId = $.readFile(elitePBPath + 'Custom/Inara/CMDRID.txt');
+    var inaraShipId = $.readFile(elitePBPath + 'Custom/Coriolis/' + shipName + '.txt');
+    var allowOffline = $.getSetIniDbBoolean('edInfo', 'allowOffline', false);
+    var shipBuildEntry = $.getSetIniDbString('edShipBuild', '[DEFAULT ENTRY]', '[Web URL Here]');
+
+    // Initialization text for the console.
     function initText() {
         $.consoleLn("***** Elite: Dangerous commands module online *****");
     }
@@ -23,23 +37,29 @@
         var argBuildURL = args[2];
 
         // Retrieve the text from the relevant text files so they can be combined into a response.
-        var elitePBPath = 'C:/Users/Administrator/Google Drive/ElitePB/';
-        var shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
-        var shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
-        var inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
-        var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
-        var systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
-        var inaraCmdrId = $.readFile(elitePBPath + 'Custom/Inara/CMDRID.txt');
-        var inaraShipId = $.readFile(elitePBPath + 'Custom/Coriolis/' + shipName + '.txt');
         var currentGame;
         var strShip;
         var strShipInitial;
 
         // Determine whether the stream is online and if Elite: Dangerous is being played.
         currentGame = $.getGame($.channelName);
-        if ($.isOnline($.channelName)) { 
+        if (command.equalsIgnoreCase('edofflinemode')) {
+            if (allowOffline == false) {
+                allowOffline = true;
+                $.setIniDbBoolean('edinfo', 'allowOffline', true);
+                $.say($.lang.get('edinfo.offlinemodetrue'));
+                $.consoleLn($.lang.get('edinfo.offlinemodetrue'));
+            } else {
+                allowOffline = false;
+                $.setIniDbBoolean('edinfo', 'allowOffline', false);
+                $.say($.lang.get('edinfo.offlinemodefalse'));
+                $.consoleLn($.lang.get('edinfo.offlinemodefalse'));
+            }
+            return;
+        }
+        if ($.isOnline($.channelName) || allowOffline == true) { 
             if (currentGame.equalsIgnoreCase('elite: dangerous')) { 
-                if (shipName === undefined || shipName == null) {
+                if (shipName == undefined || shipName == null) {
                     shipName = '[SHIP NOT NAMED]';
                 }
                 // Construct the response for ClangNet to return, dependent on the command that is invoked.
@@ -60,51 +80,64 @@
                     }
                 }
                 if (command.equalsIgnoreCase('edshipbuild')) {
-                    // $.say($.lang.get('edinfo.playing.shipbuild', shipModel, inaraCmdrId, inaraShipId));
-                    // Check to see if there is a subcommand added to the command itself.
                     if (action === undefined) {
-                        // Check to see if the ship build info exists in the ClangNet database.
-                        if (!$.inidb.exists('edShipBuild', shipName)) {
-                            $.say($.lang.get('edinfo.playing.shipbuild.notlogged'));
-                            return;
+                        if ($.inidb.FileExists('edShipBuild')) {
+                            if ($.inidb.exists('edShipBuild', shipName)) {
+                                shipBuildEntry = $.getIniDbString('edShipBuild', shipName, '[No URL stored for key]');
+                                $.say($.lang.get('edinfo.playing.shipbuild.current', shipModel, currentBuild));
+                                return;
+                            } else {
+                                $.say($.lang.get('edinfo.playing.shipbuild.notlogged'));
+                                return;
+                            }
                         } else {
-                            var currentBuild = $.getIniDbString('edShipBuild', shipName);
-                            $.say($.lang.get('edinfo.playing.shipbuild.current', shipModel, currentBuild));
+                            $.consoleLn('edShipbuild table does not exist yet!')
                         }
+
                     } else {
-                        // Add a ship to the database.
                         if (action.equalsIgnoreCase('add')) {
-                            if (argShipName !== undefined || argShipName != null) {
-                                    if (argBuildURL !== undefined || argBuildURL != null) {
+                            if (argShipName === undefined || argShipName == null) {
+                                $.say($.lang.get('edinfo.playing.shipbuild.addnoname'));
+                                return;
+                            } else {
+                                if (argBuildURL === undefined || argBuildURL == null) {
+                                    $.say($.lang.get('edinfo.playing.shipbuild.addnoURL'));
+                                    return;
+                                } else {
                                     $.setIniDbString('edShipBuild', argShipName, argBuildURL);
                                     $.say($.lang.get('edinfo.playing.shipbuild.addsuccess', argShipName, argBuildURL));
-                                } else {
-                                    $.say($.lang.get('edinfo.playing.shipbuild.addnoURL'));
+                                    return;
                                 }
-                            } else {
-                                $.say($.lang.get('edinfo.playing.shipbuild.addnoname'));
                             }
                         }
-                        // Delete a ship from the database.
                         if (action.equalsIgnoreCase('delete')) {
-                            if (argShipName !== undefined || argShipName != null) {
-                                $.inidb.del('edShipBuild', argShipName);
-                                $.say($.lang.get('edinfo.playing.shipbuild.delsuccess', argShipName));
-                            } else {
+                            if (argShipName === undefined || argShipName == null) {
                                 $.say($.lang.get('edinfo.playing.shipbuild.delnoname'));
+                                return;
+                            } else {
+                                if ($.inidb.exist('edShipBuild', argShipName)) {
+                                    $.inidb.del('edShipBuild', argShipName);
+                                    $.say($.lang.get('edinfo.playing.shipbuild.delsuccess', argShipName));
+                                    return;
+                                } else {
+                                    $.say($.lang.get('edinfo.playing.shipbuild.delnokey'));
+                                    return;
+                                }
                             }
                         }
-                        // Update a ship within the database.
                         if (action.equalsIgnoreCase('update')) {
-                            if (argShipName !== undefined || argShipName != null) {
-                                if (argBuildURL !== undefined || argBuildURL != null) {
-                                    $.getSetIniDbString('edShipBuild', argShipName, argBuildURL);
-                                    $.say($.lang.get('edinfo.playing.shipbuild.updatesuccess', argShipName, argBuildURL));
-                                } else {
-                                    $.say($.lang.get('edinfo.playing.shipbuild.updatenoURL'));
-                                }
-                            } else {
+                            if (argShipName === undefined || argShipName == null) {
                                 $.say($.lang.get('edinfo.playing.shipbuild.updatenoname'));
+                                return;
+                            } else {
+                                if (argBuildURL === undefined || argBuildURL == null) {
+                                    $.say($.lang.get('edinfo.playing.shipbuild.updatenoURL'));
+                                    return;
+                                } else {
+                                    $.setIniDbString('edShipBuild', argShipName, argBuildURL);
+                                    $.say($.lang.get('edinfo.playing.shipbuild.updatesuccess', argShipName, argBuildURL));
+                                    return;
+                                }
                             }
                         }
                     }
@@ -123,7 +156,7 @@
                 $.say($.lang.get('edinfo.playing.othergame'));
             }
         } else {
-            // Not online at all.
+                // Not online at all.
                 $.say($.lang.get('edinfo.notplaying', $.getGame($.channelName)));
         }
     });
@@ -146,6 +179,7 @@
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edofflinemode', 1);
         }
     });
 }) ();
