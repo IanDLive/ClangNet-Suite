@@ -5,6 +5,7 @@
         var command = event.getCommand();
         var sender = event.getSender();
         var channel = event.getDiscordChannel();
+        var discordUser = event.getDiscordUser();
         var mention = event.getMention();
         var args = event.getArgs();
         var action = args[0];
@@ -52,6 +53,39 @@
                 }
             }
         }
+
+        // --- !clothing command ---
+        if (command.equalsIgnoreCase('clothing')) {
+            $.discord.say(channel, $.lang.get('clangnetsass.clothing'));
+        }
+
+        // --- !merchandise command ---
+        if (command.equalsIgnoreCase('merchandise')) {
+            $.discord.say(channel, $.lang.get('clangnetsass.merchandise'));
+        }
+
+        // --- !motorsports command ---
+        if (command.equalsIgnoreCase('motorsports')) {
+            $.discordAPI.addRole('Motorsports', discordUser);
+            $.discord.say(channel, $.lang.get('clangnetsass.motorsports.discord', discordUser));
+        }
+
+        // --- !pedestrian command ---
+        if (command.equalsIgnoreCase('pedestrian')) {
+            $.discordAPI.removeRole($.discordAPI.getRole('Motorsports'), discordUser);
+            $.discord.say(channel, $.lang.get('clangnetsass.pedestrian.discord', discordUser));
+        }
+
+        // --- !movienight command ---
+        if (command.equalsIgnoreCase('movienight')) {
+            $.discordAPI.addRole('Movienight', discordUser);
+            $.discord.say(channel, $.lang.get('clangnetsass.movienight.discord', discordUser));
+        }
+        // --- !nomovies command ---
+        if (command.equalsIgnoreCase('nomovies')) {
+            $.discordAPI.removeRole($.discordAPI.getRole('Movienight'), discordUser);
+            $.discord.say(channel, $.lang.get('clangnetsass.nomovies.discord', discordUser));
+        }
     });
 
     // initReady event to register the commands.
@@ -59,6 +93,12 @@
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'followed', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'followers', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'howlong', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'clothing', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'merchandise', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'motorsports', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'pedestrian', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'movienight', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'nomovies', 0);
     });
 
 })();

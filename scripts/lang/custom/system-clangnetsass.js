@@ -109,3 +109,19 @@ $.lang.register('clangnetsass.por-youtube', 'There are videos chronicling the ex
 // !cdkeys command response
 // ------------------------
 $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of the latest games at cheaper prices while supporting this channel? Head over to CDKeys to see what deals they have on offer --> https://iand.live/cdkeys');
+
+// !motorsports command response
+// -----------------------------
+$.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the "??? - Motorsports" voice channel.');
+
+// !pedestrian command response
+// ----------------------------
+$.lang.register('clangnetsass.pedestrian.discord', '$1, you have been removed from the *Motorsports* role.');
+
+// !movienight command response
+// ----------------------------
+$.lang.register('clangnetsass.movienight.discord', '$1, you\'ve been added to the *Movienight* role, with access to the "?? - Movie Night" chat room.');
+
+// !nomovies command response
+//---------------------------
+$.lang.register('clangnetsass.nomovoes.discord', '$1, you\'ve been removed from the *Movienight* role.');

@@ -34,6 +34,8 @@
       <Publish>True</Publish>
     </Content>
     <Content Include="scripts\discord\custom\clangnetsass-discord.js" />
+    <Content Include="scripts\discord\custom\goingLiveSystem-discord.js" />
+    <Content Include="scripts\lang\custom\system-goingLiveSystem.js" />
     <Content Include="web\panel\js\pages\custom\fettle.js">
       <Publish>True</Publish>
     </Content>
