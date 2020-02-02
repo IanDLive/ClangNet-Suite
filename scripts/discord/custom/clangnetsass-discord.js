@@ -67,24 +67,24 @@
         // --- !motorsports command ---
         if (command.equalsIgnoreCase('motorsports')) {
             $.discordAPI.addRole('Motorsports', discordUser);
-            $.discord.say(channel, $.lang.get('clangnetsass.motorsports.discord', discordUser));
+            $.discord.say(channel, $.lang.get('clangnetsass.motorsports.discord', $.discord.userPrefix(mention).replace(', ', '')));
         }
 
         // --- !pedestrian command ---
         if (command.equalsIgnoreCase('pedestrian')) {
             $.discordAPI.removeRole($.discordAPI.getRole('Motorsports'), discordUser);
-            $.discord.say(channel, $.lang.get('clangnetsass.pedestrian.discord', discordUser));
+            $.discord.say(channel, $.lang.get('clangnetsass.pedestrian.discord', $.discord.userPrefix(mention).replace(', ', '')));
         }
 
         // --- !movienight command ---
         if (command.equalsIgnoreCase('movienight')) {
             $.discordAPI.addRole('Movienight', discordUser);
-            $.discord.say(channel, $.lang.get('clangnetsass.movienight.discord', discordUser));
+            $.discord.say(channel, $.lang.get('clangnetsass.movienight.discord', $.discord.userPrefix(mention).replace(', ', '')));
         }
         // --- !nomovies command ---
         if (command.equalsIgnoreCase('nomovies')) {
             $.discordAPI.removeRole($.discordAPI.getRole('Movienight'), discordUser);
-            $.discord.say(channel, $.lang.get('clangnetsass.nomovies.discord', discordUser));
+            $.discord.say(channel, $.lang.get('clangnetsass.nomovies.discord', $.discord.userPrefix(mention).replace(', ', '')));
         }
     });
 
