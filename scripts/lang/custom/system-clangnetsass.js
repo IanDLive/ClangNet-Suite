@@ -92,7 +92,7 @@ $.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it enab
 
 // !merchandise command response
 // -----------------------------
-$.lang.register('clangnetsass.merchandise', 'Would you like to get your hands on some lovely PoR merchandise??  If you do, click the link here --> https://iand.live/slmerch');
+// $.lang.register('clangnetsass.merchandise', 'Would you like to get your hands on some lovely PoR merchandise??  If you do, click the link here --> https://iand.live/slmerch');
 
 // !viewplaylist command response
 // ------------------------------
@@ -112,7 +112,7 @@ $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of th
 
 // !motorsports command response
 // -----------------------------
-$.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the "??? - Motorsports" voice channel.');
+$.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the **Motorsports** voice channel.');
 
 // !pedestrian command response
 // ----------------------------
@@ -120,7 +120,7 @@ $.lang.register('clangnetsass.pedestrian.discord', '$1, you have been removed fr
 
 // !movienight command response
 // ----------------------------
-$.lang.register('clangnetsass.movienight.discord', '$1, you\'ve been added to the *Movienight* role, with access to the "?? - Movie Night" chat room.');
+$.lang.register('clangnetsass.movienight.discord', '$1, you\'ve been added to the *Movienight* role, with access to the **Movie Night** chat room.');
 
 // !nomovies command response
 //---------------------------

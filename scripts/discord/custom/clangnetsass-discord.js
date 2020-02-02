@@ -60,9 +60,9 @@
         }
 
         // --- !merchandise command ---
-        if (command.equalsIgnoreCase('merchandise')) {
-            $.discord.say(channel, $.lang.get('clangnetsass.merchandise'));
-        }
+        // if (command.equalsIgnoreCase('merchandise')) {
+        //     $.discord.say(channel, $.lang.get('clangnetsass.merchandise'));
+        // }
 
         // --- !motorsports command ---
         if (command.equalsIgnoreCase('motorsports')) {

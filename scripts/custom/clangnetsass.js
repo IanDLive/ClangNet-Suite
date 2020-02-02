@@ -191,9 +191,9 @@
         }
 
         // --- !merchandise command ---
-        if (command.equalsIgnoreCase('merchandise')) {
-            $.say($.lang.get('clangnetsass.merchandise'));
-        }
+        // if (command.equalsIgnoreCase('merchandise')) {
+        //     $.say($.lang.get('clangnetsass.merchandise'));
+        // }
 
         // --- !viewplaylist command ---
         if (command.equalsIgnoreCase('viewplaylist')) {
