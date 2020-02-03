@@ -175,7 +175,7 @@
                 $.consoleDebug(">> Running (ONLINE) Going Live Update For " + channelToGoLive);
                 autoHostQueue.add(channelToGoLive);
         
-                $.discordAPI.sendMessageEmbed(channelName, new Packages.sx.blah.discord.util.EmbedBuilder()
+                $.discordAPI.sendMessageEmbed(channelName, new Packages.tv.phantombot.discord.util.EmbedBuilder()
                     .withColor(100, 65, 164)
                     .withThumbnail($.getLogo(channelToGoLive))
                     .withTitle($.lang.get('discord.streamhandler.common.link', $.username.resolve(channelToGoLive)))
