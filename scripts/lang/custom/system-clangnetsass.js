@@ -46,10 +46,6 @@ $.lang.register('clangnetsass.howlong.discord', '$1, you have followed the IanDL
 // ---------------------------
 $.lang.register('clangnetsass.howserver', 'Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
 
-// !se-mods command response
-// -------------------------
-$.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
-
 // !steamgroup command response
 // ----------------------------
 $.lang.register('clangnetsass.steamgroup', 'Want to join the Prophets of Rage Steam group so that you can access the servers?  Follow the link to get to the group page to join up --> https://iand.live/SteamGroup');
@@ -78,12 +74,20 @@ $.lang.register('clangnetsass.humblemonth', 'Do you like games?  Do you want a n
 // ------------------------
 $.lang.register('clangnetsass.emotes', 'The subscriber emotes that are available for the channel are... $1');
 
-// !fo-mods command response
-// -------------------------
+// !mod command response for no mods used
+// --------------------------------------
+$.lang.register('clangnetsass.no-mods-used', 'There are no mods used or listed for this game.');
+
+// !mod command response for Space Engineers mods
+// ----------------------------------------------
+$.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
+
+// !mod command response for Fallout 4 mods
+// ----------------------------------------
 $.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are being used on the current run through of Fallout 4, follow the link to our website for details --> https://iand.live/fo-mods');
 
-// !skse-mods command response
-// ---------------------------
+// !mod command response for Skyrim: Special Edition mods
+// ------------------------------------------------------
 $.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to out website for details --> https://iand.live/skse-mods');
 
 // !food command response

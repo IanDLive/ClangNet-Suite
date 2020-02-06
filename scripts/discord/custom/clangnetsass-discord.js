@@ -94,7 +94,7 @@
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'followers', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'howlong', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'clothing', 0);
-        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'merchandise', 0);
+//      $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'merchandise', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'motorsports', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'pedestrian', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'movienight', 0);

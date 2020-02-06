@@ -268,7 +268,7 @@
                     } else {
                     	enabledAutoHost = !enabledAutoHost;
                     	$.inidb.set('autoHostSettings', 'autohost', enabledAutoHost);
-                    	$.discord.say(channel, $.lang.get('autohost.toggle.setting.pass', sender, 'goinglive', (enabledAutoHost === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                    	$.discord.say(channel, $.lang.get('autohost.toggle.setting.pass', sender, 'autohost', (enabledAutoHost === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
                     }
                 } else if (action.equalsIgnoreCase('queue')) {
                     getHostingQueue(sender, channel);

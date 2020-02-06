@@ -134,11 +134,6 @@
             $.say($.lang.get('clangnetsass.howserver'));
         }
 
-        // --- !se-mods command ---
-        if (command.equalsIgnoreCase('se-mods')) {
-            $.say($.lang.get('clangnetsass.se-mods'));
-        }
-
         // --- !steamgroup command ---
         if (command.equalsIgnoreCase('steamgroup')) {
             $.say($.lang.get('clangnetsass.steamgroup'));
@@ -175,6 +170,11 @@
             $.say($.lang.get('clangnetsass.emotes', $.customAPI.get(apiURL).content));
         }
 
+/*      // --- !se-mods command ---
+        if (command.equalsIgnoreCase('se-mods')) {
+            $.say($.lang.get('clangnetsass.se-mods'));
+        }
+
         // --- !fo-mods command ---
         if (command.equalsIgnoreCase('fo-mods')) {
             $.say($.lang.get('clangnetsass.fo-mods'));
@@ -183,6 +183,22 @@
         // --- !skse-mods command ---
         if (command.equalsIgnoreCase('skse-mods')) {
             $.say($.lang.get('clangnetsass.skse-mods'));
+        }
+*/
+        // --- !mods command ---
+        if (command.equalsIgnoreCase('mods')) {
+            currentGame = $.getGame($.channelName);
+            if (currentGame.equalsIgnoreCase('space engineers')) {
+                $.say($.lang.get('clangnetsass.se-mods'));
+            }
+            if (currentGame.equalsIgnoreCase('fallout 4')) {
+                $.say($.lang.get('clangnetsass.fo-mods'));
+            }
+            if (currentGame.equalsIgnoreCase('the elder scrolls v: skyrim')) {
+                $.say($.lang.get('clangnetsass.skse-mods'));
+            } else {
+                $.say($.lang.get('clangnetsass.no-mods-used'));
+            }
         }
 
         // --- !food command ---
@@ -247,7 +263,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'fo-mods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'skse-mods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'merchandise', 7);
+//      $.registerChatCommand('./custom/clangnetsass.js', 'merchandise', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'viewplaylist', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
