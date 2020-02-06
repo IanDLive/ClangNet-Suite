@@ -252,7 +252,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'followers', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'howlong', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'howserver', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'se-mods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'steamgroup', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'steam', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'xebon', 7);
@@ -260,8 +259,10 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'humble', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humblemonth', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'emotes', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'fo-mods', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'skse-mods', 7);
+//      $.registerChatCommand('./custom/clangnetsass.js', 'se-mods', 7);
+//      $.registerChatCommand('./custom/clangnetsass.js', 'fo-mods', 7);
+//      $.registerChatCommand('./custom/clangnetsass.js', 'skse-mods', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'mods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
 //      $.registerChatCommand('./custom/clangnetsass.js', 'merchandise', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'viewplaylist', 7);
