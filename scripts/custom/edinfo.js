@@ -84,7 +84,7 @@
                         if ($.inidb.FileExists('edShipBuild')) {
                             if ($.inidb.exists('edShipBuild', shipName)) {
                                 shipBuildEntry = $.getIniDbString('edShipBuild', shipName, '[No URL stored for key]');
-                                $.say($.lang.get('edinfo.playing.shipbuild.current', shipModel, currentBuild));
+                                $.say($.lang.get('edinfo.playing.shipbuild.current', shipModel, shipBuildEntry));
                                 return;
                             } else {
                                 $.say($.lang.get('edinfo.playing.shipbuild.notlogged'));

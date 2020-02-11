@@ -88,7 +88,11 @@ $.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are bein
 
 // !mod command response for Skyrim: Special Edition mods
 // ------------------------------------------------------
-$.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to out website for details --> https://iand.live/skse-mods');
+$.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
+
+// !mod command response for ESO add-ons
+// -------------------------------------
+$.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 
 // !food command response
 // ----------------------

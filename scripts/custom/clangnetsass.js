@@ -194,6 +194,9 @@
             if (currentGame.equalsIgnoreCase('fallout 4')) {
                 $.say($.lang.get('clangnetsass.fo-mods'));
             }
+            if (currentGame.equalsIgnoreCase('the elder scrolls online')) {
+                $.say($.lang.get('clangnetsass.eso-mods'));
+            }
             if (currentGame.equalsIgnoreCase('the elder scrolls v: skyrim')) {
                 $.say($.lang.get('clangnetsass.skse-mods'));
             } else {
