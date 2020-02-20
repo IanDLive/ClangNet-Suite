@@ -164,7 +164,7 @@
     }
 
     /**
-     * @function doGoingLive
+     * @function sendGoingLive
      *
      * Performs the going Live push embed to discord.
      */
