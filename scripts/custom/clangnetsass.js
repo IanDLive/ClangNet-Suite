@@ -12,6 +12,28 @@
 //
 
 (function () {
+    // Retrieval of JSON object from and external API.
+    function _getJSON(url) {
+        var HttpRequest = Packages.com.gmt2001.HttpRequest;
+        var HashMap = Packages.java.util.HashMap;
+        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', new HashMap());
+        return responseData.content;
+    }
+
+    // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
+    function getDadJoke() {
+        var jsonObject;
+        jsonObject = JSON.parse(_getJSON('https://icanhazdadjoke.com/slack'));
+        return jsonObject.attachments[0].text;
+    }
+
+    // 'Bot' used to automatically say a dad joke in chat.
+    function sayDadJoke() {
+        if ($.isOnline($.channelName)) {
+            $.say(getDadJoke());
+        }
+    }
+
     // Command Event
     $.bind('command', function (event) {
 
@@ -239,6 +261,11 @@
             apiURL = 'http://decapi.me/twitch/chat_rules/iandlive';
             $.say($.customAPI.get(apiURL).content);
         }
+
+        // --- !dadjoke command (CASTER/BOT LEVEL) ---
+        if (command.equalsIgnoreCase('dadjoke')) {
+            $.say(getDadJoke());
+        }
     });
 
     $.bind('initReady', function() {
@@ -273,5 +300,11 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
+        $.registerChatCommand('./custom/clangnetsass.js', 'dadjoke', 0);
     });
+
+    setTimeout(function () {
+        setInterval(function () { sayDadJoke(); }, 1e4, 'scripts::custom::clangnetsass.js');
+    }, 5e3);
+
 }) ();

@@ -24,15 +24,15 @@
         if (command.equalsIgnoreCase('chuck')) {
             if (arguments.equalsIgnoreCase('total')) {
                 jsonObject = JSON.parse(_getJSON('https://api.icndb.com/jokes/count'));
-                $.say('There are a total of ' + jsonObject.value + ' Chuck Norris truths...');
+                $.say($.lang.get('chuckjokes.totaljokes', jsonObject.value));
                 return;
             }
             if (args[0] !== undefined) {
                 jsonObject = JSON.parse(_getJSON('https://api.icndb.com/jokes/' + args[0]));
-                $.say('Truth #' + jsonObject.value.id + ' - ' + jsonObject.value.joke);
+                $.say($.lang.get('chuckjokes.joke', jsonObject.value.id, jsonObject.value.joke));
             } else {
                 jsonObject = JSON.parse(_getJSON('https://api.icndb.com/jokes/random'));
-                $.say('Truth #' + jsonObject.value.id + ' - ' + jsonObject.value.joke);
+                $.say($.lang.get('chuckjokes.joke', jsonObject.value.id, jsonObject.value.joke));
             }
         }
     });

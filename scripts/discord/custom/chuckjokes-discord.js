@@ -34,15 +34,15 @@
         if (command.equalsIgnoreCase('chuck') && channel.equalsIgnoreCase('games-room')) {
             if (arguments.equalsIgnoreCase('total')) {
                 jsonObject = JSON.parse(_getJSON('https://api.icndb.com/jokes/count'));
-                $.discord.say(channel, 'There are a total of ' + jsonObject.value + ' Chuck Norris truths...');
+                $.discord.say(channel, $.lang.get('chuckjokes.totaljokes', jsonObject.value));
                 return;
             }
             if (args[0] !== undefined) {
                 jsonObject = JSON.parse(_getJSON('https://api.icndb.com/jokes/' + args[0]));
-                $.discord.say(channel, 'Truth #' + jsonObject.value.id + ' - ' + jsonObject.value.joke);
+                $.discord.say(channel, $.lang.get('chuckjokes.joke', jsonObject.value.id, jsonObject.value.joke));
             } else {
                 jsonObject = JSON.parse(_getJSON('https://api.icndb.com/jokes/random'));
-                $.discord.say(channel, 'Truth #' + jsonObject.value.id + ' - ' + jsonObject.value.joke);
+                $.discord.say(channel, $.lang.get('chuckjokes.joke', jsonObject.value.id, jsonObject.value.joke));
             }
         }
     });
