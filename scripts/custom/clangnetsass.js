@@ -86,6 +86,9 @@
                     case 4:
                         $.say($.lang.get('clangnetsass.lurk.response4', lurkSender));
                         break;
+                    case 5:
+                        $.say($.lang.get('clangnetsass.lurk.response5', lurkSender));
+                        break;
 
                 }
             }

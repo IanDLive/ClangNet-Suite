@@ -9,6 +9,7 @@ $.lang.register('clangnetsass.lurk.response1', 'See you in a bit $1, I may even 
 $.lang.register('clangnetsass.lurk.response2', 'Was that $1 I just saw disappear into a puff of smoke, I never knew they were a magician!!');
 $.lang.register('clangnetsass.lurk.response3', 'As stealthy as the Fat Ninja himself, $1 has just engaged lurk mode!');
 $.lang.register('clangnetsass.lurk.response4', 'I feel a tremor in the force... ah, wait a minute, it\'s just $1 deciding to lurk!!');
+$.lang.register('clangnetsass.lurk.response5', 'I think that $1 may have gotten distracted by a bee, I think they\'re going to follow it for a while...');
 
 // !clothing command response
 // --------------------------
