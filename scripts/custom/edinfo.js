@@ -12,14 +12,22 @@
     var inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
     var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
     var systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
-    var inaraCmdrId = $.readFile(elitePBPath + 'Custom/Inara/CMDRID.txt');
-    var inaraShipId = $.readFile(elitePBPath + 'Custom/Coriolis/' + shipName + '.txt');
     var allowOffline = $.getSetIniDbBoolean('edInfo', 'allowOffline', false);
     var shipBuildEntry = $.getSetIniDbString('edShipBuild', '[DEFAULT ENTRY]', '[Web URL Here]');
 
     // Initialization text for the console.
     function initText() {
         $.consoleLn("***** Elite: Dangerous commands module online *****");
+    }
+
+    // Read data from the files when the function is called.
+    function getEDData() {
+        shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
+        shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
+        shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
+        inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
+        starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
+        systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
     }
 
     // Command Event
@@ -64,6 +72,7 @@
                 }
                 // Construct the response for ClangNet to return, dependent on the command that is invoked.
                 if (command.equalsIgnoreCase('edship')) {
+                    getEDData();
                     strShip = String(shipModel);
                     strShipInitial = strShip.substr(0,1);
                     if (strShipInitial.equalsIgnoreCase('a')) {
@@ -73,6 +82,7 @@
                     }
                 }
                 if (command.equalsIgnoreCase('edsystem')) {
+                    getEDData();
                     if (inDock == 'Docked') {
                         $.say($.lang.get('edinfo.playing.systemdocked', starSystem, systemBody));
                     } else {
@@ -80,6 +90,7 @@
                     }
                 }
                 if (command.equalsIgnoreCase('edshipbuild')) {
+                    getEDData();
                     if (action === undefined) {
                         if ($.inidb.FileExists('edShipBuild')) {
                             if ($.inidb.exists('edShipBuild', shipName)) {

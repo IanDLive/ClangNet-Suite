@@ -307,7 +307,7 @@
     });
 
     setTimeout(function () {
-        setInterval(function () { sayDadJoke(); }, 1e4, 'scripts::custom::clangnetsass.js');
+        setInterval(function () { sayDadJoke(); }, 6e5, 'scripts::custom::clangnetsass.js');
     }, 5e3);
 
 }) ();
