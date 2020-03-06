@@ -33,8 +33,14 @@
     <Content Include="addons\ignorebots.txt">
       <Publish>True</Publish>
     </Content>
+    <Content Include="scripts\custom\starcitizen.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="scripts\discord\custom\clangnetsass-discord.js" />
     <Content Include="scripts\discord\custom\goingLiveSystem-discord.js" />
+    <Content Include="scripts\lang\custom\system-starcitizen.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="scripts\lang\custom\system-chuckjokes.js">
       <SubType>Code</SubType>
     </Content>

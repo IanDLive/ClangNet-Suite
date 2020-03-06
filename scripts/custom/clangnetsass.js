@@ -21,35 +21,48 @@
     }
 
     // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
-    function getDadJoke() {
+    function getAnyJoke() {
         var jsonObject;
-        jsonObject = JSON.parse(_getJSON('https://icanhazdadjoke.com/slack'));
-        return jsonObject.attachments[0].text;
+        var returnText;
+        var intJokeChoice = Math.floor(Math.random() * 2);
+
+        switch (intJokeChoice) {
+            case 0:
+                jsonObject = JSON.parse(_getJSON('https://icanhazdadjoke.com/slack'));
+                returnText = jsonObject.attachments[0].text;
+                break;
+            case 1:
+                jsonObject = JSON.parse(_getJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
+                returnText = jsonObject.joke;
+                break;
+        }
+        return returnText;
     }
 
     // 'Bot' used to automatically say a dad joke in chat.
-    function sayDadJoke() {
+    function sayAnyJoke() {
         if ($.isOnline($.channelName)) {
-            $.say(getDadJoke());
+            $.say(getAnyJoke());
         }
+    }
+
+    // Format sender to be either mentioned or referenced.
+    function userStrings(user) {
+        var user_mention = '';
+        var user_string = '';
+
+        if (user.substr(0, 1) == '@') {
+            user_mention = user;
+            user_string = user.substr(1);
+        } else {
+            user_mention = '@' + user;
+            user_string = user;
+        }
+        return [user_mention, user_string];
     }
 
     // Command Event
     $.bind('command', function (event) {
-
-        function userStrings(user) {
-            var user_mention = '';
-            var user_string = '';
-
-            if (user.substr(0, 1) == '@') {
-                user_mention = user;
-                user_string = user.substr(1);
-            } else {
-                user_mention = '@' + user;
-                user_string = user;
-            }
-            return [user_mention, user_string];
-        }
 
         // All of the default methods are stored in the event argument.
         // To access a method, you would do 'event.myMethod()'.
@@ -69,25 +82,25 @@
             // --- Lurk command ---
             if (command.equalsIgnoreCase('lurk')) {
                 var intResponseChoice = Math.floor(Math.random() * 5);
-                var lurkSender = '@' + sender;
+                var lurkSender = user(sender);
                 switch (intResponseChoice) {
                     case 0:
-                        $.say($.lang.get('clangnetsass.lurk.response0', lurkSender));
+                        $.say($.lang.get('clangnetsass.lurk.response0', lurkSender[0]));
                         break;
                     case 1:
-                        $.say($.lang.get('clangnetsass.lurk.response1', lurkSender));
+                        $.say($.lang.get('clangnetsass.lurk.response1', lurkSender[0]));
                         break;
                     case 2:
-                        $.say($.lang.get('clangnetsass.lurk.response2', lurkSender));
+                        $.say($.lang.get('clangnetsass.lurk.response2', lurkSender[0]));
                         break;      
                     case 3:
-                        $.say($.lang.get('clangnetsass.lurk.response3', lurkSender));
+                        $.say($.lang.get('clangnetsass.lurk.response3', lurkSender[0]));
                         break;
                     case 4:
-                        $.say($.lang.get('clangnetsass.lurk.response4', lurkSender));
+                        $.say($.lang.get('clangnetsass.lurk.response4', lurkSender[0]));
                         break;
                     case 5:
-                        $.say($.lang.get('clangnetsass.lurk.response5', lurkSender));
+                        $.say($.lang.get('clangnetsass.lurk.response5', lurkSender[0]));
                         break;
 
                 }
@@ -117,40 +130,40 @@
 
         // --- !followed command ---
         if (command.equalsIgnoreCase('followed')) {
-            atSender = '@' + sender;
+            atSender = userStrings(sender);
             if (args[0] !== undefined) {
                 queryItem = userStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followed/iandlive/' + queryItem[1];
-                $.say($.lang.get('clangnetsass.followedquery', atSender, queryItem[1], $.customAPI.get(apiURL).content));
+                $.say($.lang.get('clangnetsass.followedquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
             } else {
                 apiURL = 'https://decapi.me/twitch/followed/iandlive/' + sender;
-                $.say($.lang.get('clangnetsass.followed', atSender, $.customAPI.get(apiURL).content));
+                $.say($.lang.get('clangnetsass.followed', atSender[0], $.customAPI.get(apiURL).content));
             }
         }
 
         // --- !followers command ---
         if (command.equalsIgnoreCase('followers')) {
-            atSender = '@' + sender;
+            atSender = userStrings(sender);
             if (args[0] !== undefined) {
                 queryItem = userStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followcount/' + queryItem[1];
-                $.say($.lang.get('clangnetsass.followersquery', atSender, queryItem[1], $.customAPI.get(apiURL).content));
+                $.say($.lang.get('clangnetsass.followersquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
             } else {
                 apiURL = 'https://decapi.me/twitch/followcount/iandlive';
-                $.say($.lang.get('clangnetsass.followers', atSender, $.customAPI.get(apiURL).content));
+                $.say($.lang.get('clangnetsass.followers', atSender[0], $.customAPI.get(apiURL).content));
             }ex
         }
 
         // --- !howlong command ---
         if (command.equalsIgnoreCase('howlong')) {
-            atSender = '@' + sender;
+            atSender = userStrings(sender);
             if (args[0] !== undefined) {
                 queryItem = userStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followage/iandlive/' + queryItem[1];
-                $.say($.lang.get('clangnetsass.howlongquery', atSender, queryItem[1], $.customAPI.get(apiURL).content));
+                $.say($.lang.get('clangnetsass.howlongquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
             } else {
                 apiURL = 'https://decapi.me/twitch/followage/iandlive/' + sender;
-                $.say($.lang.get('clangnetsass.howlong', atSender, $.customAPI.get(apiURL).content));
+                $.say($.lang.get('clangnetsass.howlong', atSender[0], $.customAPI.get(apiURL).content));
             }
         }
 
@@ -195,21 +208,6 @@
             $.say($.lang.get('clangnetsass.emotes', $.customAPI.get(apiURL).content));
         }
 
-/*      // --- !se-mods command ---
-        if (command.equalsIgnoreCase('se-mods')) {
-            $.say($.lang.get('clangnetsass.se-mods'));
-        }
-
-        // --- !fo-mods command ---
-        if (command.equalsIgnoreCase('fo-mods')) {
-            $.say($.lang.get('clangnetsass.fo-mods'));
-        }
-
-        // --- !skse-mods command ---
-        if (command.equalsIgnoreCase('skse-mods')) {
-            $.say($.lang.get('clangnetsass.skse-mods'));
-        }
-*/
         // --- !mods command ---
         if (command.equalsIgnoreCase('mods')) {
             currentGame = $.getGame($.channelName);
@@ -233,11 +231,6 @@
         if (command.equalsIgnoreCase('food')) {
             $.say($.lang.get('clangnetsass.food'));
         }
-
-        // --- !merchandise command ---
-        // if (command.equalsIgnoreCase('merchandise')) {
-        //     $.say($.lang.get('clangnetsass.merchandise'));
-        // }
 
         // --- !viewplaylist command ---
         if (command.equalsIgnoreCase('viewplaylist')) {
@@ -266,8 +259,8 @@
         }
 
         // --- !dadjoke command (CASTER/BOT LEVEL) ---
-        if (command.equalsIgnoreCase('dadjoke')) {
-            $.say(getDadJoke());
+        if (command.equalsIgnoreCase('jokes')) {
+            $.say(getAnyJoke());
         }
     });
 
@@ -292,22 +285,18 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'humble', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humblemonth', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'emotes', 7);
-//      $.registerChatCommand('./custom/clangnetsass.js', 'se-mods', 7);
-//      $.registerChatCommand('./custom/clangnetsass.js', 'fo-mods', 7);
-//      $.registerChatCommand('./custom/clangnetsass.js', 'skse-mods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'mods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
-//      $.registerChatCommand('./custom/clangnetsass.js', 'merchandise', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'viewplaylist', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
-        $.registerChatCommand('./custom/clangnetsass.js', 'dadjoke', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 0);
     });
 
     setTimeout(function () {
-        setInterval(function () { sayDadJoke(); }, 6e5, 'scripts::custom::clangnetsass.js');
+        setInterval(function () { sayAnyJoke(); }, 9e5, 'scripts::custom::clangnetsass.js');
     }, 5e3);
 
 }) ();

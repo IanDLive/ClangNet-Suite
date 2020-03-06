@@ -17,7 +17,7 @@ $.lang.register('clangnetsass.clothing', 'Want to get hold of some of the Prophe
 
 // !ctt (Click-to-Tweet) command response
 // --------------------------------------
-$.lang.register('clangnetsass.ctt', 'Want to help spread the love of this channel on Twitter?  Click here to do so --> https://clicktotweet.com/fHUht');
+$.lang.register('clangnetsass.ctt', 'Want to help spread the love of this channel on Twitter?  Click here to do so --> https://iand.live/ctt');
 
 // !discord command response
 // -------------------------
@@ -75,33 +75,17 @@ $.lang.register('clangnetsass.humblemonth', 'Do you like games?  Do you want a n
 // ------------------------
 $.lang.register('clangnetsass.emotes', 'The subscriber emotes that are available for the channel are... $1');
 
-// !mod command response for no mods used
-// --------------------------------------
+// !mods command responses
+// -----------------------
 $.lang.register('clangnetsass.no-mods-used', 'There are no mods used or listed for this game.');
-
-// !mod command response for Space Engineers mods
-// ----------------------------------------------
 $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
-
-// !mod command response for Fallout 4 mods
-// ----------------------------------------
 $.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are being used on the current run through of Fallout 4, follow the link to our website for details --> https://iand.live/fo-mods');
-
-// !mod command response for Skyrim: Special Edition mods
-// ------------------------------------------------------
 $.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
-
-// !mod command response for ESO add-ons
-// -------------------------------------
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 
 // !food command response
 // ----------------------
 $.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it enabled, send through a treat, you never know, it might make his day!!! --> https://treatstream.com/t/treat/iandlive');
-
-// !merchandise command response
-// -----------------------------
-// $.lang.register('clangnetsass.merchandise', 'Would you like to get your hands on some lovely PoR merchandise??  If you do, click the link here --> https://iand.live/slmerch');
 
 // !viewplaylist command response
 // ------------------------------
