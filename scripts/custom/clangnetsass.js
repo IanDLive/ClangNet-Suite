@@ -82,7 +82,7 @@
             // --- Lurk command ---
             if (command.equalsIgnoreCase('lurk')) {
                 var intResponseChoice = Math.floor(Math.random() * 5);
-                var lurkSender = user(sender);
+                var lurkSender = userStrings(sender);
                 switch (intResponseChoice) {
                     case 0:
                         $.say($.lang.get('clangnetsass.lurk.response0', lurkSender[0]));
