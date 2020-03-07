@@ -291,15 +291,16 @@
 
         // --- !jokes command ('toggle' AT CASTER/BOT LEVEL) ---
         if (command.equalsIgnoreCase('jokes')) {
-            if (args[0].equalsIgnoreCase('toggle')) {
-                atSender = userStrings(sender);
-                jokesEnabled = !jokesEnabled;
-                $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
-                $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
-                $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
-                return;
-            } else {
+            if (args[0] === undefined) {
                 sayAnyJoke(sender, true);
+            } else {
+                if (args[0].equalsIgnoreCase('toggle')) {
+                    atSender = userStrings(sender);
+                    jokesEnabled = !jokesEnabled;
+                    $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
+                    $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                    $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                }
             }
         }
     });
