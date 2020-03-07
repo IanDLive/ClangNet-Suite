@@ -103,6 +103,10 @@ $.lang.register('clangnetsass.por-youtube', 'There are videos chronicling the ex
 // ------------------------
 $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of the latest games at cheaper prices while supporting this channel? Head over to CDKeys to see what deals they have on offer --> https://iand.live/cdkeys');
 
+// !jokes toggle command response
+// ------------------------------
+$.lang.register('clangnetsass.jokesenabled', '$1, ClangNet\'s hunour has now been $2.');
+
 // !motorsports command response
 // -----------------------------
 $.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the **Motorsports** voice channel.');

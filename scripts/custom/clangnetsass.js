@@ -12,6 +12,9 @@
 //
 
 (function () {
+    // Global variable for this function
+    var jokesEnabled = $.getSetIniDbBoolean('clangnetSass', 'jokesEnabled', true);
+
     // Retrieval of JSON object from and external API.
     function _getJSON(url) {
         var HttpRequest = Packages.com.gmt2001.HttpRequest;
@@ -39,10 +42,29 @@
         return returnText;
     }
 
-    // 'Bot' used to automatically say a dad joke in chat.
+    // 'Bot' used to automatically say a joke in chat.
     function sayAnyJoke() {
+        var intEmoteChoice = Math.floor(Math.random() * 4);
+        var strEmoteChoice;
+
         if ($.isOnline($.channelName)) {
-            $.say(getAnyJoke());
+            if (jokesEnabled == true) {
+                switch (intEmoteChoice) {
+                    case 0:
+                        strEmoteChoice = ' TriHard';
+                        break;
+                    case 1:
+                        strEmoteChoice = ' Kreygasm';
+                        break;
+                    case 2:
+                        strEmoteChoice = ' LUL';
+                        break;
+                    case 3:
+                        strEmoteChoice = ' PogChamp';
+                        break;
+                }
+                $.say(getAnyJoke() + strEmoteChoice);
+            }
         }
     }
 
@@ -81,7 +103,7 @@
             // The stream is online.
             // --- Lurk command ---
             if (command.equalsIgnoreCase('lurk')) {
-                var intResponseChoice = Math.floor(Math.random() * 5);
+                var intResponseChoice = Math.floor(Math.random() * 6);
                 var lurkSender = userStrings(sender);
                 switch (intResponseChoice) {
                     case 0:
@@ -258,9 +280,18 @@
             $.say($.customAPI.get(apiURL).content);
         }
 
-        // --- !dadjoke command (CASTER/BOT LEVEL) ---
+        // --- !jokes command (CASTER/BOT LEVEL) ---
         if (command.equalsIgnoreCase('jokes')) {
-            $.say(getAnyJoke());
+            if (args[0].equalsIgnoreCase('toggle')) {
+                atSender = userStrings(sender);
+                jokesEnabled = !jokesEnabled;
+                $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
+                $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                return;
+            } else {
+                $.say(getAnyJoke());
+            }
         }
     });
 
@@ -293,10 +324,11 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 0);
+        $.registerChatSubcommand('jokes', 'toggle', 0);
     });
 
     setTimeout(function () {
         setInterval(function () { sayAnyJoke(); }, 9e5, 'scripts::custom::clangnetsass.js');
-    }, 5e3);
+    }, 7e3);
 
 }) ();
