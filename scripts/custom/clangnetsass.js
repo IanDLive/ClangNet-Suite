@@ -43,12 +43,12 @@
     }
 
     // 'Bot' used to automatically say a joke in chat.
-    function sayAnyJoke() {
+    function sayAnyJoke(invokedBy, isCommanded) {
         var intEmoteChoice = Math.floor(Math.random() * 4);
         var strEmoteChoice;
 
-        if ($.isOnline($.channelName)) {
-            if (jokesEnabled == true) {
+        if (jokesEnabled == true) {
+            if ($.isOnline($.channelName)) {
                 switch (intEmoteChoice) {
                     case 0:
                         strEmoteChoice = ' TriHard';
@@ -64,6 +64,15 @@
                         break;
                 }
                 $.say(getAnyJoke() + strEmoteChoice);
+            } else {
+                if (isCommanded == true) {
+                    atSender = userStrings(invokedBy);
+                    $.say($.lang.get('clangnetsass.jokesonline', atSender[0]));
+                }
+            }
+        } else {
+            if (isCommanded == true) {
+                $.say($.lang.get('clangnetsass.jokesdisabled'));
             }
         }
     }
@@ -280,7 +289,7 @@
             $.say($.customAPI.get(apiURL).content);
         }
 
-        // --- !jokes command (CASTER/BOT LEVEL) ---
+        // --- !jokes command ('toggle' AT CASTER/BOT LEVEL) ---
         if (command.equalsIgnoreCase('jokes')) {
             if (args[0].equalsIgnoreCase('toggle')) {
                 atSender = userStrings(sender);
@@ -290,7 +299,7 @@
                 $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
                 return;
             } else {
-                $.say(getAnyJoke());
+                sayAnyJoke(sender, true);
             }
         }
     });
@@ -322,13 +331,13 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
-        $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
         $.registerChatSubcommand('jokes', 'toggle', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
     });
 
     setTimeout(function () {
-        setInterval(function () { sayAnyJoke(); }, 9e5, 'scripts::custom::clangnetsass.js');
+        setInterval(function () { sayAnyJoke('', false); }, 9e5, 'scripts::custom::clangnetsass.js');
     }, 7e3);
 
 }) ();
