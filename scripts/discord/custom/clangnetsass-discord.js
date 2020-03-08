@@ -115,6 +115,16 @@
         if (command.equalsIgnoreCase('jokes') && channelCheck.equalsIgnoreCase('games-room')) {
             $.discord.say(channel, $.lang.get('clangnetsass.telljoke.discord', getAnyJoke()));
         }
+
+        // --- !xebon command ---
+        if (command.equalsIgnoreCase('xebon')) {
+            $.discord.say(channel, $.lang.get('clangnetsass.xebon'));
+        }
+
+        // --- !xebondiscord command ---
+        if (command.equalsIgnoreCase('xebondiscord')) {
+            $.discord.say(channel, $.lang.get('clangnetsass.xebondiscord'));
+        }
     });
 
     // initReady event to register the commands.
@@ -128,6 +138,8 @@
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'movienight', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'nomovies', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'jokes', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'xebon', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'xebondiscord', 0);
     });
 
 })();

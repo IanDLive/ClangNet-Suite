@@ -8,3 +8,7 @@ $.lang.register('starcitizen.org', 'Would you like to join a recreational organi
 // !screferral command respomse
 // ----------------------------
 $.lang.register('starcitizen.referral', 'Are you thinking of getting yourself a copy of Star Citizen?  Get yourself 5,000 UEC added to your account for free when you use the referral code STAR-H735-RP2K');
+
+// !scships command response
+// -------------------------
+$.lang.register('starcitizen.ships', 'Check out the current range of ships that are available in Star Citizen here --> https://robertsspaceindustries.com/ship-matrix');

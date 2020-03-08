@@ -20,10 +20,15 @@
         $.say($.lang.get('starcitizen.referral'));
     }
 
+    // Show the link to the ship matrix in chat.
+    function saySCShips() {
+        $.say($.lang.get('starcitizen.ships'));
+    }
+
     // 'Bot' to randomly pick a Star Citizen line to say in chat when the timer is invoked, but only if Star Citizen is being played.
     function scTimerBot() {
         var currentGame;
-        var intTimerChoice = Math.floor(Math.random() * 2);
+        var intTimerChoice = Math.floor(Math.random() * 3);
 
 
         currentGame = $.getGame($.channelName);
@@ -34,6 +39,9 @@
                     break;
                 case 1:
                     saySCReferral();
+                    break;
+                case 2:
+                    saySCShips();
                     break;
             }
         }
@@ -51,12 +59,18 @@
         if (command.equalsIgnoreCase('screferral')) {
             saySCReferral();
         }
+
+        // --- !scships command ---
+        if (command.equalsIgnoreCase('scships')) {
+            saySCShips();
+        }
     });
 
     $.bind('initReady', function () {
         initText();
         $.registerChatCommand('./custom/starcitizen.js', 'scorg', 7);
         $.registerChatCommand('./custom/starcitizen.js', 'screferral', 7);
+        $.registerChatCommand('./custom/starcitizen.js', 'scships', 7);
     });
 
     setTimeout(function () {
