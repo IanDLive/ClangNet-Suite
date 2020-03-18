@@ -23,7 +23,6 @@
     // Read data from the files when the function is called.
     function getEDData() {
         shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
-        shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
         shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
         inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
         starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');

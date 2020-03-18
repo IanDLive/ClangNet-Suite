@@ -62,26 +62,43 @@
         hungertoggle = $.getIniDbBoolean('fettleSettings', 'hungertoggle');
     }
 
+
+    /**
+     * @function createUptimeStr
+     */
+    function createUptimeStr(numHours) {
+        var createdString;
+        if (numHours == 1) {
+            createdString = numHours.toString() + ' ' + $.lang.get('common.time.hour');
+        } else {
+            createdString = numHours.toString() + ' ' + $.lang.get('common.time.hours');
+        }
+        return createdString;
+    }
+
+
     /**
      * @function hydrationReminder
      */
     function hydrationReminder(cmd, timer, sender) {
-        var uptime = $.getStreamUptime($.channelName);
+        var uptime = Math.floor($.getStreamUptimeSeconds($.channelName) / 3600);
+        var uptimeStr;
         // Get ml count
         var hydrationcountml = (getUptimeMinutes() * (hydrationml / 60)).toFixed(2), 
             hydrationcountoz = (hydrationcountml * 0.03381402).toFixed(1);
+        uptimeStr = createUptimeStr(uptime);
         // Check whether the timer hit or if someone invoked the command
         if (timer && sender === 'reminder') {
             // Broadcast a response
             if ($.isOnline($.channelName)) {
-                $.say($.lang.get('fettlesystem.hydration.reminder', uptime, hydrationcountml, hydrationcountoz));
+                $.say($.lang.get('fettlesystem.hydration.reminder', uptimeStr, hydrationcountml, hydrationcountoz));
                 return;
             }
         } else {
             if (timer) {
                 // Broadcast a response
                 if ($.isOnline($.channelName)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('fettlesystem.hydration.command', $.username.resolve($.channelName), uptime, hydrationcountml, hydrationcountoz));
+                    $.say($.whisperPrefix(sender) + $.lang.get('fettlesystem.hydration.command', $.username.resolve($.channelName), uptimeStr, hydrationcountml, hydrationcountoz));
                     return;
                 } else {
                     $.say($.whisperPrefix(sender) + $.lang.get('fettlesystem.fettle.offline', baseCommand, cmd, $.channelName));
@@ -95,22 +112,24 @@
      * @function hungerReminder
      */
     function hungerReminder(cmd, timer, sender) {
-        var uptime = $.getStreamUptime($.channelName);
+        var uptime = Math.floor($.getStreamUptimeSeconds($.channelName) / 3600);
+        var uptimeStr;
         // Get hunger timer
         var hungertime = Math.floor(getUptimeMinutes() / $.getSetIniDbNumber('fettleSettings', 'hungertimer')), 
             timetoeat = $.getSetIniDbNumber('fettleSettings', 'hungertimer') - (getUptimeMinutes() - (hungertime * $.getSetIniDbNumber('fettleSettings', 'hungertimer')));
+        uptimeStr = createUptimeStr(uptime);
         // Check whether the timer hit or if someone invoked the command
         if (timer && sender === 'reminder') {
             // Broadcast a response
             if ($.isOnline($.channelName)) {
-                $.say($.lang.get('fettlesystem.hunger.reminder', uptime));
+                $.say($.lang.get('fettlesystem.hunger.reminder', uptimeStr));
                 return;
             }
         } else {
             if (timer) {
                 // Broadcast a response
                 if ($.isOnline($.channelName)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('fettlesystem.hunger.command', $.username.resolve($.channelName), uptime, timetoeat));
+                    $.say($.whisperPrefix(sender) + $.lang.get('fettlesystem.hunger.command', $.username.resolve($.channelName), uptimeStr, timetoeat));
                     return;
                 } else {
                     $.say($.whisperPrefix(sender) + $.lang.get('fettlesystem.fettle.offline', baseCommand, cmd, $.channelName));
