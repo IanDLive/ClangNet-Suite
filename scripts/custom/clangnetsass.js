@@ -203,6 +203,11 @@
             $.say($.lang.get('clangnetsass.howserver'));
         }
 
+        // --- !howsong command ---
+        if (command.equalsIgnoreCase('howsong')) {
+            $.say($.lang.get('clanfnetsass.howsong'));
+        }
+
         // --- !steamgroup command ---
         if (command.equalsIgnoreCase('steamgroup')) {
             $.say($.lang.get('clangnetsass.steamgroup'));
