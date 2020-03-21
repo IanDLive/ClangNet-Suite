@@ -89,7 +89,7 @@ $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are 
 
 // !food command response
 // ----------------------
-$.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it enabled, send through a treat, you never know, it might make his day!!! --> https://treatstream.com/t/treat/iandlive');
+$.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
 
 // !viewplaylist command response
 // ------------------------------
