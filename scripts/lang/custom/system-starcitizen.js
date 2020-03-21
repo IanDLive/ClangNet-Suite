@@ -11,4 +11,8 @@ $.lang.register('starcitizen.referral', 'Are you thinking of getting yourself a 
 
 // !scships command response
 // -------------------------
-$.lang.register('starcitizen.ships', 'Check out the current range of ships that are available in Star Citizen here --> https://robertsspaceindustries.com/ship-matrix');
+$.lang.register('starcitizen.ships', 'Check out the current range of ships that are available in Star Citizen here --> https://iand.live/sc-shipmatrix');
+
+// !scroadmap command response
+// ---------------------------
+$.lang.register('starcitizen.roadmap', 'If you want to check out the current development progress of Star Citizen, take a look at the roadmanp here --> https://iand.live/sc-roadmap');
