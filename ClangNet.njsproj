@@ -33,6 +33,9 @@
     <Content Include="addons\ignorebots.txt">
       <Publish>True</Publish>
     </Content>
+    <None Include="ClangNet-Tab-HTML-Fragment.html">
+      <SubType>Code</SubType>
+    </None>
     <Content Include="scripts\custom\starcitizen.js">
       <SubType>Code</SubType>
     </Content>

@@ -26,7 +26,7 @@ $(run = function() {
 // Function that handles the loading of events
 $(function() {
     $('#fettleModuleToggle').on('change', function() {
-        socket.sendCommandSync('fettle_module_toggle_cmd', 'module ' + ($(this).is('checked') ? 'enablesilent' : 'disablesilent') + './custom/fettleSystem.js', run);
+        socket.sendCommandSync('fettle_module_toggle_cmd', 'module ' + ($(this).is(':checked') ? 'enablesilent ' : 'disablesilent ') + './custom/fettleSystem.js', run);
     });
     // Save time settings
     $('#fettle-save-all').on('click', function() {
