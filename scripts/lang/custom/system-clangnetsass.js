@@ -114,6 +114,14 @@ $.lang.register('clangnetsass.jokesdisabled', 'Someone thought I was too funny a
 $.lang.register('clangnetsass.jokesonline', '$1, I\'m only funny while I\'m online!!');
 $.lang.register('clangnetsass.telljoke.discord', '$1');
 
+// !socials command response
+// -------------------------
+$.lang.register('clangnetsass.socials.intro', 'Want to keep in touch and up to date with the channel and the community?  Consider following these links:');
+$.lang.register('clangnetsass.socials.discord', '* Discord   --> https://iand.live/discord');
+$.lang.register('clangnetsass.socials.twitter', '* Twitter   --> https://iand.live/twitter');
+$.lang.register('clangnetsass.socials.fb', '* Facebook  --> https://iand.live/fb');
+$.lang.register('clangnetsass.socials.ig', '* Instagram --> https://iand.live/ig');
+
 // !motorsports command response
 // -----------------------------
 $.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the **Motorsports** voice channel.');

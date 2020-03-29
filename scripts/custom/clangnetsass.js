@@ -123,7 +123,7 @@
                         break;
                     case 2:
                         $.say($.lang.get('clangnetsass.lurk.response2', lurkSender[0]));
-                        break;      
+                        break;
                     case 3:
                         $.say($.lang.get('clangnetsass.lurk.response3', lurkSender[0]));
                         break;
@@ -182,7 +182,7 @@
             } else {
                 apiURL = 'https://decapi.me/twitch/followcount/iandlive';
                 $.say($.lang.get('clangnetsass.followers', atSender[0], $.customAPI.get(apiURL).content));
-            }ex
+            } ex
         }
 
         // --- !howlong command ---
@@ -308,6 +308,15 @@
                 }
             }
         }
+
+        // --- !socials command ---
+        if (command.equalsIgnoreCase('socials')) {
+            $.say($.lang.get('clangnetsass.socials.intro'));
+            $.say($.lang.get('clangnetsass.socials.discord'));
+            $.say($.lang.get('clangnetsass.socials.twitter'));
+            $.say($.lang.get('clangnetsass.socials.fb'));
+            $.say($.lang.get('clangnetsass.socials.ig'));
+        }
     });
 
     $.bind('initReady', function() {
@@ -339,6 +348,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
     });
