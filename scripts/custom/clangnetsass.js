@@ -245,19 +245,23 @@
         }
 
         // --- !mods command ---
-        if (command.equalsIgnoreCase('mods')) {
+        if (command.equalsIgnoreCase('gamemods')) {
             currentGame = $.getGame($.channelName);
             if (currentGame.equalsIgnoreCase('space engineers')) {
                 $.say($.lang.get('clangnetsass.se-mods'));
+                return;
             }
             if (currentGame.equalsIgnoreCase('fallout 4')) {
                 $.say($.lang.get('clangnetsass.fo-mods'));
+                return;
             }
             if (currentGame.equalsIgnoreCase('the elder scrolls online')) {
                 $.say($.lang.get('clangnetsass.eso-mods'));
+                return;
             }
             if (currentGame.equalsIgnoreCase('the elder scrolls v: skyrim')) {
                 $.say($.lang.get('clangnetsass.skse-mods'));
+                return;
             } else {
                 $.say($.lang.get('clangnetsass.no-mods-used'));
             }
@@ -341,7 +345,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'humble', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humblemonth', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'emotes', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'mods', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'viewplaylist', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
