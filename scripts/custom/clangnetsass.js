@@ -244,7 +244,7 @@
             $.say($.lang.get('clangnetsass.emotes', $.customAPI.get(apiURL).content));
         }
 
-        // --- !mods command ---
+        // --- !gamemods command ---
         if (command.equalsIgnoreCase('gamemods')) {
             currentGame = $.getGame($.channelName);
             if (currentGame.equalsIgnoreCase('space engineers')) {
@@ -261,6 +261,10 @@
             }
             if (currentGame.equalsIgnoreCase('the elder scrolls v: skyrim')) {
                 $.say($.lang.get('clangnetsass.skse-mods'));
+                return;
+            }
+            if (currentGame.equalsIgnoreCase('elite: dangerous')) {
+                $.say($.lang.get('clangnetsass.ed-mods'));
                 return;
             } else {
                 $.say($.lang.get('clangnetsass.no-mods-used'));

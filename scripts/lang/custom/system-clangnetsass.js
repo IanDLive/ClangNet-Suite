@@ -86,6 +86,7 @@ $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are b
 $.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are being used on the current run through of Fallout 4, follow the link to our website for details --> https://iand.live/fo-mods');
 $.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
+$.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
 
 // !food command response
 // ----------------------
