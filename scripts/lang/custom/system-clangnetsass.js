@@ -117,11 +117,7 @@ $.lang.register('clangnetsass.telljoke.discord', '$1');
 
 // !socials command response
 // -------------------------
-$.lang.register('clangnetsass.socials.intro', 'Want to keep in touch and up to date with the channel and the community?  Consider following these links:');
-$.lang.register('clangnetsass.socials.discord', '* Discord   --> https://iand.live/discord');
-$.lang.register('clangnetsass.socials.twitter', '* Twitter   --> https://iand.live/twitter');
-$.lang.register('clangnetsass.socials.fb', '* Facebook  --> https://iand.live/fb');
-$.lang.register('clangnetsass.socials.ig', '* Instagram --> https://iand.live/ig');
+$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider following these links: bleedPurple Discord --> https://iand.live/discord | bleedPurple Twitter --> https://iand.live/twitter | bleedPurple Facebook --> https://iand.live/fb | bleedPurple Instagram --> https://iand.live/ig');
 
 // !motorsports command response
 // -----------------------------

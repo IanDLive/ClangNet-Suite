@@ -319,11 +319,7 @@
 
         // --- !socials command ---
         if (command.equalsIgnoreCase('socials')) {
-            $.say($.lang.get('clangnetsass.socials.intro'));
-            $.say($.lang.get('clangnetsass.socials.discord'));
-            $.say($.lang.get('clangnetsass.socials.twitter'));
-            $.say($.lang.get('clangnetsass.socials.fb'));
-            $.say($.lang.get('clangnetsass.socials.ig'));
+            $.say($.lang.get('clangnetsass.socials'));
         }
     });
 
