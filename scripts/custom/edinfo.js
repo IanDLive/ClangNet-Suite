@@ -12,7 +12,7 @@
     var inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
     var starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
     var systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
-    var allowOffline = $.getSetIniDbBoolean('edInfo', 'allowOffline', false);
+    var allowOffline = $.setIniDbBoolean('edInfo', 'allowOffline', false);
     var shipBuildEntry = $.getSetIniDbString('edShipBuild', '[DEFAULT ENTRY]', '[Web URL Here]');
 
     // Initialization text for the console.
@@ -27,6 +27,10 @@
         inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
         starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
         systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
+    }
+
+    function reloadEDInfo() {
+        allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
     }
 
     // Command Event
@@ -64,8 +68,8 @@
             }
             return;
         }
-        if ($.isOnline($.channelName) || allowOffline == true) { 
-            if (currentGame.equalsIgnoreCase('elite: dangerous')) { 
+        if ($.isOnline($.channelName) || allowOffline == true) {
+            if (currentGame.equalsIgnoreCase('elite: dangerous') || allowOffline == true) { 
                 if (shipName === undefined || shipName == null) {
                     shipName = '[SHIP NOT NAMED]';
                 }
@@ -169,6 +173,11 @@
                 // Not online at all.
                 $.say($.lang.get('edinfo.notplaying', $.getGame($.channelName)));
         }
+
+        // Panel commands, no command path needed here.
+        if (command.equalsIgnoreCase('reloadedinfo')) {
+            reloadEDInfo();
+        }
     });
 
     // initReady event to register the commands.
@@ -190,6 +199,7 @@
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edofflinemode', 1);
+            $.registerChatCommand('./custom/edinfo.js', 'reloadedinfo', 1);
         }
     });
 }) ();

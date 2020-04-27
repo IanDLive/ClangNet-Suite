@@ -29,6 +29,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="web\panel\js\pages\custom\edinfo.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="web\panel\pages\custom\custom-edinfo.html">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="ClangNet-Live.pubxml" />
     <Content Include="addons\ignorebots.txt">
       <Publish>True</Publish>
