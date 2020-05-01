@@ -19,6 +19,10 @@ $.lang.register('edinfo.playing.shipbuild.updatenoname', 'Unable to update the s
 $.lang.register('edinfo.playing.shipbuild.updatenoURL', 'Unable to update the ship build on the database, the new build URL for the ship was not specified.');
 $.lang.register('edinfo.playing.shipbuild.updatesuccess', 'The build information for $1 was successfully updated within the database with the new build URL of --> $2');
 $.lang.register('edinfo.playing.edcareers', 'Want to see what careers you can embark upon in Elite: Dangerous?  Take a look at this image made by CMDR Qohen Leth for the options that are available --> https://iand.live/EDCareers');
+$.lang.register('edinfo.playing.guardian.module', 'Guardian Module Blueprint Location: SYNUEFE NL - N C23 - 4 B3');
+$.lang.register('edinfo.playing.guardian.weapons', 'Guardian Weapons Blueprint Location: SYNUEFE EU - Q C21 - 10 A3');
+$.lang.register('edinfo.playing.guardian.ship', 'Guardian Ship Blueprint Location: SYNUEFE EU - Q C21 - 15 A1');
+$.lang.register('edinfo.playing.guardian.beacon', 'Guardian Beacon Location: SYNUEFE KU - F B44 - 4');
 
 // Online, but playing something else
 // ----------------------------------

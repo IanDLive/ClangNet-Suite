@@ -57,12 +57,12 @@
         if (command.equalsIgnoreCase('edofflinemode')) {
             if (allowOffline == false) {
                 allowOffline = true;
-                $.setIniDbBoolean('edinfo', 'allowOffline', true);
+                $.setIniDbBoolean('edInfo', 'allowOffline', true);
                 $.say($.lang.get('edinfo.offlinemodetrue'));
                 $.consoleLn($.lang.get('edinfo.offlinemodetrue'));
             } else {
                 allowOffline = false;
-                $.setIniDbBoolean('edinfo', 'allowOffline', false);
+                $.setIniDbBoolean('edInfo', 'allowOffline', false);
                 $.say($.lang.get('edinfo.offlinemodefalse'));
                 $.consoleLn($.lang.get('edinfo.offlinemodefalse'));
             }

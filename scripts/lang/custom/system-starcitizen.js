@@ -3,7 +3,7 @@
 
 // !scorg command response
 // -----------------------
-$.lang.register('starcitizen.org', 'Would you like to join a recreational organization is Star Citizen?  If the answer is \'Yes\' then follow this link and sign yourself up --> https://iand.live/sc-org');
+$.lang.register('starcitizen.org', 'Would you like to join a recreational organization in Star Citizen?  If the answer is \'Yes\' then follow this link and sign yourself up --> https://iand.live/sc-org');
 
 // !screferral command respomse
 // ----------------------------

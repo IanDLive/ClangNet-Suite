@@ -10,7 +10,7 @@ $(run = function () {
         tables: ['modules'],
         keys: ['./custom/edinfo.js']
     }, true, function (e) {
-            if (!helpers.getModuleStatus('edinfoModule', e['./custom/edinfo.js'], 'edinfoModuleToggle')) {
+            if (!helpers.getModuleStatus('edinfoModule', e['./custom/edinfo.js'], 'edinfo-Module-Toggle')) {
                 return;
             }
     });
@@ -18,7 +18,7 @@ $(run = function () {
 
 $(function () {
     // Allow for the toggle on/off of the module.
-    $('#edinfoModuleToggle').on('change', function () {
+    $('#edinfo-Module-Toggle').on('change', function () {
         socket.sendCommandSync('edinfo_module_toggle_cmd', 'module ' + ($(this).is(':checked') ? 'enablesilent' : 'disablesilent') + './custom/edinfo.js', run);
     });
 
@@ -46,7 +46,7 @@ $(function () {
             'autoWidth': false,
             'data': builds,
             'columnDefs': [
-                { 'width': '30%', 'targets': 0 }
+                { 'width': '12%', 'targets': 0 }
             ],
             'columns': [
                 { 'title': 'Entry No.' },
