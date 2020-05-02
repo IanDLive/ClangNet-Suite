@@ -79,7 +79,7 @@ $.lang.register('clangnetsass.humblemonth', 'Do you like games?  Do you want a n
 // ------------------------
 $.lang.register('clangnetsass.emotes', 'The subscriber emotes that are available for the channel are... $1');
 
-// !mods command responses
+// !gamemods command responses
 // -----------------------
 $.lang.register('clangnetsass.no-mods-used', 'There are no mods used or listed for this game.');
 $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
@@ -117,7 +117,7 @@ $.lang.register('clangnetsass.telljoke.discord', '$1');
 
 // !socials command response
 // -------------------------
-$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider following these links: bleedPurple Discord --> https://iand.live/discord | bleedPurple Twitter --> https://iand.live/twitter | bleedPurple Facebook --> https://iand.live/fb | bleedPurple Instagram --> https://iand.live/ig');
+$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider following these links: bleedPurple Discord --> https://iand.live/discord | bleedPurple Twitter --> https://iand.live/twitter | bleedPurple Facebook --> https://iand.live/fb | bleedPurple Instagram --> https://iand.live/ig | bleedPurple Website --> https://prophetrage.co.uk');
 
 // !motorsports command response
 // -----------------------------
