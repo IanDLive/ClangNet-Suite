@@ -13,17 +13,35 @@
         var jsonObject;
         var returnText;
         var intJokeChoice = Math.floor(Math.random() * 2);
+        var intEmoteChoice = Math.floor(Math.random() * 4);
+        var strEmoteChoice;
+        var strJoke;
 
         switch (intJokeChoice) {
             case 0:
                 jsonObject = JSON.parse(_getJSON('https://icanhazdadjoke.com/slack'));
-                returnText = jsonObject.attachments[0].text;
+                strJoke = jsonObject.attachments[0].text;
                 break;
             case 1:
                 jsonObject = JSON.parse(_getJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
-                returnText = jsonObject.joke;
+                strJoke = jsonObject.joke;
                 break;
         }
+        switch (intEmoteChoice) {
+            case 0:
+                strEmoteChoice = ' <:porTriHard:685851046249103419>';
+                break;
+            case 1:
+                strEmoteChoice = ' <:porNotLikeThis:685851046509019210>';
+                break;
+            case 2:
+                strEmoteChoice = ' <:porPogChamp:685851045980667935>';
+                break;
+            case 3:
+                strEmoteChoice = ' <:porLUL:685851045989187625>';
+                break;
+        }
+        returnText = strJoke + strEmoteChoice;
         return returnText;
     }
 
