@@ -137,8 +137,8 @@ $(run = function () {
 
 $(function () {
     // Allow for the toggle on/off of the module.
-    $('#edinfo-Module-Toggle').on('change', function () {
-        socket.sendCommandSync('edinfo_module_toggle_cmd', 'module ' + ($(this).is(':checked') ? 'enablesilent' : 'disablesilent') + './custom/edinfo.js', run);
+    $('#edinfoModuleToggle').on('change', function () {
+        socket.sendCommandSync('edinfo_module_toggle_cmd', 'module ' + ($(this).is(':checked') ? 'enablesilent ' : 'disablesilent ') + './custom/edinfo.js', run);
     });
 
     // Add Ship Build button.
