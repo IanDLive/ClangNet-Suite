@@ -191,30 +191,41 @@ $(function () {
     // Settings button.
     $('#edinfo-settings-button').on('click', function () {
         socket.getDBValues('get_edinfo_settings', {
-            tables: ['edInfo'],
-            keys: ['allowOffline']
+            tables: ['edInfo', 'edInfo'],
+            keys: ['allowOffline', 'filePath']
         }, true, function (e) {
-            helpers.getModal('edinfo-settings', 'Elite: Dangerous Info Settings', 'Save', $('<form/>', {
+            helpers.getAdvanceModal('edinfo-settings', 'Elite: Dangerous Info Settings', 'Save', $('<form/>', {
                 'role': 'form'
             })
                 // Append a select option for the toggle.
                 .append(helpers.getDropdownGroup('offline-toggle', 'Enable Offline Usage',
-                    (e.allowOffline === 'true' ? 'Yes' : 'No'), ['Yes', 'No'])),
+                    (e.allowOffline === 'true' ? 'Yes' : 'No'), ['Yes', 'No']))
+                // Append an advance section that can be opened with a button toggle.
+                .append($('<div/>', {
+                    'class': 'collapse',
+                    'id': 'advance-collapse',
+                    'html': $('<form/>', {
+                        'role': 'form'
+                    })
+                        // Append input box for the OBS text file path.
+                        .append(helpers.getInputGroup('obs-file-path', 'text', 'OBS Text File Path', '', e.filePath, 'Path to the OBS text files from EDDiscovery'))
+                })),
                 function () { // Callback for when the user clicks save.
                     let offlineToggle = $('#offline-toggle').find(':selected').text() === 'Yes';
+                    let OBSFilePath = $('#obs-file-path');
 
                     switch (false) {
                         default:
                             socket.updateDBValues('update_edinfo_settings', {
-                                tables: ['edInfo'],
-                                keys: ['allowOffline'],
-                                values: [offlineToggle]
+                                tables: ['edInfo', 'edInfo'],
+                                keys: ['allowOffline', 'filePath'],
+                                values: [offlineToggle, OBSFilePath.val()]
                             }, function () {
-                                socket.sendCommand('update_edinfo_settings_cmd', 'reloadedinfo', function () {
+                                socket.sendCommand('update_edinfo_settings_cmd', 'reloadEDInfo', function () {
                                     // Close the modal.
-                                    $('#edinfo-settings').modal('toggle');
+                                    $('#edinfo-settings').modal('hide');
                                     // Alert the user.
-                                    toastr.success('Successfully updated offline usage settings!');
+                                    toastr.success('Successfully updated EDInfo module settings!');
                                 });
                             });
                     }

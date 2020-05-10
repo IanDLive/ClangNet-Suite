@@ -28,10 +28,6 @@ $.lang.register('edinfo.playing.guardian.beacon', 'Guardian Beacon Location: SYN
 // ----------------------------------
 $.lang.register('edinfo.playing.othergame', 'Ian is not playing Elite:Dangerous right now');
 
-// The channel is offline
-// ----------------------
-$.lang.register('edinfo.notplaying', 'Ian is currently offline, but was last seen playing $1.');
-
 // Ship designations command response
 // ----------------------------------
 $.lang.register('edinfo.designations', 'Want to get hold of a ship designation for the Xebon Syndicate?  Click on the link to get to the Google Document for all of the registered Xebon Syndicate ships --> https://iand.live/elite-ids');
@@ -44,3 +40,9 @@ $.lang.register('edinfo.alicediscord', 'Want to get hold of a copy of the Projec
 // ------------------------------------
 $.lang.register('edinfo.offlinemodetrue', 'EDInfo allowed to be used in offline mode.');
 $.lang.register('edinfo.offlinemodefalse', 'EDInfo set to be used only while playing the game.');
+
+// EDInfo text file path responses
+// -------------------------------
+$.lang.register('edinfo.nofilepathset', 'A file path was not set for the location of the EDDiscovery OBS text files.');
+$.lang.register('edinfo.obsfilepathset', 'The path to the location of the OBS text files has been set to: $1');
+$.lang.register('edinfo.needtosetpath', 'A path needs to be set for the location of the EDDiscovery OBS text files.  Usage: !edinfopath <PATH TO FILES i.e. C:/SomeTextFiles/>');
