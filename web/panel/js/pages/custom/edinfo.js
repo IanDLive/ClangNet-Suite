@@ -103,7 +103,7 @@ $(run = function () {
                                 // Append an input box to show the name of the edited ship.
                                 .append(helpers.getInputGroup('shipbuild-name', 'text', 'Ship Name', '', shipbuild, 'Name of the ship.  This cannot be edited.', true))
                                 // Append an input box to allow for the changing of the build URL.
-                                .append(helpers.getInputGroup('shipbuild-url', 'text', 'Build URL', 'URL to the ship build')), function () {
+                                .append(helpers.getInputGroup('shipbuild-url', 'text', 'Build URL', 'URL to the ship build', '', 'URL to the ship build')), function () {
                                     let shipbuildName = $('#shipbuild-name');
                                     let shipbuildURL = $('#shipbuild-url');
 
@@ -148,9 +148,9 @@ $(function () {
             'role': 'form'
         })
             // Append input box for the ship name.
-            .append(helpers.getInputGroup('shipbuild-name', 'text', 'Ship Name', 'The name of your ship'))
+            .append(helpers.getInputGroup('shipbuild-name', 'text', 'Ship Name', 'The name of your ship', '', 'The name of your ship'))
             // Append input box for the URL of the ship build.
-            .append(helpers.getInputGroup('shipbuild-url', 'text', 'Build URL', 'URL to the ship build')),
+            .append(helpers.getInputGroup('shipbuild-url', 'text', 'Build URL', 'URL to the ship build', '', 'URL to the ship build')),
             function () {
                 let shipbuildName = $('#shipbuild-name');
                 let shipbuildURL = $('#shipbuild-url');
