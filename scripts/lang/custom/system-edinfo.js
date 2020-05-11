@@ -3,10 +3,10 @@
 
 // Online, and playing Elite: Dangerous
 // ------------------------------------
-$.lang.register('edinfo.playing.shipwitha', 'The ship Ian is piloting is an $1 which is called "$2".');
-$.lang.register('edinfo.playing.shipwithouta', 'The ship Ian is piloting is a $1 which is called "$2".');
-$.lang.register('edinfo.playing.systemdocked', 'Ian is in the $1 system and is currently docked at $2.');
-$.lang.register('edinfo.playing.systemflying', 'Ian is currently flying around in the $1 system.');
+$.lang.register('edinfo.playing.shipwitha', 'The ship $1 is piloting is an $2 which is called "$3".');
+$.lang.register('edinfo.playing.shipwithouta', 'The ship $1 is piloting is a $2 which is called "$3".');
+$.lang.register('edinfo.playing.systemdocked', '$1 is in the $2 system and is currently docked at $3.');
+$.lang.register('edinfo.playing.systemflying', '$1 is currently flying around in the $2 system.');
 $.lang.register('edinfo.playing.shipbuild.current', 'If you want to look at the current $1 build, take a look on EDSM here --> $2');
 $.lang.register('edinfo.playing.shipbuild.notlogged', 'The loadout information for the current ship has not been added to to the database.');
 $.lang.register('edinfo.playing.shipbuild.addnoname', 'Unable to add ship to the database, a ship name was not specified.');
@@ -26,7 +26,7 @@ $.lang.register('edinfo.playing.guardian.beacon', 'Guardian Beacon Location: SYN
 
 // Online, but playing something else
 // ----------------------------------
-$.lang.register('edinfo.playing.othergame', 'Ian is not playing Elite:Dangerous right now');
+$.lang.register('edinfo.playing.othergame', '$1 is not playing Elite:Dangerous right now');
 
 // Ship designations command response
 // ----------------------------------
@@ -46,3 +46,8 @@ $.lang.register('edinfo.offlinemodefalse', 'EDInfo set to be used only while pla
 $.lang.register('edinfo.nofilepathset', 'A file path was not set for the location of the EDDiscovery OBS text files.');
 $.lang.register('edinfo.obsfilepathset', 'The path to the location of the OBS text files has been set to: $1');
 $.lang.register('edinfo.needtosetpath', 'A path needs to be set for the location of the EDDiscovery OBS text files.  Usage: !edinfopath <PATH TO FILES i.e. C:/SomeTextFiles/>');
+
+// EDInfo CMDR Name responses
+// --------------------------
+$.lang.register('edinfo.cmdrname.notspecified', 'A name has to be specified so that it can be changed within the database.');
+$.lang.register('edinfo.cmdrname.nameupdated', 'The CMDR name for the EDInfo module has been updated to: $1');

@@ -7,6 +7,7 @@
     // General variables for the functions.
     var elitePBPath = $.getSetIniDbString('edInfo', 'filePath', '[No URL Set]');
     var allowOffline = $.getSetIniDbBoolean('edInfo', 'allowOffline', false);
+    var cmdrName = $.getSetIniDbString('edInfo', 'cmdrName', 'CMDR');
     var shipBuildEntry = $.getSetIniDbString('edShipBuild', '[DEFAULT ENTRY]', '[Web URL Here]');
     var shipModel;
     var shipName;
@@ -49,6 +50,7 @@
     function reloadEDInfo() {
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
         elitePBPath = $.getIniDbString('edInfo', 'filePath');
+        cmdrName = $.getIniDbString('edInfo', 'cmdrName');
     }
 
     // Command Event
@@ -100,9 +102,9 @@
                         strShip = String(shipModel);
                         strShipInitial = strShip.substr(0, 1);
                         if (strShipInitial.equalsIgnoreCase('a')) {
-                            $.say($.lang.get('edinfo.playing.shipwitha', shipModel, shipName));
+                            $.say($.lang.get('edinfo.playing.shipwitha', cmdrName, shipModel, shipName));
                         } else {
-                            $.say($.lang.get('edinfo.playing.shipwithouta', shipModel, shipName));
+                            $.say($.lang.get('edinfo.playing.shipwithouta', cmdrName, shipModel, shipName));
                         }
                     }
                 }
@@ -110,9 +112,9 @@
                     getEDData();
                     if (pathSet) {
                         if (inDock == 'Docked') {
-                            $.say($.lang.get('edinfo.playing.systemdocked', starSystem, systemBody));
+                            $.say($.lang.get('edinfo.playing.systemdocked', cmdrName, starSystem, systemBody));
                         } else {
-                            $.say($.lang.get('edinfo.playing.systemflying', starSystem));
+                            $.say($.lang.get('edinfo.playing.systemflying', cmdrName, starSystem));
                         }
                     }
                 }
@@ -193,11 +195,11 @@
                 }
             } else {
                 // Currently online, but playing something else.
-                $.say($.lang.get('edinfo.playing.othergame'));
+                $.say($.lang.get('edinfo.playing.othergame', cmdrName));
             }
         }
 
-        // Universal command, game determination not required.
+        // Universal commands, game determination not required.
         if (command.equalsIgnoreCase('edinfopath')) {
             if (action === undefined || action == null) {
                 // No path set with the command.
@@ -208,6 +210,18 @@
                 $.say($.lang.get('edinfo.obsfilepathset', action));
                 elitePBPath = action;
                 return;
+            }
+        }
+
+        if (command.equalsIgnoreCase('edsetname')) {
+            if (action === undefined || action == null) {
+                // No name set with the command.
+                $.say($.lang.get('edinfo.cmdrname.notspecified'));
+                return;
+            } else {
+                $.setIniDbString('edInfo', 'cmdrName', action);
+                $.say($.lang.get('edinfo.cmdrname.nameupdated', action));
+                cmdrName = action;
             }
         }
 
@@ -237,6 +251,7 @@
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edofflinemode', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edinfopath', 1);
+            $.registerChatCommand('./custom/edinfo.js', 'edsetname', 1);
             $.registerChatCommand('./custom/edinfo.js', 'reloadedinfo', 1);
         }
     });

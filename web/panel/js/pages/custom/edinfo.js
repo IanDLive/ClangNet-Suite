@@ -191,8 +191,8 @@ $(function () {
     // Settings button.
     $('#edinfo-settings-button').on('click', function () {
         socket.getDBValues('get_edinfo_settings', {
-            tables: ['edInfo', 'edInfo'],
-            keys: ['allowOffline', 'filePath']
+            tables: ['edInfo', 'edInfo', 'edInfo'],
+            keys: ['allowOffline', 'filePath', 'cmdrName']
         }, true, function (e) {
             helpers.getAdvanceModal('edinfo-settings', 'Elite: Dangerous Info Settings', 'Save', $('<form/>', {
                 'role': 'form'
@@ -209,17 +209,22 @@ $(function () {
                     })
                         // Append input box for the OBS text file path.
                         .append(helpers.getInputGroup('obs-file-path', 'text', 'OBS Text File Path', '', e.filePath, 'Path to the OBS text files from EDDiscovery'))
+                        .append(helpers.getInputGroup('cmdr-name', 'text', 'CMDR Name', '', e.cmdrName, 'Given name of your CMDR in responses'))
                 })),
                 function () { // Callback for when the user clicks save.
                     let offlineToggle = $('#offline-toggle').find(':selected').text() === 'Yes';
                     let OBSFilePath = $('#obs-file-path');
+                    let cmdrName = $('#cmdr-name');
 
                     switch (false) {
+                        case helpers.handleInputString(OBSFilePath):
+                        case helpers.handleInputString(cmdrName):
+                            break;
                         default:
                             socket.updateDBValues('update_edinfo_settings', {
-                                tables: ['edInfo', 'edInfo'],
-                                keys: ['allowOffline', 'filePath'],
-                                values: [offlineToggle, OBSFilePath.val()]
+                                tables: ['edInfo', 'edInfo', 'edInfo'],
+                                keys: ['allowOffline', 'filePath', 'cmdrName'],
+                                values: [offlineToggle, OBSFilePath.val(), cmdrName.val()]
                             }, function () {
                                 socket.sendCommand('update_edinfo_settings_cmd', 'reloadEDInfo', function () {
                                     // Close the modal.
