@@ -19,6 +19,7 @@
     // Initialization text for the console.
     function initText() {
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
+        cmdrName = $.getIniDbString('edInfo', 'cmdrName');
         $.consoleLn("***** Elite: Dangerous commands module online *****");
         $.consoleLn("EDDiscovery OBS File Path set to: " + elitePBPath);
         if (elitePBPath.equalsIgnoreCase('[no url set]')) {
