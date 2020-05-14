@@ -67,29 +67,11 @@
         var action = args[0];
         var argShipName = args[1];
         var argBuildURL = args[2];
-
-        // Retrieve the text from the relevant text files so they can be combined into a response.
-        var currentGame;
+        var currentGame = $.getGame($.channelName);
         var strShip;
         var strShipInitial;
 
-        // Determine whether the stream is online and if Elite: Dangerous is being played.
-        currentGame = $.getGame($.channelName);
-        if (command.equalsIgnoreCase('edofflinemode')) {
-            allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
-            if (allowOffline == false) {
-                allowOffline = true;
-                $.setIniDbBoolean('edInfo', 'allowOffline', true);
-                $.say($.lang.get('edinfo.offlinemodetrue'));
-                $.consoleLn($.lang.get('edinfo.offlinemodetrue'));
-            } else {
-                allowOffline = false;
-                $.setIniDbBoolean('edInfo', 'allowOffline', false);
-                $.say($.lang.get('edinfo.offlinemodefalse'));
-                $.consoleLn($.lang.get('edinfo.offlinemodefalse'));
-            }
-            return;
-        }
+        allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
 
         if ($.isOnline($.channelName) || allowOffline == true) {
             if (currentGame.equalsIgnoreCase('elite: dangerous') || allowOffline == true) { 
@@ -201,6 +183,22 @@
         }
 
         // Universal commands, game determination not required.
+        if (command.equalsIgnoreCase('edofflinemode')) {
+            allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
+            if (allowOffline == false) {
+                allowOffline = true;
+                $.setIniDbBoolean('edInfo', 'allowOffline', true);
+                $.say($.lang.get('edinfo.offlinemodetrue'));
+                $.consoleLn($.lang.get('edinfo.offlinemodetrue'));
+            } else {
+                allowOffline = false;
+                $.setIniDbBoolean('edInfo', 'allowOffline', false);
+                $.say($.lang.get('edinfo.offlinemodefalse'));
+                $.consoleLn($.lang.get('edinfo.offlinemodefalse'));
+            }
+            return;
+        }
+
         if (command.equalsIgnoreCase('edinfopath')) {
             if (action === undefined || action == null) {
                 // No path set with the command.
