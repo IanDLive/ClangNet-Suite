@@ -6,8 +6,8 @@
     /**
      * @function cnGetJSON
      * @export $
-     * @param {string} url
-     * @returns {JSON Data}
+     * @param {String} url
+     * @returns {JSON}
      */
     function cnGetJSON(url) {
         var HttpRequest = Packages.com.gmt2001.HttpRequest;
@@ -20,7 +20,7 @@
     /**
      * @function cnUserStrings
      * @export $
-     * @param {string} user
+     * @param {String} user
      * @returns {Array}
      */
     function cnUserStrings(user) {
