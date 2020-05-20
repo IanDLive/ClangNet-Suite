@@ -15,14 +15,6 @@
     // Global variable for this function
     var jokesEnabled = $.getSetIniDbBoolean('clangnetSass', 'jokesEnabled', true);
 
-    // Retrieval of JSON object from and external API.
-    function _getJSON(url) {
-        var HttpRequest = Packages.com.gmt2001.HttpRequest;
-        var HashMap = Packages.java.util.HashMap;
-        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', new HashMap());
-        return responseData.content;
-    }
-
     // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
     function getAnyJoke() {
         var jsonObject;
@@ -31,11 +23,11 @@
 
         switch (intJokeChoice) {
             case 0:
-                jsonObject = JSON.parse(_getJSON('https://icanhazdadjoke.com/slack'));
+                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack'));
                 returnText = jsonObject.attachments[0].text;
                 break;
             case 1:
-                jsonObject = JSON.parse(_getJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
+                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
                 returnText = jsonObject.joke;
                 break;
         }
@@ -66,7 +58,7 @@
                 $.say(getAnyJoke() + strEmoteChoice);
             } else {
                 if (isCommanded == true) {
-                    atSender = userStrings(invokedBy);
+                    atSender = $.cnUserStrings(invokedBy);
                     $.say($.lang.get('clangnetsass.jokesonline', atSender[0]));
                 }
             }
@@ -75,21 +67,6 @@
                 $.say($.lang.get('clangnetsass.jokesdisabled'));
             }
         }
-    }
-
-    // Format sender to be either mentioned or referenced.
-    function userStrings(user) {
-        var user_mention = '';
-        var user_string = '';
-
-        if (user.substr(0, 1) == '@') {
-            user_mention = user;
-            user_string = user.substr(1);
-        } else {
-            user_mention = '@' + user;
-            user_string = user;
-        }
-        return [user_mention, user_string];
     }
 
     // Command Event
@@ -113,7 +90,7 @@
             // --- Lurk command ---
             if (command.equalsIgnoreCase('lurk')) {
                 var intResponseChoice = Math.floor(Math.random() * 6);
-                var lurkSender = userStrings(sender);
+                var lurkSender = $.cnUserStrings(sender);
                 switch (intResponseChoice) {
                     case 0:
                         $.say($.lang.get('clangnetsass.lurk.response0', lurkSender[0]));
@@ -161,9 +138,9 @@
 
         // --- !followed command ---
         if (command.equalsIgnoreCase('followed')) {
-            atSender = userStrings(sender);
+            atSender = $.cnUserStrings(sender);
             if (args[0] !== undefined) {
-                queryItem = userStrings(args[0]);
+                queryItem = $.cnUserStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followed/iandlive/' + queryItem[1];
                 $.say($.lang.get('clangnetsass.followedquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
             } else {
@@ -174,22 +151,22 @@
 
         // --- !followers command ---
         if (command.equalsIgnoreCase('followers')) {
-            atSender = userStrings(sender);
+            atSender = $.cnUserStrings(sender);
             if (args[0] !== undefined) {
-                queryItem = userStrings(args[0]);
+                queryItem = $.cnUserStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followcount/' + queryItem[1];
                 $.say($.lang.get('clangnetsass.followersquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
             } else {
                 apiURL = 'https://decapi.me/twitch/followcount/iandlive';
                 $.say($.lang.get('clangnetsass.followers', atSender[0], $.customAPI.get(apiURL).content));
-            } ex
+            }
         }
 
         // --- !howlong command ---
         if (command.equalsIgnoreCase('howlong')) {
-            atSender = userStrings(sender);
+            atSender = $.cnUserStrings(sender);
             if (args[0] !== undefined) {
-                queryItem = userStrings(args[0]);
+                queryItem = $.cnUserStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followage/iandlive/' + queryItem[1];
                 $.say($.lang.get('clangnetsass.howlongquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
             } else {
@@ -308,7 +285,7 @@
                 sayAnyJoke(sender, true);
             } else {
                 if (args[0].equalsIgnoreCase('toggle')) {
-                    atSender = userStrings(sender);
+                    atSender = $.cnUserStrings(sender);
                     jokesEnabled = !jokesEnabled;
                     $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
                     $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));

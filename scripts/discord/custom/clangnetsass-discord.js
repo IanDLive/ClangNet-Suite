@@ -1,13 +1,5 @@
 (function () {
 
-    // Retrieval of JSON object from and external API.
-    function _getJSON(url) {
-        var HttpRequest = Packages.com.gmt2001.HttpRequest;
-        var HashMap = Packages.java.util.HashMap;
-        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', new HashMap());
-        return responseData.content;
-    }
-
     // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
     function getAnyJoke() {
         var jsonObject;
@@ -19,11 +11,11 @@
 
         switch (intJokeChoice) {
             case 0:
-                jsonObject = JSON.parse(_getJSON('https://icanhazdadjoke.com/slack'));
+                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack'));
                 strJoke = jsonObject.attachments[0].text;
                 break;
             case 1:
-                jsonObject = JSON.parse(_getJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
+                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
                 strJoke = jsonObject.joke;
                 break;
         }

@@ -1,0 +1,43 @@
+/************************************************************************************************
+ * ClangNet API - a collection of functions that are commonly called through the ClangNet Suite *
+ * **********************************************************************************************/
+
+(function () {
+    /**
+     * @function cnGetJSON
+     * @export $
+     * @param {string} url
+     * @returns {JSON Data}
+     */
+    function cnGetJSON(url) {
+        var HttpRequest = Packages.com.gmt2001.HttpRequest;
+        var HashMap = Packages.java.util.HashMap;
+        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', new HashMap());
+        return responseData.content;
+    }
+
+
+    /**
+     * @function cnUserStrings
+     * @export $
+     * @param {string} user
+     * @returns {Array}
+     */
+    function cnUserStrings(user) {
+        var user_mention = '';
+        var user_string = '';
+        if (user.substr(0, 1) == '@') {
+            user_mention = user;
+            user_string = user.substr(1);
+        } else {
+            user_mention = '@' + user;
+            user_string = user;
+        }
+        return [user_mention, user_string];
+    }
+
+    /** Export functions to API */
+    $.cnGetJSON = cnGetJSON;
+    $.cnUserStrings = cnUserStrings;
+})();
+

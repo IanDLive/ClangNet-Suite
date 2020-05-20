@@ -29,6 +29,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="scripts\custom\clangnetAPI.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="web\panel\js\pages\custom\edinfo.js">
       <SubType>Code</SubType>
     </Content>

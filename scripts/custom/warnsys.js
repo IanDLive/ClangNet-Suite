@@ -26,31 +26,13 @@
     }
 
     /**
-     * @function userStrings
-     * @param {string} user
-     * @return {array}
-     */
-    function userStrings(user) {
-        var user_mention = "";
-        var user_string = "";
-        if (user.substr(0,1) == "@"){
-            user_mention = user;
-            user_string = user.substr(1);
-        } else {
-            user_mention = "@" + user;
-            user_string = user;
-        }
-        return [user_mention, user_string];
-    }
-
-    /**
      * @function warn1
      * @param {string} user
      * @param {string} reason
      * @returns {void}
      */
     function warn1(user, reason) {
-        user = userStrings(user);
+        user = $.cnUserStrings(user);
         $.say(".timeout " + user[1] + " " + $.lang.get('warnsys.warn1.time') + " " + reason);
         $.say($.lang.get('warnsys.warn1.twitch', user[0]));
         $.consoleLn($.lang.get('warnsys.warn1.console', user[1]));
@@ -63,7 +45,7 @@
      * @returns {void}
      */
     function warn2(user, reason) {
-        user = userStrings(user);
+        user = $.cnUserStrings(user);
         $.say(".timeout " + user[1] + " " + $.lang.get('warnsys.warn2.time') + " " + reason);
         $.say($.lang.get('warnsys.warn2.twitch', user[0]));
         $.consoleLn($.lang.get('warnsys.warn2.console', user[1]));
@@ -76,7 +58,7 @@
      * @returns {void}
      */
     function warn3(user, reason) {
-        user = userStrings(user);
+        user = $.cnUserStrings(user);
         $.say(".ban " + user[1] + " " + reason);
         $.say($.lang.get('warnsys.warn3.twitch', user[0]));
         $.consoleLn($.lang.get('warnsys.warn3.console', user[1]));
@@ -95,7 +77,7 @@
             if ($.isBot(args[0]) || $.isMod(args[0]) || $.isOwner(args[0]) || $.isAdmin(args[0])) {
                 var user = 0x349;
             } else {
-                var user = userStrings(args[0]);
+                var user = $.cnUserStrings(args[0]);
             }
 
             /**
