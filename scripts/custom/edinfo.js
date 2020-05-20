@@ -1,4 +1,4 @@
-// Elite Dangerous Commands - edinfo
+﻿// Elite Dangerous Commands - edinfo
 // ---------------------------------
 // Retrieves the info from OBS text files and places it as a ClangNet response in chat.
 //
@@ -20,9 +20,9 @@
     function initText() {
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
         cmdrName = $.getIniDbString('edInfo', 'cmdrName');
-        $.consoleLn("***************************************************");
-        $.consoleLn("*     Elite: Dangerous commands module online     *");
-        $.consoleLn("***************************************************");
+        $.consoleLn("╔═════════════════════════════════════════════════╗");
+        $.consoleLn("║     Elite: Dangerous commands module online     ║");
+        $.consoleLn("╚═════════════════════════════════════════════════╝");
         $.consoleLn("EDDiscovery OBS File Path set to: " + elitePBPath);
         if (elitePBPath.equalsIgnoreCase('[no url set]')) {
             $.consoleLn($.lang.get('edinfo.needtosetpath'));

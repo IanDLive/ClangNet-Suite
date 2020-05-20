@@ -1,4 +1,4 @@
-// Star Citizen Commands - starcitizen
+﻿// Star Citizen Commands - starcitizen
 // ===================================
 //
 // Chat message responses for Star Citizen related commands.
@@ -7,9 +7,9 @@
 
     // Initialization text for the console.
     function initText() {
-        $.consoleLn("***************************************************");
-        $.consoleLn("*       Star Citizen commands module online       *");
-        $.consoleLn("***************************************************");
+        $.consoleLn("╔═════════════════════════════════════════════════╗");
+        $.consoleLn("║       Star Citizen commands module online       ║");
+        $.consoleLn("╚═════════════════════════════════════════════════╝");
     }
 
     // Show the organization recruitment info in chat.
