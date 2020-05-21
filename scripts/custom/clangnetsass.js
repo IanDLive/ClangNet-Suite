@@ -182,7 +182,7 @@
 
         // --- !howsong command ---
         if (command.equalsIgnoreCase('howsong')) {
-            $.say($.lang.get('clanfnetsass.howsong'));
+            $.say($.lang.get('clangnetsass.howsong'));
         }
 
         // --- !steamgroup command ---
