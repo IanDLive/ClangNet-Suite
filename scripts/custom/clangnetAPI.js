@@ -26,6 +26,7 @@
     function cnUserStrings(user) {
         var user_mention = '';
         var user_string = '';
+
         if (user.substr(0, 1) == '@') {
             user_mention = user;
             user_string = user.substr(1);
