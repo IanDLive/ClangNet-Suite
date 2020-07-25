@@ -82,11 +82,13 @@
     });
 
     $.bind('initReady', function () {
-        initText();
-        $.registerChatCommand('./custom/starcitizen.js', 'scorg', 7);
-        $.registerChatCommand('./custom/starcitizen.js', 'screferral', 7);
-        $.registerChatCommand('./custom/starcitizen.js', 'scships', 7);
-        $.registerChatCommand('./custom/starcitizen.js', 'scroadmap', 7);
+        if ($.bot.isModuleEnabled('./custom/starcitizen.js')) {
+            initText();
+            $.registerChatCommand('./custom/starcitizen.js', 'scorg', 7);
+            $.registerChatCommand('./custom/starcitizen.js', 'screferral', 7);
+            $.registerChatCommand('./custom/starcitizen.js', 'scships', 7);
+            $.registerChatCommand('./custom/starcitizen.js', 'scroadmap', 7);
+        }
     });
 
     setTimeout(function () {
