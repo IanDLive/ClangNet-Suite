@@ -41,6 +41,11 @@ $.lang.register('edinfo.alicediscord', 'Want to get hold of a copy of the Projec
 $.lang.register('edinfo.offlinemodetrue', 'EDInfo allowed to be used in offline mode.');
 $.lang.register('edinfo.offlinemodefalse', 'EDInfo set to be used only while playing the game.');
 
+// EDInfo debug mode toggle responses
+// ----------------------------------
+$.lang.register('edinfo.debugmodetrue', 'EDInfo Debug Mode is now enabled');
+$.lang.register('edinfo.debugmodefalse', 'EDInfo DebugMode is now disabled');
+
 // EDInfo text file path responses
 // -------------------------------
 $.lang.register('edinfo.nofilepathset', 'A file path was not set for the location of the EDDiscovery OBS text files.');

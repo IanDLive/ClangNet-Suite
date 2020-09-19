@@ -7,6 +7,7 @@
     // General variables for the functions.
     var elitePBPath = $.getSetIniDbString('edInfo', 'filePath', '[No URL Set]');
     var allowOffline = $.getSetIniDbBoolean('edInfo', 'allowOffline', false);
+    var debugEDInfo = $.getSetIniDbBoolean('edInfo', 'debugEDInfo', false);
     var cmdrName = $.getSetIniDbString('edInfo', 'cmdrName', 'CMDR');
     var shipBuildEntry = $.getSetIniDbString('edShipBuild', '[DEFAULT ENTRY]', '[Web URL Here]');
     var shipModel;
@@ -19,10 +20,14 @@
     // Initialization text for the console.
     function initText() {
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
+        debugEDInfo = $.getIniDbBoolean('edInfo', 'debugEDInfo');
         cmdrName = $.getIniDbString('edInfo', 'cmdrName');
         $.consoleLn("╔═════════════════════════════════════════════════╗");
         $.consoleLn("║     Elite: Dangerous commands module online     ║");
         $.consoleLn("╚═════════════════════════════════════════════════╝");
+        if (debugEDInfo) {
+            $.consoleLn("       *** EDInfo Debug Facility Enabled ***");
+        }
         $.consoleLn("EDDiscovery OBS File Path set to: " + elitePBPath);
         if (elitePBPath.equalsIgnoreCase('[no url set]')) {
             $.consoleLn($.lang.get('edinfo.needtosetpath'));
@@ -41,11 +46,18 @@
             return;
         } else {
             pathSet = true;
-            shipModel = $.readFile(elitePBPath + 'EDship.txt', 'utf8');
-            shipName = $.readFile(elitePBPath + 'EDshipname.txt', 'utf8');
-            inDock = $.readFile(elitePBPath + 'EDdocked.txt', 'utf8');
-            starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt', 'utf8');
-            systemBody = $.readFile(elitePBPath + 'EDbody.txt', 'utf8');
+            shipModel = $.readFile(elitePBPath + 'EDship.txt');
+            shipName = $.readFile(elitePBPath + 'EDshipname.txt');
+            inDock = $.readFile(elitePBPath + 'EDdocked.txt');
+            starSystem = $.readFile(elitePBPath + 'EDstarsystem.txt');
+            systemBody = $.readFile(elitePBPath + 'EDbody.txt');
+            if (debugEDInfo) {
+                $.consoleLn("[EDINFO DEBUG] shipModel = " + shipModel);
+                $.consoleLn("[EDINFO DEBUG] shipName = " + shipName);
+                $.consoleLn("[EDINFO DEBUG] inDock = " + inDock);
+                $.consoleLn("[EDINFO DEBUG] starSystem = " + starSystem);
+                $.consoleLn("[EDINFO DEBUG] systemBody = " + systemBody);
+            }
             return;
         }
     }
@@ -86,7 +98,7 @@
                     if (pathSet) {
                         strShip = String(shipModel);
                         strShipInitial = strShip.substr(0, 1);
-                        if (strShipInitial.equalsIgnoreCase('a')) {
+                        if (strShipInitial.equalsIgnoreCase('a') || strShipInitial.equalsIgnoreCase('e') || strShipInitial.equalsIgnoreCase('i') || strShipInitial.equalsIgnoreCase('o') || strShipInitial.equalsIgnoreCase('u')) {
                             $.say($.lang.get('edinfo.playing.shipwitha', cmdrName, shipModel, shipName));
                         } else {
                             $.say($.lang.get('edinfo.playing.shipwithouta', cmdrName, shipModel, shipName));
@@ -201,6 +213,21 @@
             return;
         }
 
+        if (command.equalsIgnoreCase('debugedinfo')) {
+            debugEDInfo = $.getIniDbBoolean('edInfo', 'debugEDInfo');
+            if (debugEDInfo == false) {
+                debugEDInfo = true;
+                $.setIniDbBoolean('edInfo', 'debugEDInfo', true);
+                $.say($.lang.get('edinfo.debugmodetrue'));
+                $.consoleLn($.lang.get('edinfo.debugmodetrue'));
+            } else {
+                debugEDInfo = false;
+                $.setIniDbBoolean('edinfo', 'debugEDInfo', false);
+                $.say($.lang.get('edinfo.debugmodefalse'));
+                $.consoleLn($.lang.get('edinfo.debugmodefalse'));
+            }
+        }
+
         if (command.equalsIgnoreCase('edinfopath')) {
             if (action === undefined || action == null) {
                 // No path set with the command.
@@ -251,6 +278,7 @@
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edofflinemode', 1);
+            $.registerChatCommand('./custom/edinfo.js', 'debugedinfo', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edinfopath', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edsetname', 1);
             $.registerChatCommand('./custom/edinfo.js', 'reloadedinfo', 1);
