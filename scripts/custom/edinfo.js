@@ -223,7 +223,7 @@
                 $.consoleLn($.lang.get('edinfo.debugmodetrue'));
             } else {
                 debugEDInfo = false;
-                $.setIniDbBoolean('edinfo', 'debugEDInfo', false);
+                $.setIniDbBoolean('edInfo', 'debugEDInfo', false);
                 $.say($.lang.get('edinfo.debugmodefalse'));
                 $.consoleLn($.lang.get('edinfo.debugmodefalse'));
             }
