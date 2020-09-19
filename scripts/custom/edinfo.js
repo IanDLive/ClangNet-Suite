@@ -64,6 +64,7 @@
 
     function reloadEDInfo() {
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
+        debugEDInfo = $.getIniDbBoolean('edInfo', 'debugEDInfo');
         elitePBPath = $.getIniDbString('edInfo', 'filePath');
         cmdrName = $.getIniDbString('edInfo', 'cmdrName');
     }
