@@ -4,7 +4,7 @@
     function getAnyJoke() {
         var jsonObject;
         var returnText;
-        var intJokeChoice = Math.floor(Math.random() * 2);
+        var intJokeChoice = Math.floor(Math.random() * 3);
         var intEmoteChoice = Math.floor(Math.random() * 4);
         var strEmoteChoice;
         var strJoke;
@@ -17,6 +17,10 @@
             case 1:
                 jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
                 strJoke = jsonObject.joke;
+                break;
+            case 2:
+                jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en'));
+                returnText = 'Useless Fact: ' + jsonObject.text;
                 break;
         }
         switch (intEmoteChoice) {
