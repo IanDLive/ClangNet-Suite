@@ -109,7 +109,7 @@ $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of th
 $.lang.register('clangnetsass.jokesenabled', '$1, ClangNet\'s hunour has now been $2.');
 $.lang.register('clangnetsass.jokesdisabled', 'Someone thought I was too funny and turned my humour off!!!');
 $.lang.register('clangnetsass.jokesonline', '$1, I\'m only funny while I\'m online!!');
-$.lang.register('clangnetsass.telljoke.discord', '$1');
+$.lang.register('clangnetsass.telljoke.discord', '$1 $2');
 
 // !socials command response
 // -------------------------

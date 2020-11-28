@@ -3,10 +3,7 @@
     // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
     function getAnyJoke() {
         var jsonObject;
-        var returnText;
         var intJokeChoice = Math.floor(Math.random() * 3);
-        var intEmoteChoice = Math.floor(Math.random() * 4);
-        var strEmoteChoice;
         var strJoke;
 
         switch (intJokeChoice) {
@@ -20,25 +17,31 @@
                 break;
             case 2:
                 jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en'));
-                returnText = 'Useless Fact: ' + jsonObject.text;
+                strJoke = 'Useless Fact: ' + jsonObject.text;
                 break;
         }
+        return strJoke;
+    }
+
+    function getAnyEmote() {
+        var intEmoteChoice = Math.floor(Math.random() * 4);
+        var strEmoteChoice;
+
         switch (intEmoteChoice) {
             case 0:
-                strEmoteChoice = ' <:porTriHard:685851046249103419>';
+                strEmoteChoice = '<:porTriHard:685851046249103419>';
                 break;
             case 1:
-                strEmoteChoice = ' <:porNotLikeThis:685851046509019210>';
+                strEmoteChoice = '<:porNotLikeThis:685851046509019210>';
                 break;
             case 2:
-                strEmoteChoice = ' <:porPogChamp:685851045980667935>';
+                strEmoteChoice = '<:porPogChamp:685851045980667935>';
                 break;
             case 3:
-                strEmoteChoice = ' <:porLUL:685851045989187625>';
+                strEmoteChoice = '<:porLUL:685851045989187625>';
                 break;
         }
-        returnText = strJoke + strEmoteChoice;
-        return returnText;
+        return strEmoteChoice;
     }
 
     // Command events
@@ -122,7 +125,7 @@
 
         // --- !jokes command ---
         if (command.equalsIgnoreCase('jokes') && channelCheck.equalsIgnoreCase('games-room')) {
-            $.discord.say(channel, $.lang.get('clangnetsass.telljoke.discord', getAnyJoke()));
+            $.discord.say(channel, $.lang.get('clangnetsass.telljoke.discord', getAnyJoke(), getAnyEmote()));
         }
 
         // --- !xebon command ---
