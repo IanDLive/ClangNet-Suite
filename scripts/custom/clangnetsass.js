@@ -121,11 +121,6 @@
         }
 
         // Commands that are not online/offline dependent.
-        // --- !clothing command ---
-        if (command.equalsIgnoreCase('clothing')) {
-            $.say($.lang.get('clangnetsass.clothing'));
-        }
-
         // --- !ctt (Click-to-Tweet) command ---
         if (command.equalsIgnoreCase('ctt')) {
             $.say($.lang.get('clangnetsass.ctt'));
@@ -307,7 +302,6 @@
         // These are also used for the 'permcom' command.
         // $.registerChatCommand('script', 'command', 'permission');
         $.registerChatCommand('./custom/clangnetsass.js', 'lurk', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'clothing', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'ctt', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'discord', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'followed', 7);

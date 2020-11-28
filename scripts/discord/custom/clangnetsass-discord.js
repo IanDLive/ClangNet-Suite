@@ -92,11 +92,6 @@
             }
         }
 
-        // --- !clothing command ---
-        if (command.equalsIgnoreCase('clothing')) {
-            $.discord.say(channel, $.lang.get('clangnetsass.clothing'));
-        }
-
         // --- !motorsports command ---
         if (command.equalsIgnoreCase('motorsports')) {
             $.discordAPI.addRole('Motorsports', discordUser);
@@ -142,7 +137,6 @@
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'followed', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'followers', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'howlong', 0);
-        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'clothing', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'motorsports', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'pedestrian', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'movienight', 0);

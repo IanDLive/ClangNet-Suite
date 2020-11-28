@@ -11,10 +11,6 @@ $.lang.register('clangnetsass.lurk.response3', 'As stealthy as the Fat Ninja him
 $.lang.register('clangnetsass.lurk.response4', 'I feel a tremor in the force... ah, wait a minute, it\'s just $1 deciding to lurk!!');
 $.lang.register('clangnetsass.lurk.response5', 'I think that $1 may have gotten distracted by a bee, I think they\'re going to follow it for a while...');
 
-// !clothing command response
-// --------------------------
-$.lang.register('clangnetsass.clothing', 'Want to get hold of some of the Prophets of Rage clothing line??  Click here to get hold of some --> https://iand.live/clothing');
-
 // !ctt (Click-to-Tweet) command response
 // --------------------------------------
 $.lang.register('clangnetsass.ctt', 'Want to help spread the love of this channel on Twitter?  Click here to do so --> https://iand.live/ctt');
