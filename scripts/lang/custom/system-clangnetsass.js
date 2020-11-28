@@ -88,10 +88,6 @@ $.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are b
 // ----------------------
 $.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
 
-// !viewplaylist command response
-// ------------------------------
-$.lang.register('clangnetsass.viewplaylist', 'Want to know what songs are coming up on the stream, or when your request is going to be played?  View the current song playlist from here --> https://iand.live/playlist');
-
 // !youtube command response
 // -------------------------
 $.lang.register('clangnetsass.youtube', 'Belive it or not he has actually got a YouTube channel, if you want to see the cobwebs and what isn\'t there, follow this link --> https://iand.live/YouTube');

@@ -252,11 +252,6 @@
             $.say($.lang.get('clangnetsass.food'));
         }
 
-        // --- !viewplaylist command ---
-        if (command.equalsIgnoreCase('viewplaylist')) {
-            $.say($.lang.get('clangnetsass.viewplaylist'));
-        }
-
         // --- !youtube command ---
         if (command.equalsIgnoreCase('youtube')) {
             $.say($.lang.get('clangnetsass.youtube'));
@@ -322,7 +317,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'emotes', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'viewplaylist', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
