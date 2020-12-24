@@ -11,6 +11,24 @@ $.lang.register('clangnetsass.lurk.response3', 'As stealthy as the Fat Ninja him
 $.lang.register('clangnetsass.lurk.response4', 'I feel a tremor in the force... ah, wait a minute, it\'s just $1 deciding to lurk!!');
 $.lang.register('clangnetsass.lurk.response5', 'I think that $1 may have gotten distracted by a bee, I think they\'re going to follow it for a while...');
 
+// !gamemods command responses
+// ---------------------------
+$.lang.register('clangnetsass.mods-notused', 'There are no mods used or listed for this game.');
+$.lang.register('clangnetsass.mods-notonline', 'Looking for what mods are used $1?  Seeing IanDLive isn\'t online at the moment, I don\'t know what mods to show you.');
+$.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
+$.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are being used on the current run through of Fallout 4, follow the link to our website for details --> https://iand.live/fo-mods');
+$.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
+$.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
+$.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
+
+// !handle command responses
+// -------------------------
+$.lang.register('clangnetsass.handle-notonline', '$1, are you wanting to add IanDLive in game?  Seeing he\'s not online, there isn\'t a handle to share.');
+$.lang.register('clangnetsass.handle-notused', 'There isn\'t a handle that IanDLive uses that is associated with this game.');
+$.lang.register('clangnetsass.handle-starcitizen', '$1, if you want to add IanDLive to your friends list in Star Citizen, just add him in game as \'IanD-Live\'');
+$.lang.register('clangnetsass.handle-eso', '$1, if you want to add IanDLive to your friends list in The Elder Scrolls Online, just add him in game as \'@IanDLive\'');
+$.lang.register('clangnetsass.handle-elite', '$1, if you want to add IanDLive to your friends list in Elite: Dangerous, just add him in game as \'IanD Live\'');
+
 // !ctt (Click-to-Tweet) command response
 // --------------------------------------
 $.lang.register('clangnetsass.ctt', 'Want to help spread the love of this channel on Twitter?  Click here to do so --> https://iand.live/ctt');
@@ -74,15 +92,6 @@ $.lang.register('clangnetsass.humblemonth', 'Do you like games?  Do you want a n
 // !emotes command response
 // ------------------------
 $.lang.register('clangnetsass.emotes', 'The subscriber emotes that are available for the channel are... $1');
-
-// !gamemods command responses
-// -----------------------
-$.lang.register('clangnetsass.no-mods-used', 'There are no mods used or listed for this game.');
-$.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
-$.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are being used on the current run through of Fallout 4, follow the link to our website for details --> https://iand.live/fo-mods');
-$.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
-$.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
-$.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
 
 // !food command response
 // ----------------------

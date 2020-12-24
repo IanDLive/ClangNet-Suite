@@ -89,10 +89,8 @@
         var apiURL;
 
         // Determine whether the stream is online before executing any of the sass commands.
-        if ($.isOnline($.channelName)) {
-            // The stream is online.
-            // --- Lurk command ---
-            if (command.equalsIgnoreCase('lurk')) {
+        if (command.equalsIgnoreCase('lurk')) {
+            if ($.isOnline($.channelName)) {
                 var intResponseChoice = Math.floor(Math.random() * 6);
                 var lurkSender = $.cnUserStrings(sender);
                 switch (intResponseChoice) {
@@ -114,13 +112,61 @@
                     case 5:
                         $.say($.lang.get('clangnetsass.lurk.response5', lurkSender[0]));
                         break;
-
                 }
-            }
-        } else {
-            // Not online at all.
-            if (command.equalsIgnoreCase('lurk')) {
+            } else {
                 $.say($.lang.get('clangnetsass.lurk.darkinhere'));
+            }
+        }
+
+        if (command.equalsIgnoreCase('gamemods')) {
+            var modSender = $.cnUserStrings(sender);
+            if ($.isOnline($.channelName)) {
+                var currentGame = $.getGame($.channelName);
+                switch (currentGame) {
+                    case 'space engineers':
+                        $.say($.lang.get('clangnetsass.se-mods'));
+                        break;
+                    case 'fallout 4':
+                        $.say($.lang.get('clangnetsass.fo-mods'));
+                        break;
+                    case 'the elder scrolls online':
+                        $.say($.lang.get('clangnetsass.eso-mods'));
+                        break;
+                    case 'the elder scrolls v: skyrim':
+                        $.say($.lang.get('clangnetsass.skse-mods'));
+                        break;
+                    case 'elite: dangerous':
+                        $.say($.lang.get('clangnetsass.ed-mods'));
+                        break;
+                    default:
+                        $.say($.lang.get('clangnetsass.mods-notused'));
+                        break;
+                }
+            } else {
+                $.say($.lang.get('clangnetsass.mods-notonline', modSender[0]));
+            }
+        }
+
+        if (command.equalsIgnoreCase('handle')) {
+            var handleSender = $.cnUserStrings(sender);
+            if ($.isOnline($.channelName)) {
+                var currentGame = $.getGame($.channelName);
+                switch (currentGame) {
+                    case 'star citizen':
+                        $.say($.lang.get('clangnetsass.handle-starcitizen', handleSender[0]));
+                        break;
+                    case 'the elder scrolls online':
+                        $.say($.lang.get('clangnetsass.handle-eso', handleSender[0]));
+                        break;
+                    case 'elite: dangerous':
+                        $.say($.lang.get('clangnetsass.handle-elite', handleSender[0]));
+                        break;
+                    default:
+                        $.say($.lang.get('clangnetsass.handle-notused'));
+                        break;
+                }
+            } else {
+                $.say($.lang.get('clangnetsass.handle-notonline', handleSender[0]));
             }
         }
 
@@ -220,33 +266,6 @@
             $.say($.lang.get('clangnetsass.emotes', $.customAPI.get(apiURL).content));
         }
 
-        // --- !gamemods command ---
-        if (command.equalsIgnoreCase('gamemods')) {
-            currentGame = $.getGame($.channelName);
-            if (currentGame.equalsIgnoreCase('space engineers')) {
-                $.say($.lang.get('clangnetsass.se-mods'));
-                return;
-            }
-            if (currentGame.equalsIgnoreCase('fallout 4')) {
-                $.say($.lang.get('clangnetsass.fo-mods'));
-                return;
-            }
-            if (currentGame.equalsIgnoreCase('the elder scrolls online')) {
-                $.say($.lang.get('clangnetsass.eso-mods'));
-                return;
-            }
-            if (currentGame.equalsIgnoreCase('the elder scrolls v: skyrim')) {
-                $.say($.lang.get('clangnetsass.skse-mods'));
-                return;
-            }
-            if (currentGame.equalsIgnoreCase('elite: dangerous')) {
-                $.say($.lang.get('clangnetsass.ed-mods'));
-                return;
-            } else {
-                $.say($.lang.get('clangnetsass.no-mods-used'));
-            }
-        }
-
         // --- !food command ---
         if (command.equalsIgnoreCase('food')) {
             $.say($.lang.get('clangnetsass.food'));
@@ -301,6 +320,8 @@
         // These are also used for the 'permcom' command.
         // $.registerChatCommand('script', 'command', 'permission');
         $.registerChatCommand('./custom/clangnetsass.js', 'lurk', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'handle', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'ctt', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'discord', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'followed', 7);
@@ -315,7 +336,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'humble', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humblemonth', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'emotes', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
