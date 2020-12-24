@@ -10,6 +10,7 @@ $.lang.register('clangnetsass.lurk.response2', 'Was that $1 I just saw disappear
 $.lang.register('clangnetsass.lurk.response3', 'As stealthy as the Fat Ninja himself, $1 has just engaged lurk mode!');
 $.lang.register('clangnetsass.lurk.response4', 'I feel a tremor in the force... ah, wait a minute, it\'s just $1 deciding to lurk!!');
 $.lang.register('clangnetsass.lurk.response5', 'I think that $1 may have gotten distracted by a bee, I think they\'re going to follow it for a while...');
+$.lang.register('clangnersass.lurk.response6', 'Vanishing quicker than a snowball in the Sahara, it\'s $1 deciding to lurk for a bit...');
 
 // !gamemods command responses
 // ---------------------------

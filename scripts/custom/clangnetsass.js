@@ -91,7 +91,7 @@
         // Determine whether the stream is online before executing any of the sass commands.
         if (command.equalsIgnoreCase('lurk')) {
             if ($.isOnline($.channelName)) {
-                var intResponseChoice = Math.floor(Math.random() * 6);
+                var intResponseChoice = Math.floor(Math.random() * 7);
                 var lurkSender = $.cnUserStrings(sender);
                 switch (intResponseChoice) {
                     case 0:
@@ -111,6 +111,9 @@
                         break;
                     case 5:
                         $.say($.lang.get('clangnetsass.lurk.response5', lurkSender[0]));
+                        break;
+                    case 6:
+                        $.say($.lang.get('clangnetsass.lurk.response6', lurkSender[0]));
                         break;
                 }
             } else {
