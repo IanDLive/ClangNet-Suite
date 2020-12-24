@@ -225,11 +225,6 @@
             $.say($.lang.get('clangnetsass.howserver'));
         }
 
-        // --- !howsong command ---
-        if (command.equalsIgnoreCase('howsong')) {
-            $.say($.lang.get('clangnetsass.howsong'));
-        }
-
         // --- !steamgroup command ---
         if (command.equalsIgnoreCase('steamgroup')) {
             $.say($.lang.get('clangnetsass.steamgroup'));
@@ -328,7 +323,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'followers', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'howlong', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'howserver', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'howsong', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'steamgroup', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'steam', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'xebon', 7);
