@@ -44,7 +44,7 @@ $.lang.register('edinfo.offlinemodefalse', 'EDInfo set to be used only while pla
 // EDInfo debug mode toggle responses
 // ----------------------------------
 $.lang.register('edinfo.debugmodetrue', 'EDInfo Debug Mode is now enabled');
-$.lang.register('edinfo.debugmodefalse', 'EDInfo DebugMode is now disabled');
+$.lang.register('edinfo.debugmodefalse', 'EDInfo Debug Mode is now disabled');
 
 // EDInfo text file path responses
 // -------------------------------

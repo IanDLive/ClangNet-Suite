@@ -1,6 +1,21 @@
 // Language file for clangnetsass.js
 // =================================
 
+// !clangnetofflinemode responses
+// ------------------------------
+$.lang.register('clangnetsass.offlinemodetrue', 'Clangnet no longer checking to whether the stream is online.');
+$.lang.register('clangnetsass.offlinemodefalse', 'Clangnet now checking whether the stream is online before executing certain commands.');
+
+// !debugclangnetsass responses
+// ----------------------------
+$.lang.register('clangnetsass.debugmodetrue', 'ClangnetSass Debug Mode is now enabled');
+$.lang.register('clangnetsass.debugmodefalse', 'ClangnetSass Debug Mode is now disabled');
+
+// !clangnetshowvars responses
+// ---------------------------
+$.lang.register('clangnetsass.showvars.success', 'Specified variables shown in console.');
+$.lang.register('clangnetsass.showvars.failed', 'Unable to complete command, debug mode disabled.');
+
 // !lurk command responses
 // -----------------------
 $.lang.register('clangnetsass.lurk.darkinhere', 'Hold on a minute, how can you lurk in a stream when the stream isn\'t even here?!?!?');

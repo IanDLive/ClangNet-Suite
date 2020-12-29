@@ -26,7 +26,7 @@
         $.consoleLn("║     Elite: Dangerous commands module online     ║");
         $.consoleLn("╚═════════════════════════════════════════════════╝");
         if (debugEDInfo) {
-            $.consoleLn("       *** EDInfo Debug Facility Enabled ***");
+            $.consoleLn("[EDINFO DEBUG] EDInfo Debug Facility Enabled");
         }
         $.consoleLn("EDDiscovery OBS File Path set to: " + elitePBPath);
         if (elitePBPath.equalsIgnoreCase('[no url set]')) {
@@ -220,12 +220,12 @@
                 debugEDInfo = true;
                 $.setIniDbBoolean('edInfo', 'debugEDInfo', true);
                 $.say($.lang.get('edinfo.debugmodetrue'));
-                $.consoleLn($.lang.get('edinfo.debugmodetrue'));
+                $.consoleLn($.lang.get('[EDINFO DEBUG] ' + 'edinfo.debugmodetrue'));
             } else {
                 debugEDInfo = false;
                 $.setIniDbBoolean('edInfo', 'debugEDInfo', false);
                 $.say($.lang.get('edinfo.debugmodefalse'));
-                $.consoleLn($.lang.get('edinfo.debugmodefalse'));
+                $.consoleLn('[EDINFO DEBUG] ' + $.lang.get('edinfo.debugmodefalse'));
             }
         }
 

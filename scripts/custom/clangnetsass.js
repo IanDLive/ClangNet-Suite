@@ -1,4 +1,4 @@
-// ClangNet Sass
+﻿// ClangNet Sass
 // -------------
 // Chat message interceptions to automate some responses and general commands for ClangNet
 //
@@ -14,6 +14,23 @@
 (function () {
     // Global variable for this function
     var jokesEnabled = $.getSetIniDbBoolean('clangnetSass', 'jokesEnabled', true);
+    var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
+    var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
+
+    // Initialise variables for this function and report debug mode on startup if it is enabled.
+    function initText() {
+        allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
+        debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
+        $.consoleLn("╔═════════════════════════════════════════════════╗");
+        $.consoleLn("║       Clangnet Sass commands module online      ║");
+        $.consoleLn("╚═════════════════════════════════════════════════╝");
+        if (allowOfflineCmd) {
+            $.consoleLn($.lang.get('clangnetsass.offlinemodetrue'));
+        }
+        if (debugClangnet) {
+            $.consoleLn('[CLANGNET DEBUG] ClangnetSass Debug Facility Enabled');
+        }
+    }
 
     // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
     function getAnyJoke() {
@@ -90,7 +107,7 @@
 
         // Determine whether the stream is online before executing any of the sass commands.
         if (command.equalsIgnoreCase('lurk')) {
-            if ($.isOnline($.channelName)) {
+            if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 var intResponseChoice = Math.floor(Math.random() * 7);
                 var lurkSender = $.cnUserStrings(sender);
                 switch (intResponseChoice) {
@@ -123,9 +140,10 @@
 
         if (command.equalsIgnoreCase('gamemods')) {
             var modSender = $.cnUserStrings(sender);
-            if ($.isOnline($.channelName)) {
+            if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 var currentGame = $.getGame($.channelName);
-                switch (currentGame) {
+                var lc_currentGame = currentGame.toLowerCase();
+                switch (lc_currentGame) {
                     case 'space engineers':
                         $.say($.lang.get('clangnetsass.se-mods'));
                         break;
@@ -152,9 +170,10 @@
 
         if (command.equalsIgnoreCase('handle')) {
             var handleSender = $.cnUserStrings(sender);
-            if ($.isOnline($.channelName)) {
+            if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 var currentGame = $.getGame($.channelName);
-                switch (currentGame) {
+                var lc_currentGame = currentGame.toLowerCase();
+                switch (lc_currentGame) {
                     case 'star citizen':
                         $.say($.lang.get('clangnetsass.handle-starcitizen', handleSender[0]));
                         break;
@@ -309,9 +328,59 @@
         if (command.equalsIgnoreCase('socials')) {
             $.say($.lang.get('clangnetsass.socials'));
         }
+
+        // --- !clangnetofflinemode command ---
+        if (command.equalsIgnoreCase('clangnetofflinemode')) {
+            allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
+            if (allowOfflineCmd == false) {
+                allowOfflineCmd = true;
+                $.setIniDbBoolean('clangnetSass', 'allowOfflineCmd', true);
+                $.say($.lang.get('clangnetsass.offlinemodetrue'));
+                $.consoleLn($.lang.get('clangnetsass.offlinemodetrue'));
+            } else {
+                allowOfflineCmd = false;
+                $.setIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
+                $.say($.lang.get('clangnetsass.offlinemodefalse'));
+                $.consoleLn($.lang.get('clangnetsass.offlinemodefalse'));
+            }
+            return;
+        }
+
+        // --- !debugclangnetsass command ---
+        if (command.equalsIgnoreCase('debugclangnetsass')) {
+            debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
+            if (debugClangnet == false) {
+                debugClangnet = true;
+                $.setIniDbBoolean('clangnetSass', 'debugClangnet', true);
+                $.say($.lang.get('clangnetsass.debugmodetrue'));
+                $.consoleLn('[CLANGNET DEBUG] ' + $.lang.get('clangnetsass.debugmodetrue'));
+            } else {
+                debugClangnet = false;
+                $.setIniDbBoolean('clangnetSass', 'debugClangnet', false);
+                $.say($.lang.get('clangnetsass.debugmodefalse'));
+                $.consoleLn('[CLANGNET DEBUG] ' + $.lang.get('clangnetsass.debugmodefalse'));
+            }
+            return;
+        }
+
+        // --- !clangnetshowvars command ---
+        if (command.equalsIgnoreCase('clangnetshowvars')) {
+            if (debugClangnet) {
+                currentGame = $.getGame($.channelName);
+                $.say($.lang.get('clangnetsass.showvars.success'));
+                $.consoleLn('[CLANGNET DEBUG] *** START OF VARIABLES ***');
+                $.consoleLn('[CLANGNET DEBUG] Current Game = ' + currentGame);
+                $.consoleLn('[CLANGNET DEBUG] ***  END OF VARIABLES  ***');
+            } else {
+                $.say($.lang.get('clangnetsass.showvars.failed'));
+                $.consoleLn($.lang.get('clangnetsass.showvars.failed'));
+            }
+            return;
+        }
     });
 
-    $.bind('initReady', function() {
+    $.bind('initReady', function () {
+        initText();
         // 'script' is the script location.  IT MUST BE IN SCRIPTS!!!
         // 'command' is the command name without the '!' prefix.
         // 'permission' is the group number from 0, 1, 2, 3, 4, 5, 6 and 7.
@@ -341,6 +410,9 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
+        $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'debugclangnetsass', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'clangnetshowvars', 0);
     });
 
     setTimeout(function () {
