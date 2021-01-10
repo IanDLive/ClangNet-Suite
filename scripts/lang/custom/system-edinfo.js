@@ -56,3 +56,12 @@ $.lang.register('edinfo.needtosetpath', 'A path needs to be set for the location
 // --------------------------
 $.lang.register('edinfo.cmdrname.notspecified', 'A name has to be specified so that it can be changed within the database.');
 $.lang.register('edinfo.cmdrname.nameupdated', 'The CMDR name for the EDInfo module has been updated to: $1');
+
+// EDInfo Discord responses
+// ------------------------
+$.lang.register('edinfo.discord.common.apifail', 'Unable to complete the call to the Background Simulation API');
+$.lang.register('edinfo.discord.factionstatus.factionnotfound', 'I\'m sorry but the faction $1 wasn\'t found, make sure that you spelled it correctly!');
+$.lang.register('edinfo.discord.factionstatus.bgsheader', '$1 BGS Statistics');
+$.lang.register('edinfo.discord.factionstatus.startprocess', 'Processing request for faction data...');
+$.lang.register('edinfo.discord.factionstatus.totalpages', 'Found a total of $1 page(s) of data within the Elite BGS.');
+$.lang.register('edinfo.discord.factionstatus.currentpage', 'Currently processing page $1 of $2.');
