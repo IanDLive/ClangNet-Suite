@@ -34,13 +34,16 @@
                 var permSetHydration = $.getSetIniDbString('permcom', baseCommand + ' hydration');
                 var permSetHunger = $.getSetIniDbString('permcom', baseCommand + ' hunger');
                 var permBaseSettings = $.getSetIniDbString('permcom', baseCommand + 'settings');
+                var permBaseSettingsCheck = $.getSetIniDbString('permcom', baseCommand + 'settings check');
+                var permBaseSettingsSet = $.getSetIniDbString('permcom', baseCommand + 'settings set');
                 // Unregister the old commands
                 $.unregisterChatSubcommand(baseCommand, 'toggle');
                 $.unregisterChatSubcommand(baseCommand, 'hydration');
                 $.unregisterChatSubcommand(baseCommand, 'hunger');
                 $.unregisterChatCommand(baseCommand);
-                $.unregisterChatCommand(baseCommand + 'settings');
+                $.unregisterChatSubcommand(baseCommand + 'settings', 'check');
                 $.unregisterChatSubcommand(baseCommand + 'settings', 'set');
+                $.unregisterChatCommand(baseCommand + 'settings');
                 // Register the new commands
                 baseCommand = newCommand;
                 $.registerChatCommand('./custom/fettleSystem.js', baseCommand, permBase);
@@ -48,6 +51,8 @@
                 $.registerChatSubcommand(baseCommand, 'hydration', permSetHydration);
                 $.registerChatSubcommand(baseCommand, 'hunger', permSetHunger);
                 $.registerChatCommand('./custom/fettleSystem.js', baseCommand + 'settings', permBaseSettings);
+                $.registerChatSubcommand(baseCommand + 'settings', 'check', permBaseSettingsCheck);
+                $.registerChatSubcommand(baseCommand + 'settings', 'set', permBaseSettingsSet);
             } else {
                 $.inidb.set('fettleSettings', 'baseCommand', baseCommand);
                 $.consoleDebug($.lang.get('fettlesystem.set.basecommand.failed', newCommand));

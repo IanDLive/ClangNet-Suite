@@ -10,6 +10,7 @@
  */
 $.lang.register('fettlesystem.fettle.usage', 'Usage: !$1 [ hydration | hunger | toggle ]');
 $.lang.register('fettlesystem.fettle.offline', '!$1 $2 can only be used when $3 is live on Twitch!');
+$.lang.register('fettlesystem.set.basecommand.failed', 'Unable to change the base command to: $1');
 
 /**
  * Settings Fettle Strings
