@@ -60,6 +60,8 @@ $.lang.register('edinfo.cmdrname.nameupdated', 'The CMDR name for the EDInfo mod
 // EDInfo Discord responses
 // ------------------------
 $.lang.register('edinfo.discord.common.apifail', 'Unable to complete the call to the Background Simulation API');
+$.lang.register('edinfo.discord.factionstatus.usage', 'Please specify the faction that you want to look for.  The faction that you want to search for must be enclosed in quotes (i.e. !edfactionstatus "Xebon Syndicate")');
+$.lang.register('edinfo.discord.edfs.usage', 'Please specify the faction that you want to look for.  The faction that you want to search for must be enclosed in quotes (i.e. !edfs "Xebon Syndicate")');
 $.lang.register('edinfo.discord.factionstatus.factionnotfound', 'I\'m sorry but the faction $1 wasn\'t found, make sure that you spelled it correctly!');
 $.lang.register('edinfo.discord.factionstatus.bgsheader', '$1 BGS Statistics');
 $.lang.register('edinfo.discord.factionstatus.startprocess', 'Processing request for faction data...');
