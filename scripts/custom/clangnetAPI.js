@@ -35,6 +35,24 @@
 
 
     /**
+     * @function cnPostJSONPackage
+     * @exports $
+     * @param {String} url
+     * @param {Object} payload
+     * @returns {Object}
+     * @returns {Object.content}
+     * @returns {Object.httpCode}
+     * @returns {Object.success}
+     */
+    function cnPostJSONPackage(url, payload) {
+        var HttpRequest = Packages.com.gmt2001.HttpRequest;
+        var HashMap = Packages.java.util.HashMap;
+        var responseData = HttpRequest.getData(HttpRequest.RequestType.POST, url, payload, new HashMap());
+        return responseData;
+    }
+
+
+    /**
      * @function cnUserStrings
      * @export $
      * @param {String} user
@@ -57,6 +75,7 @@
     /** Export functions to API */
     $.cnGetJSON = cnGetJSON;
     $.cnGetJSONPackage = cnGetJSONPackage;
+    $.cnPostJSONPackage = cnPostJSONPackage;
     $.cnUserStrings = cnUserStrings;
 })();
 
