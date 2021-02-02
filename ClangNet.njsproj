@@ -32,10 +32,16 @@
     <Content Include="scripts\custom\clangnetAPI.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\custom\channelPointHook.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="scripts\custom\smiterWalk.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\discord\custom\edinfo-discord.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\lang\custom\handler-channelPointHandler.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\lang\custom\system-smiterWalk.js">
