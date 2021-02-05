@@ -1,6 +1,6 @@
 $.lang.register('channelpointshook.notenabled', 'no channel points audio hook functions are enabled at the moment. Please use "!channelpointshook info" for information about what can be done with this command or "!channelpointshook usage for usage."');
 $.lang.register('channelpointshook.info', 'PhantomBot can be configured to play up to five audio hooks based on channel points redemptions. ');
-$.lang.register('channelpointshook.usage', 'Usage: !channelpointshook [info / usage / clip1 / clip2 / clip3 / clip4 / clip5]');
+$.lang.register('channelpointshook.usage', 'Usage: !channelpointshook [info / usage / clip1 / clip2 / clip3 / clip4 / clip5 / chuck]');
 $.lang.register('channelpointshook.current', 'channel points audio hook redemptions currently enabled for$1. Use "channelpointshook usage" for command usage or "!channelpointshook info" for what this command is all about.');
 $.lang.register('channelpointshook.config.failed', 'no channel point redemption was detected. Please try again.');
 
@@ -12,7 +12,16 @@ $.lang.register('channelpointshook.clip1.config.complete', 'Channel points clip1
 $.lang.register('channelpointshook.clip1.hook.notset', 'channel points reward, the audio hook to play has not been set. use "!channelpointshook clip1 hook [name of the audio hook to play]" to set.');
 $.lang.register('channelpointshook.clip1.hook.usage', 'channel points reward, the audio hook to play is set to $1. Use "!channelpointshook clip1 hook [name of the hook to play]" to change.');
 $.lang.register('channelpointshook.clip1.hook.message', 'channel points redemption clip1 will play audio hook $1 for the user who redeemed the reward.');
-$.lang.register('channelpointshook.clip1.toggle.id', 'unable to enable clip1 as no valid reqard ID was found. Please use "!channelpointshook clip1 config" to set reward.');
+$.lang.register('channelpointshook.clip1.toggle.id', 'unable to enable clip1 as no valid reward ID was found. Please use "!channelpointshook clip1 config" to set reward.');
 $.lang.register('channelpointshook.clip1.toggle.hook', 'unable to enable clip1 as no audio hook has been set. Please use "!channelpointshook clip1 hook [name of the hook to play]" to set.');
 $.lang.register('channelpointshook.clip1.enabled', 'channel points redemtion clip1 enabled for reward $1.');
 $.lang.register('channelpointshook.clip1.disabled', 'channel points redemtion clip1 disabled.');
+
+$.lang.register('channelpointshook.chuck.info', 'Chuck Norris facts are not enabled. When a fact redemption is claimed, a fact will be returned for them. To configure please use "!channelpointshook chuck config" or for more info please use "!channelpointshook chuck usage".');
+$.lang.register('channelpointshook.chuck.current', 'Chuck Norris facts are registered to $1 and a fact will be retrieved for each redemption. To change please use "!channelpointshook chuck config"');
+$.lang.register('channelpointshook.chuck.usage', 'Usage: !channelpointshook chuck [usage / config / toggle]');
+$.lang.register('channelpointshook.chuck.config.start', 'channel points chuck config active. Please redeem desired reward.');
+$.lang.register('channelpointshook.chuck.config.complete', 'Channel points chuck config complete. Chuck Norris facts are now registered to reward $1.');
+$.lang.register('channelpointshook.chuck.toggle.id', 'unable to enable Chuck Norris facts as no valid reward ID was found. Please use "!channelpointshook chuck config" to set reward.');
+$.lang.register('channelpointshook.chuck.enabled', 'channel points redemption chuck enabled for reward $1.');
+$.lang.register('channelpointshook.chuck.disabled', 'channel points redemption chuck disabled.');

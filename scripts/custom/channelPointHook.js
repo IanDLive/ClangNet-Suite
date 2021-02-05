@@ -3,7 +3,11 @@
         clip1ID = $.getSetIniDbString('channelPointsHookSettings', 'clip1ID', 'noIDSet'),
         clip1Config = $.getSetIniDbBoolean('channelPointsHookSettings', 'clip1Config', false),
         clip1Hook = $.getSetIniDbString('channelPointsHookSettings', 'clip1Hook', 'noHookSet'),
-        clip1Reward = $.getSetIniDbString('channelPointsHookSettings', 'clip1Reward', 'noNameSet');
+        clip1Reward = $.getSetIniDbString('channelPointsHookSettings', 'clip1Reward', 'noNameSet'),
+        chuckToggle = $.getSetIniDbBoolean('channelPointsHookSettings', 'chuckToggle', false),
+        chuckID = $.getSetIniDbString('channelPointsHookSettings', 'chuckID', 'noIDSet'),
+        chuckConfig = $.getSetIniDbBoolean('channelPointsHookSettings', 'chuckConfig', false),
+        chuckReward = $.getSetIniDbString('channelPointsHookSettings', 'chuckReward', 'noNameSet');
 
     function updateChannelPointsHookConfig() {
         clip1Toggle = $.getIniDbBoolean('channelPointsHookSettings', 'clip1Toggle', false);
@@ -11,6 +15,10 @@
         clip1Config = $.getIniDbBoolean('channelPointsHookSettings', 'clip1Config', false);
         clip1Hook = $.getIniDbString('channelPointsHookSettings', 'clip1Hook', 'noHookSet');
         clip1Reward = $.getIniDbString('channelPointsHookSettings', 'clip1Reward', 'noNameSet');
+        chuckToggle = $.getIniDbBoolean('channelPointsHookSettings', 'chuckToggle', false);
+        chuckID = $.getIniDbString('channelPointsHookSettings', 'chuckID', 'niIDSet');
+        chuckConfig = $.getIniDbBoolean('channelPointsHookSettings', 'chuckConfig', false);
+        chuckReward = $.getIniDbString('channelPointsHookSettings', 'chuckReward', 'noNameSet');
     }
 
     /*
@@ -87,7 +95,7 @@
                         $.setIniDbString('channelPointsHookSettings', 'clip1Reward', clip1Reward);
                         return;
                     }
-                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip1.config.failed'));
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.config.failed'));
                     // config is closed when the reward is successfully redeemed - see the reward ID config in channel points events below.
                     return;
                 }
@@ -130,6 +138,63 @@
                     return;
                 }
             }
+
+            /*
+             * @commandpath chuck
+             */
+            if (action.equalsIgnoreCase('chuck')) {
+                if (args[1] === undefined) {
+                    if (chuckToggle === false) {
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.info'));
+                        return;
+                    }
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.current', chuckReward));
+                    return;
+                }
+
+                /*
+                 * @commandpath chuck usage
+                 */
+                if (args[1].equalsIgnoreCase('usage')) {
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.usage'));
+                    return;
+                }
+
+                /*
+                 * @commandpath chuck config
+                 */
+                if (args[1].equalsIgnoreCase('config')) {
+                    chuckConfig = !chuckConfig;
+                    $.getSetIniDbBoolean('channelPointsHookSettings', 'chuckConfig', chuckConfig);
+                    if (chuckConfig === true) {
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.config.start'));
+                        chuckID = 'noIDSet';
+                        chuckReward = 'noNameSet';
+                        $.setIniDbString('channelPointsHookSettings', 'chuckID', chuckID);
+                        $.setIniDbString('channelPointsHookSettings', 'chuckReward', chuckReward);
+                        return;
+                    }
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.config.failed'));
+                    // config is closed when the reward is successfully redeemed - see the reward ID config in channel points events below.
+                    return;
+                }
+
+                /*
+                 * @commandpath chuck toggle
+                 */
+                if (args[1].equalsIgnoreCase('toggle')) {
+                    if (chuckToggle === false) {
+                        if (chuckID.equals('noIDSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.toggle.id'));
+                            return;
+                        }
+                    }
+                    chuckToggle = !chuckToggle;
+                    $.setIniDbBoolean('channelPointsHookSettings', 'chuckToggle', chuckToggle);
+                    $.say($.whisperPrefix(sender) + (chuckToggle ? $.lang.get('channelpointshook.chuck.enabled', chuckReward) : $.lang.get('channelpointshook.chuck.disabled')));
+                    return;
+                }
+            }
         }
     })
 
@@ -164,14 +229,33 @@
             return;
         }
 
+        if (chuckConfig === true) {
+            chuckID = rewardID;
+            chuckReward = rewardTitle;
+            $.setIniDbString('channelPointsHookSettings', 'chuckID', chuckID);
+            $.setIniDbString('channelPointsHookSettings', 'chuckReward', chuckReward);
+            chuckConfig = false;
+            $.setIniDbBoolean('channelPointsHookSettings', 'chuckConfig', chuckConfig);
+            $.say($.lang.get('channelpointshook.chuck.config.complete', chuckReward));
+            return;
+        }
+
         /*
-         * audiohook play clip1
+         * rewardID redemption
          */
         if (rewardID.equals(clip1ID)) {
             if (clip1Toggle === true) {
                 $.consoleDebug('clip1RunStart');
                 // $.say('!audiohook play ' + clip1Hook);
                 $.alertspollssocket.triggerAudioPanel(clip1Hook);
+                return;
+            }
+        }
+
+        if (rewardID.equals(chuckID)) {
+            if (chuckToggle === true) {
+                $.consoleDebug('chuckRunStart');
+                $.cnChuckRandom();
                 return;
             }
         }

@@ -1,4 +1,23 @@
 (function() {
+
+    function chuckTotal() {
+        const apiURL = 'https://api.icndb.com/jokes/count';
+        var dataPackage = JSON.parse($.cnGetJSON(apiURL));
+        $.say($.lang.get('chuckjokes.totaljokes', dataPackage.value));
+    }
+
+    function chuckSpecific(factNo) {
+        var apiURL = 'https://api.icndb.com/jokes/' + factNo;
+        var dataPackage = JSON.parse($.cnGetJSON(apiURL));
+        $.say($.lang.get('chuckjokes.joke', dataPackage.value.id, dataPackage.value.joke));
+    }
+
+    function chuckRandom() {
+        const apiURL = 'https://api.icndb.com/jokes/random';
+        var dataPackage = JSON.parse($.cnGetJSON(apiURL));
+        $.say($.lang.get('chuckjokes.joke', dataPackage.value.id, dataPackage.value.joke));
+    }
+
     // Command event
     $.bind('command', function(event) {
         // All of the default methods are stored in the event argument.
@@ -9,22 +28,20 @@
         var sender = event.getSender();
         var arguments = event.getArguments();
         var args = event.getArgs();
-        var apiURL;
 
         // Decision loops set up to parse an argument that is passed with the command.
         // If no argument is passed, then a random joke is returned.
         if (command.equalsIgnoreCase('chuck')) {
             if (arguments.equalsIgnoreCase('total')) {
-                jsonObject = JSON.parse($.cnGetJSON('https://api.icndb.com/jokes/count'));
-                $.say($.lang.get('chuckjokes.totaljokes', jsonObject.value));
+                chuckTotal();
                 return;
             }
             if (args[0] !== undefined) {
-                jsonObject = JSON.parse($.cnGetJSON('https://api.icndb.com/jokes/' + args[0]));
-                $.say($.lang.get('chuckjokes.joke', jsonObject.value.id, jsonObject.value.joke));
+                chuckSpecific(args[0]);
+                return;
             } else {
-                jsonObject = JSON.parse($.cnGetJSON('https://api.icndb.com/jokes/random'));
-                $.say($.lang.get('chuckjokes.joke', jsonObject.value.id, jsonObject.value.joke));
+                chuckRandom();
+                return;
             }
         }
     });
@@ -36,6 +53,8 @@
         // 'permission' is the group number from 0, 1, 2, 3, 4, 5, 6 and 7.
         // These are also used for the 'permcom' command.
         // $.registerChatCommand('script', 'command', 'permission');
-        $.registerChatCommand('./custom/chuckjokes.js', 'chuck', 7);
+        $.registerChatCommand('./custom/chuckjokes.js', 'chuck', 2);
     });
+
+    $.cnChuckRandom = chuckRandom;
 })();
