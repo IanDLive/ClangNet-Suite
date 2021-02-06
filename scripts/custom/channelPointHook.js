@@ -72,13 +72,28 @@
 
         if (command.equalsIgnoreCase('channelpointshook')) {
             if (action === undefined) {
-                if (clip1Toggle === false) {
+                if (clip1Toggle === false && clip2Toggle === false && clip3Toggle === false && clip4Toggle === false && clip5Toggle === false && chuckToggle=== false) {
                     $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.notenabled'));
                     return;
                 }
                 var config = '';
                 if (clip1Toggle === true) {
                     config += ' clip1';
+                }
+                if (clip2Toggle === true) {
+                    config += ' clip2';
+                }
+                if (clip3Toggle === true) {
+                    config += ' clip3';
+                }
+                if (clip4Toggle === true) {
+                    config += ' clip4';
+                }
+                if (clip5Toggle === true) {
+                    config += ' clip5';
+                }
+                if (chuckToggle === true) {
+                    config += ' chuck';
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.current', config));
                 return;
