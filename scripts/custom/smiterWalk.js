@@ -40,6 +40,7 @@
 
     function reminderBot() {
         var responseChoice = Math.floor(Math.random() * 3);
+        $.alertspollsocket.triggerAudioPanel('airhorn');
         switch (responseChoice) {
             case 0:
                 $.say($.lang.get('smiterwalk.showreminder0'));
