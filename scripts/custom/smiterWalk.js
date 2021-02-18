@@ -97,6 +97,7 @@
                 if (action.equalsIgnoreCase('reset')) {
                     timeElapsed = 0;
                     $.say($.lang.get('smiterwalk.subcommands.reset'));
+                    return;
                 }
                 if (action.equalsIgnoreCase('check')) {
                     $.say($.lang.get('smiterwalk.subcommands.check', (walkToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled')), walkTimer));
