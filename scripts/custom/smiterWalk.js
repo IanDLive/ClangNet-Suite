@@ -54,7 +54,7 @@
     }
 
     function shouldBotSpeak() {
-        if (walkToggle === true) {
+        if (walkToggle === true && $.isOnline($.channelName)) {
             timeElapsed = timeElapsed + 1;
             if (timeElapsed.toString() == walkTimer) {
                 reminderBot();
@@ -94,6 +94,10 @@
                         return;
                     }
                 }
+                if (action.equalsIgnoreCase('reset')) {
+                    timeElapsed = 0;
+                    $.say($.lang.get('smiterwalk.subcommands.reset'));
+                }
                 if (action.equalsIgnoreCase('check')) {
                     $.say($.lang.get('smiterwalk.subcommands.check', (walkToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled')), walkTimer));
                     return;
@@ -114,6 +118,7 @@
             $.registerChatCommand('./custom/smiterWalk.js', baseCommand, 7);
             $.registerChatSubcommand(baseCommand, 'toggle', 2);
             $.registerChatSubcommand(baseCommand, 'settings', 2);
+            $.registerChatSubcommand(baseCommand, 'reset', 2);
             $.registerChatSubcommand(baseCommand, 'check', 7);
             $.registerChatCommand('./custom/smiterWalk.js', 'reloadSmiterWalk', 30);
         }
