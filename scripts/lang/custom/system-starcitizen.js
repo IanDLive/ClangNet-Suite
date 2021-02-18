@@ -15,4 +15,8 @@ $.lang.register('starcitizen.ships', 'Check out the current range of ships that 
 
 // !scroadmap command response
 // ---------------------------
-$.lang.register('starcitizen.roadmap', 'If you want to check out the current development progress of Star Citizen, take a look at the roadmanp here --> https://iand.live/sc-roadmap');
+$.lang.register('starcitizen.roadmap', 'If you want to check out the current development progress of Star Citizen, take a look at the roadmap here --> https://iand.live/sc-roadmap');
+
+// !scscreenshots command response
+// -------------------------------
+$.lang.register('starcitizen.screenshots', 'Are you looking for high quality images from in and around the \'verse?  If so, take a look at the gallery on our website --> https://iand.live/sc-screenshots');

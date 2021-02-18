@@ -69,6 +69,31 @@
         cmdrName = $.getIniDbString('edInfo', 'cmdrName');
     }
 
+    function sayEDCareers() {
+        $.say($.lang.get('edinfo.playing.edcareers'));
+    }
+
+    function sayEDScreenshots() {
+        $.say($.lang.get('edinfo.playing.edscreenshots'));
+    }
+
+    function edTimerBot() {
+        var currentGame;
+        var intTimerChoice = Math.floor(Math.random() * 2);
+
+        currentGame = $.getGame($.channelName);
+        if ($.isOnline($.channelName) && currentGame.equalsIgnoreCase('elite: dangerous')) {
+            switch (intTimerChoice) {
+                case 0:
+                    sayEDCareers();
+                    break;
+                case 1:
+                    sayEDScreenshots();
+                    break;
+            }
+        }
+    }
+
     // Command Event
     $.bind('command', function(event) {
         // All of the default methods are stored in the event argument.
@@ -183,7 +208,10 @@
                     }
                 }
                 if (command.equalsIgnoreCase('edcareers')) {
-                    $.say($.lang.get('edinfo.playing.edcareers'));
+                    sayEDCareers();
+                }
+                if (command.equalsIgnoreCase('edscreenshots')) {
+                    sayEDScreenshots();
                 }
                 if (command.equalsIgnoreCase('designations')) {
                     $.say($.lang.get('edinfo.designations'));
@@ -276,6 +304,7 @@
             $.registerChatSubcommand('edshipbuild', 'delete', 1);
             $.registerChatSubcommand('edshipbuild', 'update', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edofflinemode', 1);
@@ -285,6 +314,10 @@
             $.registerChatCommand('./custom/edinfo.js', 'reloadedinfo', 1);
         }
     });
+
+    setTimeout(function () {
+        setInterval(function () { edTimerBot(); }, 6e5, 'scripts::custom::edinfo.js');
+    }, 5e3);
 
     $.reloadEDInfo = reloadEDInfo;
 }) ();

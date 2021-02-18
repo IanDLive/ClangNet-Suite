@@ -32,10 +32,15 @@
         $.say($.lang.get('starcitizen.roadmap'));
     }
 
+    // Show the message to upload and view screenshots on the webiste.
+    function saySCScreenshots() {
+        $.say($.lang.get('starcitizen.screenshots'));
+    }
+
     // 'Bot' to randomly pick a Star Citizen line to say in chat when the timer is invoked, but only if Star Citizen is being played.
     function scTimerBot() {
         var currentGame;
-        var intTimerChoice = Math.floor(Math.random() * 4);
+        var intTimerChoice = Math.floor(Math.random() * 5);
 
 
         currentGame = $.getGame($.channelName);
@@ -52,6 +57,9 @@
                     break;
                 case 3:
                     saySCRoadmap();
+                    break;
+                case 4:
+                    saySCScreenshots();
                     break;
             }
         }
@@ -79,6 +87,11 @@
         if (command.equalsIgnoreCase('scroadmap')) {
             saySCRoadmap();
         }
+
+        // --- !scscreenshot command ---
+        if (command.equalsIgnoreCase('scscreenshots')) {
+            saySCScreenshots();
+        }
     });
 
     $.bind('initReady', function () {
@@ -88,6 +101,7 @@
             $.registerChatCommand('./custom/starcitizen.js', 'screferral', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'scships', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'scroadmap', 7);
+            $.registerChatCommand('./custom/starcitizen.js', 'scscreenshots', 7);
         }
     });
 
