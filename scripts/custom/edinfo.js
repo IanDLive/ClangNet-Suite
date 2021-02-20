@@ -16,6 +16,10 @@
     var starSystem;
     var systemBody;
     var pathSet;
+    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
+    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
+    var messageCount = 0;
+    var lastNoticeSent = 0;
 
     // Initialization text for the console.
     function initText() {
@@ -288,6 +292,10 @@
         }
     });
 
+    $.bind('ircChannelMessage', function (event) {
+        messageCount++;
+    });
+
     // initReady event to register the commands.
     $.bind('initReady', function () {
         if ($.bot.isModuleEnabled('./custom/edinfo.js')) {
@@ -316,7 +324,13 @@
     });
 
     setTimeout(function () {
-        setInterval(function () { edTimerBot(); }, 6e5, 'scripts::custom::edinfo.js');
+        setInterval(function () {
+            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
+                edTimerBot();
+                messageCount = 0;
+                lastNoticeSent = $.systemTime();
+            }
+        }, 1e4, 'scripts::custom::starcitizen.js');
     }, 5e3);
 
     $.reloadEDInfo = reloadEDInfo;

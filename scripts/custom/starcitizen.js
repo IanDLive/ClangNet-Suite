@@ -4,6 +4,10 @@
 // Chat message responses for Star Citizen related commands.
 
 (function () {
+    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
+    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
+    var messageCount = 0;
+    var lastNoticeSent = 0;
 
     // Initialization text for the console.
     function initText() {
@@ -65,6 +69,10 @@
         }
     }
 
+    $.bind('ircChannelMessage', function (event) {
+        messageCount++;
+    });
+
     $.bind('command', function (event) {
         var command = event.getCommand();
 
@@ -106,7 +114,13 @@
     });
 
     setTimeout(function () {
-        setInterval(function () { scTimerBot(); }, 6e5, 'scripts::custom::starcitizen.js');
+        setInterval(function () {
+            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
+                scTimerBot();
+                messageCount = 0;
+                lastNoticeSent = $.systemTime();
+            }
+        }, 1e4, 'scripts::custom::starcitizen.js');
     }, 5e3);
 
 })();
