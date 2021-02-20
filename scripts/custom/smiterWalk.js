@@ -6,7 +6,9 @@
     var baseCommand = $.getSetIniDbString('smiterWalkSettings', 'baseCommand', 'smiterwalk');
     var walkTimer = $.getSetIniDbNumber('smiterWalkSettings', 'walkTimer', 90);
     var walkToggle = $.getSetIniDbBoolean('smiterWalkSettings', 'walkToggle', false);
+    var audioToggle = $.getSetIniDbBoolean('smiterWalkSettings', 'audioToggle', false);
     var timeElapsed = 0;
+    var testSmiterWalk = false;
 
     function reloadSmiterWalk() {
         var newCommand = $.getSetIniDbString('smiterWalkSettings', 'baseCommand', 'smiterwalk');
@@ -17,9 +19,15 @@
                 var permBase = $.getSetIniDbString('permcom', baseCommand);
                 var permWalkToggle = $.getSetIniDbString('permcom', baseCommand + ' toggle');
                 var permWalkSettings = $.getSetIniDbString('permcom', baseCommand + ' settings');
+                var permWalkReset = $.getSetIniDbString('permcom', baseCommand + ' reset');
+                var permWalkAudio = $.getSetIniDbString('permcom', baseCommand + ' audio');
                 var permWalkCheck = $.getSetIniDbString('permcom', baseCommand + ' check');
+                var permWalkTest = $.getSetIniDbString('permcom', baseCommand + ' test');
                 // Unregister the old commands
+                $.unregisterChatSubcommand(baseCommand, 'test');
                 $.unregisterChatSubcommand(baseCommand, 'check');
+                $.unregisterChatSubcommand(baseCommand, 'audio');
+                $.unregisterChatSubcommand(baseCommand, 'reset');
                 $.unregisterChatSubcommand(baseCommand, 'settings');
                 $.unregisterChatSubcommand(baseCommand, 'toggle');
                 $.unregisterChatCommand(baseCommand);
@@ -28,7 +36,10 @@
                 $.registerChatCommand('./custom/smiterWalk.js', baseCommand, permBase);
                 $.registerChatSubcommand(baseCommand, 'toggle', permWalkToggle);
                 $.registerChatSubcommand(baseCommand, 'settings', permWalkSettings);
+                $.registerChatSubCommand(baseCommand, 'reset', permWalkReset);
+                $.registerChatSubcommand(baseCommand, 'audio', permWalkAudio);
                 $.registerChatSubcommand(baseCommand, 'check', permWalkCheck);
+                $.registerChatSubCommand(baseCommand, 'test', permWalkTest);
             } else {
                 $.inidb.set('smiterWalkSettings', 'baseCommand', baseCommand);
                 $.consoleDebug($.lang.get('smiterwalk.set.command.failed'));
@@ -36,11 +47,14 @@
         }
         walkTimer = $.getIniDbNumber('smiterWalkSettings', 'walkTimer');
         walkToggle = $.getIniDbBoolean('smiterWalkSettings', 'walkToggle');
+        audioToggle = $.getIniDbBoolean('smiterWalkSettings', 'audioToggle');
     }
 
     function reminderBot() {
         var responseChoice = Math.floor(Math.random() * 3);
-        $.alertspollsocket.triggerAudioPanel('airhorn');
+        if (audioToggle === true) {
+            $.alertspollssocket.triggerAudioPanel('airhorn');
+        }
         switch (responseChoice) {
             case 0:
                 $.say($.lang.get('smiterwalk.showreminder0'));
@@ -52,16 +66,32 @@
                 $.say($.lang.get('smiterwalk.showreminder2'));
                 break;
         }
+        return;
     }
 
     function shouldBotSpeak() {
-        if (walkToggle === true && $.isOnline($.channelName)) {
-            timeElapsed = timeElapsed + 1;
-            if (timeElapsed.toString() == walkTimer) {
-                reminderBot();
-                timeElapsed = 0;
+        if (testSmiterWalk) {
+            $.consoleLn('[SMITERWALK TESTING] - Channel Online = ' + $.isOnline($.channelName));
+            $.consoleLn('[SMITERWALK TESTING] - walkToggle = ' + walkToggle);
+            $.consoleLn('[SMITERWALK TESTING] - audioToggle = ' + audioToggle);
+            $.consoleLn('[SMITERWALK TESTING] - walkTimer = ' + walkTimer);
+        }
+        if (($.isOnline($.channelName)) || (testSmiterWalk === true)) {
+            if (walkToggle === true) {
+                timeElapsed = timeElapsed + 1;
+                if (testSmiterWalk) {
+                    $.consoleLn('[SMITERWALK TESTING] - timeElapsed = ' + timeElapsed);
+                }
+                if (timeElapsed == walkTimer) {
+                    reminderBot();
+                    timeElapsed = 0;
+                }
             }
         }
+        if (testSmiterWalk) {
+            $.consoleLn('---------------------------------------------');
+        }
+        return;
     }
 
     $.bind('command', function (event) {
@@ -100,8 +130,19 @@
                     $.say($.lang.get('smiterwalk.subcommands.reset'));
                     return;
                 }
+                if (action.equalsIgnoreCase('audio')) {
+                    audioToggle = !audioToggle;
+                    $.setIniDbBoolean('smiterWalkSettings', 'audioToggle', audioToggle);
+                    $.say($.lang.get('smiterwalk.subcommands.audiotogglesuccess', baseCommand, (audioToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                    return;
+                }
                 if (action.equalsIgnoreCase('check')) {
-                    $.say($.lang.get('smiterwalk.subcommands.check', (walkToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled')), walkTimer));
+                    $.say($.lang.get('smiterwalk.subcommands.check', (walkToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled')), walkTimer, (audioToggle === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                    return;
+                }
+                if (action.equalsIgnoreCase('test')) {
+                    testSmiterWalk = !testSmiterWalk;
+                    $.say('[SMITERWALK TESTING]: Test mode ' + (testSmiterWalk === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled')));
                     return;
                 } else {
                     $.say($.lang.get('smiterwalk.subcommands.available'));
@@ -121,7 +162,9 @@
             $.registerChatSubcommand(baseCommand, 'toggle', 2);
             $.registerChatSubcommand(baseCommand, 'settings', 2);
             $.registerChatSubcommand(baseCommand, 'reset', 2);
+            $.registerChatSubcommand(baseCommand, 'audio', 2);
             $.registerChatSubcommand(baseCommand, 'check', 7);
+            $.registerChatSubcommand(baseCommand, 'test', 2);
             $.registerChatCommand('./custom/smiterWalk.js', 'reloadSmiterWalk', 30);
         }
     });

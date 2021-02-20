@@ -10,4 +10,5 @@ $.lang.register('smiterwalk.subcommands.togglesuccess', 'The reminder message fo
 $.lang.register('smiterwalk.subcommands.settingsok', 'The interval for the reminders to pop up will occur every $1 minute(s).')
 $.lang.register('smiterwalk.subcommands.settingsuse', 'You need to enter a number of minutes for the reminder to pop up.');
 $.lang.register('smiterwalk.subcommands.reset', 'The timer for the reminder has been reset to zero.');
-$.lang.register('smiterwalk.subcommands.check', 'The command is currently $1 and the interval between the messages is set to $2 minute(s).');
+$.lang.register('smiterwalk.subcommands.audiotogglesuccess', 'The audio alert for the $1 command is $2');
+$.lang.register('smiterwalk.subcommands.check', 'The command is currently $1 and the interval between the messages is set to $2 minute(s).  Audio alerts are $3');
