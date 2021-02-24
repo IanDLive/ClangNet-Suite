@@ -1,0 +1,4 @@
+This is a placeholder file so that the folder is created when publishing
+the suite of commands for PhantomBot.  This folder is used by EDDiscovery
+to post text files that can be read by the bot to be used in the edinfo
+batch of commands.

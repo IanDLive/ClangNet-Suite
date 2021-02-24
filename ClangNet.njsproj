@@ -29,6 +29,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="addons\custom\edinfo\__folderusage.txt" />
     <Content Include="scripts\custom\clangnetAPI.js">
       <SubType>Code</SubType>
     </Content>
@@ -117,6 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="addons\" />
+    <Folder Include="addons\custom\" />
+    <Folder Include="addons\custom\edinfo\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\custom\" />
     <Folder Include="scripts\discord\" />
