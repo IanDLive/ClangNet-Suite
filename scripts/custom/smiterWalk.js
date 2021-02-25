@@ -49,7 +49,7 @@
     function reminderBot() {
         var responseChoice = Math.floor(Math.random() * 3);
         if (audioToggle === true) {
-            $.alertspollssocket.triggerAudioPanel('airhorn');
+            $.alertspollssocket.triggerAudioPanel('Smite_Me_Smiter');
         }
         switch (responseChoice) {
             case 0:
