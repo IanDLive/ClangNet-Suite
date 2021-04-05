@@ -4,10 +4,10 @@
 // Chat message responses for Star Citizen related commands.
 
 (function () {
-    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
-    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
-    var messageCount = 0;
-    var lastNoticeSent = 0;
+var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
+var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
+var messageCount = 0;
+var lastNoticeSent = 0;
 
     // Initialization text for the console.
     function initText() {
@@ -75,30 +75,36 @@
 
     $.bind('command', function (event) {
         var command = event.getCommand();
+        var currentGame;
 
-        // --- !scorg command ---
-        if (command.equalsIgnoreCase('scorg')) {
-            saySCOrg();
-        }
+        currentGame = $.getGame($.channelName);
+        if ($.isOnline($.channelName) && currentGame.equalsIgnoreCase('star citizen')) {
+            // --- !scorg command ---
+            if (command.equalsIgnoreCase('scorg')) {
+                saySCOrg();
+            }
 
-        // --- !screferral command ---
-        if (command.equalsIgnoreCase('screferral')) {
-            saySCReferral();
-        }
+            // --- !screferral command ---
+            if (command.equalsIgnoreCase('screferral')) {
+                saySCReferral();
+            }
 
-        // --- !scships command ---
-        if (command.equalsIgnoreCase('scships')) {
-            saySCShips();
-        }
+            // --- !scships command ---
+            if (command.equalsIgnoreCase('scships')) {
+                saySCShips();
+            }
 
-        // --- !scroadmap command ---
-        if (command.equalsIgnoreCase('scroadmap')) {
-            saySCRoadmap();
-        }
+            // --- !scroadmap command ---
+            if (command.equalsIgnoreCase('scroadmap')) {
+                saySCRoadmap();
+            }
 
-        // --- !scscreenshot command ---
-        if (command.equalsIgnoreCase('scscreenshots')) {
-            saySCScreenshots();
+            // --- !scscreenshot command ---
+            if (command.equalsIgnoreCase('scscreenshots')) {
+                saySCScreenshots();
+            }
+        } else {
+            $.say($.lang.get('starcitizen.playing.othergame'));
         }
     });
 

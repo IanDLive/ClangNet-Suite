@@ -27,7 +27,11 @@ $.lang.register('edinfo.playing.guardian.beacon', 'Guardian Beacon Location: SYN
 
 // Online, but playing something else
 // ----------------------------------
-$.lang.register('edinfo.playing.othergame', '$1 is not playing Elite:Dangerous right now');
+$.lang.register('edinfo.playing.othergame', '$1 is not playing Elite:Dangerous right now.');
+
+// Offline
+// -------
+$.lang.register('edinfo.offline', '$1 is currently offline.');
 
 // Ship designations command response
 // ----------------------------------

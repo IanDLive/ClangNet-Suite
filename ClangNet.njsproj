@@ -30,10 +30,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="addons\custom\edinfo\__folderusage.txt" />
+    <Content Include="addons\custom\ksp\__folderusage.txt" />
     <Content Include="scripts\custom\clangnetAPI.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\custom\channelPointHook.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\custom\kspkommand.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\custom\smiterWalk.js">
@@ -43,6 +47,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\lang\custom\handler-channelPointHandler.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\lang\custom\system-kspkommand.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\lang\custom\system-smiterWalk.js">
@@ -120,6 +127,7 @@
     <Folder Include="addons\" />
     <Folder Include="addons\custom\" />
     <Folder Include="addons\custom\edinfo\" />
+    <Folder Include="addons\custom\ksp\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\custom\" />
     <Folder Include="scripts\discord\" />

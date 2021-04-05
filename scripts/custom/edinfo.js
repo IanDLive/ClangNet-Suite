@@ -118,7 +118,7 @@
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
 
         if ($.isOnline($.channelName) || allowOffline == true) {
-            if (currentGame.equalsIgnoreCase('elite: dangerous') || allowOffline == true) { 
+            if (currentGame.equalsIgnoreCase('elite: dangerous') || allowOffline == true) {
                 if (shipName === undefined || shipName == null) {
                     shipName = '[SHIP NOT NAMED]';
                 }
@@ -227,6 +227,8 @@
                 // Currently online, but playing something else.
                 $.say($.lang.get('edinfo.playing.othergame', cmdrName));
             }
+        } else {
+            $.say($.lang.get('edinfo.offline', cmdrName));
         }
 
         // Universal commands, game determination not required.
