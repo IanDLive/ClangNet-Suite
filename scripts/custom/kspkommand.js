@@ -70,7 +70,6 @@
         var action = args[0];
         var optionValue = args[1];
         var currentGame;
-        var currentKontract;
 
         currentGame = $.getGame($.channelName);
         allowOffline = $.getIniDbBoolean('kspkommandSettings', 'allowOffline');
@@ -89,8 +88,9 @@
                             $.say($.lang.get('kspkommand.kontracts.notspecified'));
                             return;
                         } else {
-                            currentKontract = kontractStart + optionValue;
-                            $.writeToFile(currentKontract, filePath, false);
+                            curKontract = kontractStart + optionValue;
+                            $.setIniDbString('kspkommandSettings', 'kontract', curKontract);
+                            $.writeToFile(curKontract, filePath, false);
                             $.say($.lang.get('kspkommand.kontracts.success'));
                             return;
                         }
