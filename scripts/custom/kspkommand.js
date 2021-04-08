@@ -11,9 +11,11 @@
 
     var baseCommand = $.getSetIniDbString('kspkommandSettings', 'baseCommand', 'kontracts');
     var allowOffline = $.getSetIniDbBoolean('kspkommandSettings', 'allowOffline', false);
-    var curKontract = $.getSetIniDbString('kspkommandSettings', 'kontract', 'Kurrent Kontract - N/A');
+    var curKontract = $.getSetIniDbString('kspkommandSettings', 'kontract', 'Kurrent Kontract - TBC');
     var filePath = './addons/custom/ksp/kontracts.txt';
     var kontractStart = 'Kurrent Kontract - ';
+    var responseCount = 0;
+    var lastRandom = 0;
 
     function reloadKontracts() {
         var newCommand = $.getSetIniDbString('kspkommandSettings', 'baseCommand', 'kontracts');
@@ -30,6 +32,8 @@
             // Register the new commands
             baseCommand = newCommand;
             $.registerChatCommand('./custom/kspkommand.js', baseCommand, permBase);
+            $.registerChatSubcommand(baseCommand, 'set', permSet);
+            $.registerChatSubcommand(baseCommand, 'clear', permClear);
         } else {
             $.inidb.set('kspkommandSettings', 'baseCommand', baseCommand);
         }
@@ -40,6 +44,14 @@
         $.consoleLn("╔═════════════════════════════════════════════════╗");
         $.consoleLn("║           KSP commands module online            ║");
         $.consoleLn("╚═════════════════════════════════════════════════╝");
+    }
+
+    function loadResponses() {
+        var i;
+        for (i = 1; $.lang.exists('kspkommand.explode.response.' + i); i++) {
+            responseCount++;
+        }
+        $.consoleDebug($.lang.get('kspkommand.explode.debug.responses', responseCount));
     }
 
     function sayKontracts() {
@@ -97,11 +109,27 @@
                     }
                     // Clear the current kontract on stream display.
                     if (action.equalsIgnoreCase('clear')) {
-                        currentKontract = kontractStart + 'N/A';
-                        $.writeToFile(currentKontract, filePath, false);
-                        $.say($.lang.get('kspkommand.kontracts.cleared'))
+                        curKontract = kontractStart + 'TBC';
+                        $.setIniDbString('kspkommandSettings', 'kontract', curKontract);
+                        $.writeToFile(curKontract, filePath, false);
+                        $.say($.lang.get('kspkommand.kontracts.cleared'));
                         return;
                     }
+                }
+                // --- !explode command ---
+                if (command.equalsIgnoreCase('explode')) {
+                    var random;
+                    do {
+                        random = $.randRange(1, responseCount);
+                    } while (random == lastRandom);
+                    $.say($.lang.get('kspkommand.explode.response.base', $.lang.get('kspkommand.explode.response.' + random)));
+                    lastRandom = random;
+                    return;
+                }
+                // --- !abort command ---
+                if (command.equalsIgnoreCase('abort')) {
+                    $.say($.lang.get('kspkommand.abort'));
+                    return;
                 }
             } else {
                 $.say($.lang.get('kspkommand.playing.othergame'));
@@ -131,11 +159,16 @@
     });
 
     $.bind('initReady', function () {
+        if (responseCount == 0) {
+            loadResponses();
+        }
         if ($.bot.isModuleEnabled('./custom/kspkommand.js')) {
             initText();
             $.registerChatCommand('./custom/kspkommand.js', baseCommand, 7);
             $.registerChatSubcommand(baseCommand, 'set', 2);
             $.registerChatSubcommand(baseCommand, 'clear', 2);
+            $.registerChatCommand('./custom/kspkommand.js', 'explode', 7);
+            //$.registerChatCommand('./custom/kspkommand.js', 'abort', 7);
             $.registerChatCommand('./custom/kspkommand.js', 'kspofflinemode', 1);
         }
     });
