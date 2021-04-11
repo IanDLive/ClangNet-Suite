@@ -36,6 +36,7 @@ $.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are bein
 $.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 $.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
+$.lang.register('clangnetsass.ksp-mods','For the full list of mods that are being used in the current playthrough of Kerbal Space Program, follow the link to our website for details --> https://iand.live/ksp-mods');
 
 // !handle command responses
 // -------------------------

@@ -159,6 +159,9 @@
                     case 'elite: dangerous':
                         $.say($.lang.get('clangnetsass.ed-mods'));
                         break;
+                    case 'kerbal space program':
+                        $.say($.lang.get('clangnetsass.ksp-mods'));
+                        break;
                     default:
                         $.say($.lang.get('clangnetsass.mods-notused'));
                         break;
