@@ -168,7 +168,7 @@
             $.registerChatSubcommand(baseCommand, 'set', 2);
             $.registerChatSubcommand(baseCommand, 'clear', 2);
             $.registerChatCommand('./custom/kspkommand.js', 'explode', 7);
-            //$.registerChatCommand('./custom/kspkommand.js', 'abort', 7);
+            $.registerChatCommand('./custom/kspkommand.js', 'abort', 7);
             $.registerChatCommand('./custom/kspkommand.js', 'kspofflinemode', 1);
         }
     });
