@@ -123,6 +123,18 @@
             $.discord.say(channel, $.lang.get('clangnetsass.nomovies.discord', $.discord.userPrefix(mention).replace(', ', '')));
         }
 
+        // --- !elite command ---
+        if (command.equalsIgnoreCase('elite')) {
+            $.discordAPI.addRole('Elite BGS', discordUser);
+            $.discord.say(channel, $.lang.get('clangnetsass.elite.discord', $.discord.userPrefix(mention).replace(', ', '')));
+        }
+
+        // --- !mostlyharmless command ---
+        if (command.equalsIgnoreCase('mostlyharmless')) {
+            $.discordAPI.removeRole($.discordAPI.getRole('Elite BGS'), discordUser);
+            $.discord.say(channel, $.lang.get('clangnetsass.mostlyharmless.discord', $.discord.userPrefix(mention).replace(', ', '')));
+        }
+
         // --- !jokes command ---
         if (command.equalsIgnoreCase('jokes') && channelCheck.equalsIgnoreCase('games-room')) {
             $.discord.say(channel, $.lang.get('clangnetsass.telljoke.discord', getAnyJoke(), getAnyEmote()));
@@ -148,6 +160,8 @@
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'pedestrian', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'movienight', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'nomovies', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'elite', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'mostlyharmless', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'jokes', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'xebon', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'xebondiscord', 0);

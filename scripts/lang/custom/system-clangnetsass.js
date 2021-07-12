@@ -131,7 +131,7 @@ $.lang.register('clangnetsass.telljoke.discord', '$1 $2');
 
 // !socials command response
 // -------------------------
-$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider following these links: bleedPurple Discord --> https://iand.live/discord | bleedPurple Twitter --> https://iand.live/twitter | bleedPurple Facebook --> https://iand.live/fb | bleedPurple Instagram --> https://iand.live/ig | bleedPurple Website --> https://prophetrage.co.uk');
+$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://wlo.link/@IanDLive');
 
 // !motorsports command response
 // -----------------------------
@@ -146,5 +146,13 @@ $.lang.register('clangnetsass.pedestrian.discord', '$1, you have been removed fr
 $.lang.register('clangnetsass.movienight.discord', '$1, you\'ve been added to the *Movienight* role, with access to the **Movie Night** chat room.');
 
 // !nomovies command response
-//---------------------------
-$.lang.register('clangnetsass.nomovoes.discord', '$1, you\'ve been removed from the *Movienight* role.');
+// --------------------------
+$.lang.register('clangnetsass.nomovies.discord', '$1, you\'ve been removed from the *Movienight* role.');
+
+// !elite command response
+// -----------------------
+$.lang.register('clangnetsass.elite.discord', '$1, you\'ve been added to the *Elite BGS* role so you can retrieve information from the Elite: Dangerous BGS');
+
+// !mostlyharmless command response
+// --------------------------------
+$.lang.register('clangnetsass.mostlyharmless.discord', '$1, you\'ve been removed from the *Elite BGS* role.');
