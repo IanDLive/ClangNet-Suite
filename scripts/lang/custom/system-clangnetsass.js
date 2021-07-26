@@ -156,3 +156,8 @@ $.lang.register('clangnetsass.elite.discord', '$1, you\'ve been added to the *El
 // !mostlyharmless command response
 // --------------------------------
 $.lang.register('clangnetsass.mostlyharmless.discord', '$1, you\'ve been removed from the *Elite BGS* role.');
+
+// !ecoserver command response
+// ---------------------------
+$.lang.register('clangnetsass.ecoserver.discord', '$1, I have just DM\'d you the server details.');
+$.lang.register('clangnetsass.ecoserver.discord.private', '$1, the details to connect to the Eco server are as follows\n\nIP: 194.147.122.180:3000\nPassword: ShadowGuard1');

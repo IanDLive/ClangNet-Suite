@@ -149,6 +149,12 @@
         if (command.equalsIgnoreCase('xebondiscord')) {
             $.discord.say(channel, $.lang.get('clangnetsass.xebondiscord'));
         }
+
+        // --- !ecoserver command ---
+        if (command.equalsIgnoreCase('ecoserver')) {
+            $.discord.say(channel, $.lang.get('clangnetsass.ecoserver.discord', $.discord.userPrefix(mention).replace(', ', '')));
+            $.discordAPI.sendPrivateMessage(discordUser, $.lang.get('clangnetsass.ecoserver.discord.private', $.discord.userPrefix(mention).replace(', ', '')));
+        }
     });
 
     // initReady event to register the commands.
@@ -165,6 +171,7 @@
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'jokes', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'xebon', 0);
         $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'xebondiscord', 0);
+        $.discord.registerCommand('./discord/custom/clangnetsass-discord.js', 'ecoserver', 0);
     });
 
 })();
