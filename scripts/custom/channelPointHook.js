@@ -676,7 +676,8 @@
                 if (!$.audioHookExists(clip2Hook)) {
                     $.say($.lang.get('channelpointshook.audiohook.failed'));
                 } else {
-                    $.alertspollssocket.triggerAudioPanel(clip2Hook);
+                    //$.alertspollssocket.triggerAudioPanel(clip2Hook);
+                    $.alertspollssocket.alertImage('cn_NootNoot.gif');
                 }
                 return;
             }

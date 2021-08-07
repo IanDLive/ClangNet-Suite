@@ -332,6 +332,11 @@
             $.say($.lang.get('clangnetsass.socials'));
         }
 
+        // --- !subs command ---
+        if (command.equalsIgnoreCase('subs')) {
+            $.say($.lang.get('clangnetsass.subs'));
+        }
+
         // --- !clangnetofflinemode command ---
         if (command.equalsIgnoreCase('clangnetofflinemode')) {
             allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
@@ -411,6 +416,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);

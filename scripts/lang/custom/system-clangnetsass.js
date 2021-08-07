@@ -133,6 +133,10 @@ $.lang.register('clangnetsass.telljoke.discord', '$1 $2');
 // -------------------------
 $.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://wlo.link/@IanDLive');
 
+// !subs command response
+// ----------------------
+$.lang.register('clangnetsass.subs', 'Twitch now has regional subscriber pricing, do you want to know more?? *click*  -  Subscribe to the channel cheaper or for free with Twitch Prime!!!');
+
 // !motorsports command response
 // -----------------------------
 $.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the **Motorsports** voice channel.');
