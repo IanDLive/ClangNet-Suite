@@ -95,6 +95,11 @@
         }
     }
 
+    // IRC Message Event
+    $.bind('ircChatMessage', function (event) {
+        messageCount++;
+    });
+
     // Command Event
     $.bind('command', function (event) {
 
