@@ -332,7 +332,7 @@
                 messageCount = 0;
                 lastNoticeSent = $.systemTime();
             }
-        }, 1e4, 'scripts::custom::starcitizen.js');
+        }, 1e4, 'scripts::custom::edinfo.js');
     }, 5e3);
 
     $.reloadEDInfo = reloadEDInfo;

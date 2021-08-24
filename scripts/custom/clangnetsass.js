@@ -16,6 +16,11 @@
     var jokesEnabled = $.getSetIniDbBoolean('clangnetSass', 'jokesEnabled', true);
     var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
     var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
+    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
+    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
+    var messageCount = 0;
+    var lastNoticeSent = 0;
+
 
     // Initialise variables for this function and report debug mode on startup if it is enabled.
     function initText() {
@@ -425,7 +430,13 @@
     });
 
     setTimeout(function () {
-        setInterval(function () { sayAnyJoke('', false); }, 9e5, 'scripts::custom::clangnetsass.js');
+        setInterval(function () {
+            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
+                sayAnyJoke('', false);
+                messageCount = 0;
+                lastNoticeSent = $.systemTime();
+            }
+        }, 9e5, 'scripts::custom::clangnetsass.js');
     }, 7e3);
 
 }) ();
