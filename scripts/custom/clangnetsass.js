@@ -96,7 +96,7 @@
     }
 
     // IRC Message Event
-    $.bind('ircChatMessage', function (event) {
+    $.bind('ircChannelMessage', function (event) {
         messageCount++;
     });
 
