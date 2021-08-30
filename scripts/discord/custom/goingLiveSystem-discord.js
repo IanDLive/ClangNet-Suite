@@ -183,7 +183,7 @@
                     .appendField($.lang.get('discord.streamhandler.common.title'), $.getStatus(channelToGoLive), true)
                     .appendField($.lang.get('discord.streamhandler.common.uptime'), $.getStreamUptime(channelToGoLive).toString(), true)
                     .appendField($.lang.get('discord.streamhandler.common.viewers'), $.getViewers(channelToGoLive), true)
-                    .withImage('https://https://static-cdn.jtvnw.net/previews-ttv/live_user_' + $.username.resolve(channelToGoLive) + '-320x180.jpg')
+                    .withImage('https://https://static-cdn.jtvnw.net/previews-ttv/live_user_' + channelToGoLive + '-320x180.jpg')
                     .withTimestamp(Date.now())
                     .withFooterText('Twitch')
                     .withFooterIcon($.getLogo(channelToGoLive))
