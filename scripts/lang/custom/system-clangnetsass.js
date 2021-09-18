@@ -96,7 +96,7 @@ $.lang.register('clangnetsass.xebondiscord', 'Keep up with things as they are ha
 
 // !humble command response
 // ------------------------
-$.lang.register('clangnetsass.humble', 'Want to get hold of games at decent prizes while supporting a) this channel and b) and awesome charity?  If the answer is yes then pop over to Humble Bundle and check out their latest offers by clicking on this link --> https://iand.live/humble-store');
+$.lang.register('clangnetsass.humble', 'Want to get hold of games at decent prices while supporting a) this channel and b) an awesome charity?  If the answer is yes then pop over to Humble Bundle and check out their latest offers by clicking on this link --> https://iand.live/humble-store');
 
 // !humblemonth command response
 // -----------------------------
@@ -108,7 +108,7 @@ $.lang.register('clangnetsass.emotes', 'The subscriber emotes that are available
 
 // !food command response
 // ----------------------
-$.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
+$.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it\'s enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
 
 // !youtube command response
 // -------------------------
@@ -136,30 +136,6 @@ $.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date wi
 // !subs command response
 // ----------------------
 $.lang.register('clangnetsass.subs', 'Twitch now has regional subscriber pricing, do you want to know more?? *click*  -  Subscribe to the channel cheaper or for free with Twitch Prime!!!');
-
-// !motorsports command response
-// -----------------------------
-$.lang.register('clangnetsass.motorsports.discord', '$1, you have been added to the *Motorsports* role with access to the **Motorsports** voice channel.');
-
-// !pedestrian command response
-// ----------------------------
-$.lang.register('clangnetsass.pedestrian.discord', '$1, you have been removed from the *Motorsports* role.');
-
-// !movienight command response
-// ----------------------------
-$.lang.register('clangnetsass.movienight.discord', '$1, you\'ve been added to the *Movienight* role, with access to the **Movie Night** chat room.');
-
-// !nomovies command response
-// --------------------------
-$.lang.register('clangnetsass.nomovies.discord', '$1, you\'ve been removed from the *Movienight* role.');
-
-// !elite command response
-// -----------------------
-$.lang.register('clangnetsass.elite.discord', '$1, you\'ve been added to the *Elite BGS* role so you can retrieve information from the Elite: Dangerous BGS');
-
-// !mostlyharmless command response
-// --------------------------------
-$.lang.register('clangnetsass.mostlyharmless.discord', '$1, you\'ve been removed from the *Elite BGS* role.');
 
 // !ecoserver command response
 // ---------------------------
