@@ -141,3 +141,7 @@ $.lang.register('clangnetsass.subs', 'Twitch now has regional subscriber pricing
 // ---------------------------
 $.lang.register('clangnetsass.ecoserver.discord', '$1, I have just DM\'d you the server details.');
 $.lang.register('clangnetsass.ecoserver.discord.private', '$1, the details to connect to the Eco server are as follows\n\nIP: 194.147.122.180:3000\nPassword: ShadowGuard1');
+
+// !raided command response
+// ------------------------
+$.lang.register('clangnetsass.raided', 'If you have just joined the channel from a raid, thanks for sticking around.  Please consider removing from the url \'?referrer=raid\' so that you are counted as an active viewer, or just click the link https://twitch.tv/iandlive - enjoy the show!');
