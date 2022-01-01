@@ -19,10 +19,9 @@
 (function () {
 
     function initText() {
-        $.consoleLn("╔═══════════════════╗");
-        $.consoleLn("║   Warning System  ║");
-        $.consoleLn("║      Enabled      ║");
-        $.consoleLn("╚═══════════════════╝");
+        $.consoleLn("╔═════════════════════════════════════════════════╗");
+        $.consoleLn("║             Warning System Enabled              ║");
+        $.consoleLn("╚═════════════════════════════════════════════════╝");
     }
 
     /**
