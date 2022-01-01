@@ -347,6 +347,10 @@
             $.say($.lang.get('clangnetsass.subs'));
         }
 
+        if (command.equalsIgnoreCase('raided')) {
+            $.say($.lang.get('clangnetsass.raided'));
+        }
+
         // --- !clangnetofflinemode command ---
         if (command.equalsIgnoreCase('clangnetofflinemode')) {
             allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
@@ -427,6 +431,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);
