@@ -16,6 +16,7 @@
     var jokesEnabled = $.getSetIniDbBoolean('clangnetSass', 'jokesEnabled', true);
     var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
     var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
+    var pretzelTwitchId = $.getSetIniDbString('clangnetSass', 'twitchId', 'NaN');
     var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
     var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
     var messageCount = 0;
@@ -353,7 +354,29 @@
 
         // --- !song command ---
         if (command.equalsIgnoreCase('song')) {
-            $.cnGetJSON('https://api.pretzel.tv/playing/twitch/54758322');
+            pretzelTwitchId = $.getIniDbString('clangnetSass', 'twitchId');
+            if (args[0] === undefined) {
+                if (pretzelTwitchId === 'NaN') {
+                    $.say($.lang.get('clangnetsass.song.noid'));
+                    return;
+                } else {
+                    var apiURL = 'https://api.pretzel.tv/playing/twitch/' + pretzelTwitchId;
+                    $.say($.lang.get('clangnetsass.song', $.customAPI.get(apiURL).content));
+                    return;
+                }
+            } else {
+                if (args[0].equalsIgnoreCase('setup')) {
+                    if (args[1] === undefined || args[1] == null) {
+                        $.say($.lang.get('clangnetsass.song.failure'));
+                        $.setIniDbString('clangnetSass', 'twitchId', 'NaN');
+                        return;
+                    } else {
+                        $.say($.lang.get('clangnetsass.song.success', args[1]));
+                        $.setIniDbString('clangnetSass', 'twitchId', args[1]);
+                        return;
+                    }
+                }
+            }
         }
 
         // --- !clangnetofflinemode command ---
@@ -437,6 +460,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
+        $.registerChatSubcommand('song', 'setup', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
