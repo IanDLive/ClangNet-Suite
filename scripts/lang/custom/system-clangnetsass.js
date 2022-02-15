@@ -144,6 +144,10 @@ $.lang.register('clangnetsass.song.failure', 'Sorry, no Twitch ID No. was saved.
 $.lang.register('clangnetsass.song.success', 'Twitch ID No. stored: $1');
 $.lang.register('clangnetsass.song', 'Via Pretzel - $1');
 
+// !chatcomm command response
+// --------------------------
+$.lang.register('clangnetsass.chatcomm', 'Do you want to find out what commands that I respond to?  Click the link and find a full list of them --> https://iand.live/chatcomm');
+
 // !ecoserver command response
 // ---------------------------
 $.lang.register('clangnetsass.ecoserver.discord', '$1, I have just DM\'d you the server details.');
