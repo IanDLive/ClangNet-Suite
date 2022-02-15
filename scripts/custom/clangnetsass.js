@@ -379,6 +379,11 @@
             }
         }
 
+        // --- !chatcomm command ---
+        if (command.equalsIgnoreCase('chatcomm')) {
+            $.say($.lang.get('clangnetsass.chatcomm'));
+        }
+
         // --- !clangnetofflinemode command ---
         if (command.equalsIgnoreCase('clangnetofflinemode')) {
             allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
@@ -457,16 +462,17 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'chatcomm', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
-        $.registerChatSubcommand('song', 'setup', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
-        $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'debugclangnetsass', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetshowvars', 0);
+        $.registerChatSubcommand('jokes', 'toggle', 0);
+        $.registerChatSubcommand('song', 'setup', 0);
     });
 
     setTimeout(function () {
