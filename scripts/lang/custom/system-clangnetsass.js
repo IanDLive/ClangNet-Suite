@@ -137,6 +137,13 @@ $.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date wi
 // ----------------------
 $.lang.register('clangnetsass.subs', 'Twitch now has regional subscriber pricing, do you want to know more?? *click*  -  Subscribe to the channel cheaper or for free with Twitch Prime!!!');
 
+// !song command response
+// ----------------------
+$.lang.register('clangnetsass.song.noid', 'There isn\'t a current numerical Twitch ID set to execute the command.  Please use !song setup <Twitch ID No.> to set up the command.');
+$.lang.register('clangnetsass.song.failure', 'Sorry, no Twitch ID No. was saved.');
+$.lang.register('clangnetsass.song.success', 'Twitch ID No. stored: $1');
+$.lang.register('clangnetsass.song', 'Via Pretzel - $1');
+
 // !ecoserver command response
 // ---------------------------
 $.lang.register('clangnetsass.ecoserver.discord', '$1, I have just DM\'d you the server details.');
