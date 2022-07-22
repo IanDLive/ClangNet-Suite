@@ -122,6 +122,10 @@ $.lang.register('clangnetsass.por-youtube', 'There are videos chronicling the ex
 // ------------------------
 $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of the latest games at cheaper prices while supporting this channel? Head over to CDKeys to see what deals they have on offer --> https://iand.live/cdkeys');
 
+// !merch command response
+// -----------------------
+$.lang.register('clangnetsass.merch', 'Get your new and latest cultist robes here --> https://iand.live/merch');
+
 // !jokes command responses
 // ------------------------
 $.lang.register('clangnetsass.jokesenabled', '$1, ClangNet\'s hunour has now been $2.');

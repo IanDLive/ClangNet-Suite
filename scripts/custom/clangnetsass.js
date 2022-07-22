@@ -317,25 +317,14 @@
             $.say($.lang.get('clangnetsass.cdkeys'));
         }
 
-        // --- !chatrules command (MOD LEVEL) ---
-        if (command.equalsIgnoreCase('chatrules')) {
-            apiURL = 'http://decapi.me/twitch/chat_rules/iandlive';
-            $.say($.customAPI.get(apiURL).content);
+        // --- !merch command ---
+        if (command.equalsIgnoreCase('merch')) {
+            $.say($.lang.get('clangnetsass.merch'));
         }
 
-        // --- !jokes command ('toggle' AT CASTER/BOT LEVEL) ---
-        if (command.equalsIgnoreCase('jokes')) {
-            if (args[0] === undefined) {
-                sayAnyJoke(sender, true);
-            } else {
-                if (args[0].equalsIgnoreCase('toggle')) {
-                    atSender = $.cnUserStrings(sender);
-                    jokesEnabled = !jokesEnabled;
-                    $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
-                    $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
-                    $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
-                }
-            }
+        // --- !chatcomm command ---
+        if (command.equalsIgnoreCase('chatcomm')) {
+            $.say($.lang.get('clangnetsass.chatcomm'));
         }
 
         // --- !socials command ---
@@ -346,10 +335,6 @@
         // --- !subs command ---
         if (command.equalsIgnoreCase('subs')) {
             $.say($.lang.get('clangnetsass.subs'));
-        }
-
-        if (command.equalsIgnoreCase('raided')) {
-            $.say($.lang.get('clangnetsass.raided'));
         }
 
         // --- !song command ---
@@ -379,9 +364,30 @@
             }
         }
 
-        // --- !chatcomm command ---
-        if (command.equalsIgnoreCase('chatcomm')) {
-            $.say($.lang.get('clangnetsass.chatcomm'));
+        // --- !jokes command ('toggle' AT CASTER/BOT LEVEL) ---
+        if (command.equalsIgnoreCase('jokes')) {
+            if (args[0] === undefined) {
+                sayAnyJoke(sender, true);
+            } else {
+                if (args[0].equalsIgnoreCase('toggle')) {
+                    atSender = $.cnUserStrings(sender);
+                    jokesEnabled = !jokesEnabled;
+                    $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
+                    $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                    $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
+                }
+            }
+        }
+
+        // --- !raided command (MOD LEVEL) ---
+        if (command.equalsIgnoreCase('raided')) {
+            $.say($.lang.get('clangnetsass.raided'));
+        }
+
+        // --- !chatrules command (MOD LEVEL) ---
+        if (command.equalsIgnoreCase('chatrules')) {
+            apiURL = 'http://decapi.me/twitch/chat_rules/iandlive';
+            $.say($.customAPI.get(apiURL).content);
         }
 
         // --- !clangnetofflinemode command ---
@@ -461,11 +467,12 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'cdkeys', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'merch', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatcomm', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);
