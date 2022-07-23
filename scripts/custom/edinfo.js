@@ -330,16 +330,6 @@
         }
     });
 
-    setTimeout(function () {
-        setInterval(function () {
-            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
-                edTimerBot();
-                messageCount = 0;
-                lastNoticeSent = $.systemTime();
-            }
-        }, 1e4, 'scripts::custom::edinfo.js');
-    }, 5e3);
-
     $.reloadEDInfo = reloadEDInfo;
 }) ();
 
