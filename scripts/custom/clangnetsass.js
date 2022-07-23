@@ -96,6 +96,10 @@
         }
     }
 
+    function jokesTimerBot() {
+        sayAnyJoke('', false);
+    }
+
     // IRC Message Event
     $.bind('ircChannelMessage', function (event) {
         messageCount++;
@@ -438,6 +442,10 @@
             }
             return;
         }
+
+        if (command.equalsIgnoreCase('jokestb')) {
+            jokesTimerBot();
+        }
     });
 
     $.bind('initReady', function () {
@@ -478,6 +486,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'debugclangnetsass', 0);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetshowvars', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'jokestb', 0);
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatSubcommand('song', 'setup', 0);
     });

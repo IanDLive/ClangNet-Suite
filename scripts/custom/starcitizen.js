@@ -106,6 +106,10 @@ var lastNoticeSent = 0;
         } else {
             $.say($.lang.get('starcitizen.playing.othergame'));
         }
+
+        if (command.equalsIgnoreCase('sctb')) {
+            scTimerBot();
+        }
     });
 
     $.bind('initReady', function () {
@@ -116,17 +120,8 @@ var lastNoticeSent = 0;
             $.registerChatCommand('./custom/starcitizen.js', 'scships', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'scroadmap', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'scscreenshots', 7);
+            $.registerChatCommand('./custom/starcitizen.js', 'sctb', 0);
         }
     });
-
-    setTimeout(function () {
-        setInterval(function () {
-            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
-                scTimerBot();
-                messageCount = 0;
-                lastNoticeSent = $.systemTime();
-            }
-        }, 1e4, 'scripts::custom::starcitizen.js');
-    }, 5e3);
 
 })();

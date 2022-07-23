@@ -156,6 +156,10 @@
             return;
         }
 
+        if (command.equalsIgnoreCase('ksptb')) {
+            kspTimerBot();
+        }
+
     });
 
     $.bind('initReady', function () {
@@ -170,18 +174,9 @@
             $.registerChatCommand('./custom/kspkommand.js', 'explode', 7);
             $.registerChatCommand('./custom/kspkommand.js', 'abort', 7);
             $.registerChatCommand('./custom/kspkommand.js', 'kspofflinemode', 1);
+            $.registerChatCommand('./custom/kspkommand.js', 'ksptb', 0);
         }
     });
-
-    setTimeout(function () {
-        setInterval(function () {
-            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
-                kspTimerBot();
-                messageCount = 0;
-                lastNoticeSent = $.systemTime();
-            }
-        }, 1e4, 'scripts::custom::kspkommand.js');
-    }, 5e3);
 
     $.reloadKontracts = reloadKontracts;
 
