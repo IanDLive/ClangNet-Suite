@@ -125,6 +125,7 @@ $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of th
 // !merch command response
 // -----------------------
 $.lang.register('clangnetsass.merch', 'Get your new and latest cultist robes here --> https://iand.live/merch');
+$.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch?  Get it here --> https://iand.live/merch');
 
 // !jokes command responses
 // ------------------------
@@ -151,11 +152,6 @@ $.lang.register('clangnetsass.song', 'Via Pretzel - $1');
 // !chatcomm command response
 // --------------------------
 $.lang.register('clangnetsass.chatcomm', 'Do you want to find out what commands that I respond to?  Click the link and find a full list of them --> https://iand.live/chatcomm');
-
-// !ecoserver command response
-// ---------------------------
-$.lang.register('clangnetsass.ecoserver.discord', '$1, I have just DM\'d you the server details.');
-$.lang.register('clangnetsass.ecoserver.discord.private', '$1, the details to connect to the Eco server are as follows\n\nIP: 194.147.122.180:3000\nPassword: ShadowGuard1');
 
 // !raided command response
 // ------------------------

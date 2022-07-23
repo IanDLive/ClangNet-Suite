@@ -1,19 +1,19 @@
 (function() {
 
     function chuckTotal() {
-        const apiURL = 'https://api.icndb.com/jokes/count';
+        const apiURL = 'http://api.icndb.com/jokes/count';
         var dataPackage = JSON.parse($.cnGetJSON(apiURL));
         $.say($.lang.get('chuckjokes.totaljokes', dataPackage.value));
     }
 
     function chuckSpecific(factNo) {
-        var apiURL = 'https://api.icndb.com/jokes/' + factNo;
+        var apiURL = 'http://api.icndb.com/jokes/' + factNo + '?escape=javascript&exclude=[nerdy,explicit]';
         var dataPackage = JSON.parse($.cnGetJSON(apiURL));
         $.say($.lang.get('chuckjokes.joke', dataPackage.value.id, dataPackage.value.joke));
     }
 
     function chuckRandom() {
-        const apiURL = 'https://api.icndb.com/jokes/random';
+        const apiURL = 'http://api.icndb.com/jokes/random?escape=javascript&exclude=[nerdy,explicit]';
         var dataPackage = JSON.parse($.cnGetJSON(apiURL));
         $.say($.lang.get('chuckjokes.joke', dataPackage.value.id, dataPackage.value.joke));
     }

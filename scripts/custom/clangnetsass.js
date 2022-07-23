@@ -67,7 +67,7 @@
         var strEmoteChoice;
 
         if (jokesEnabled == true) {
-            if ($.isOnline($.channelName)) {
+            if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 switch (intEmoteChoice) {
                     case 0:
                         strEmoteChoice = ' TriHard';
@@ -481,15 +481,5 @@
         $.registerChatSubcommand('jokes', 'toggle', 0);
         $.registerChatSubcommand('song', 'setup', 0);
     });
-
-    setTimeout(function () {
-        setInterval(function () {
-            if ((noticeReqMessages < 0 || messageCount >= noticeReqMessages) && (lastNoticeSent + (noticeInterval * 6e4)) <= $.systemTime()) {
-                sayAnyJoke('', false);
-                messageCount = 0;
-                lastNoticeSent = $.systemTime();
-            }
-        }, 9e5, 'scripts::custom::clangnetsass.js');
-    }, 7e3);
 
 }) ();

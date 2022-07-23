@@ -28,8 +28,8 @@ $.lang.register('fettlesystem.settings.check.hunger', '$1 settings set to: Hunge
 /**
  * Hydration  strings
  */
-$.lang.register('fettlesystem.hydration.reminder', 'You\'ve been live for just over $1. By this point in your broadcast you should have had at least $2ml ($3oz) of fluids! DrinkPurple');
-$.lang.register('fettlesystem.hydration.command', '$1 has been live for just over $2. By this point he should have consumed at least $3ml ($4oz) fluids! DrinkPurple');
+$.lang.register('fettlesystem.hydration.reminder', 'You\'ve been live for just over $1. By this point in your broadcast you should have had at least $2ml ($3oz) of fluids! iandliPartyCrab');
+$.lang.register('fettlesystem.hydration.command', '$1 has been live for just over $2. By this point he should have consumed at least $3ml ($4oz) fluids! iandliPartyCrab');
 
 /**
  * Hunger  strings
