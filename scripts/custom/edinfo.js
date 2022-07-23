@@ -288,6 +288,10 @@
             }
         }
 
+        if (command.equalsIgnoreCase('edtb')) {
+            edTimerBot();
+        }
+
         // Panel commands, no command path needed here.
         if (command.equalsIgnoreCase('reloadedinfo')) {
             reloadEDInfo();
@@ -322,6 +326,7 @@
             $.registerChatCommand('./custom/edinfo.js', 'edinfopath', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edsetname', 1);
             $.registerChatCommand('./custom/edinfo.js', 'reloadedinfo', 1);
+            $.registerChatCommand('./custom/edinfo.js', 'edtb', 0);
         }
     });
 
