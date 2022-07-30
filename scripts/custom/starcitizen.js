@@ -66,6 +66,8 @@ var lastNoticeSent = 0;
                     saySCScreenshots();
                     break;
             }
+        } else {
+            return;
         }
     }
 

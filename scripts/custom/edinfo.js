@@ -95,6 +95,8 @@
                     sayEDScreenshots();
                     break;
             }
+        } else {
+            return;
         }
     }
 
