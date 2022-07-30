@@ -19,9 +19,7 @@
 (function () {
 
     function initText() {
-        $.consoleLn("╔═════════════════════════════════════════════════╗");
-        $.consoleLn("║             Warning System Enabled              ║");
-        $.consoleLn("╚═════════════════════════════════════════════════╝");
+        $.consoleLn("+++>>> Warning System Enabled");
     }
 
     /**

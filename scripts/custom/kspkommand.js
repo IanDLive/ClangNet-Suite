@@ -41,9 +41,7 @@
 
     function initText() {
         allowOffline = $.getIniDbBoolean('kspkommandSettings', 'allowOffline');
-        $.consoleLn("╔═════════════════════════════════════════════════╗");
-        $.consoleLn("║           KSP commands module online            ║");
-        $.consoleLn("╚═════════════════════════════════════════════════╝");
+        $.consoleLn("+++>>> KSP commands module online");
     }
 
     function loadResponses() {

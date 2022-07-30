@@ -11,9 +11,7 @@ var lastNoticeSent = 0;
 
     // Initialization text for the console.
     function initText() {
-        $.consoleLn("╔═════════════════════════════════════════════════╗");
-        $.consoleLn("║       Star Citizen commands module online       ║");
-        $.consoleLn("╚═════════════════════════════════════════════════╝");
+        $.consoleLn("+++>>> Star Citizen commands module online");
     }
 
     // Show the organization recruitment info in chat.
