@@ -31,6 +31,9 @@
   <ItemGroup>
     <Content Include="addons\custom\edinfo\__folderusage.txt" />
     <Content Include="addons\custom\ksp\__folderusage.txt" />
+    <Content Include="scripts\custom\helloWorld.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="web\panel\js\pages\custom\location.js">
       <SubType>Code</SubType>
     </Content>
