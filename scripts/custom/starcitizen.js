@@ -17,26 +17,31 @@ var lastNoticeSent = 0;
     // Show the organization recruitment info in chat.
     function saySCOrg() {
         $.say($.lang.get('starcitizen.org'));
+        return;
     }
 
     // Show the referral code in chat.
     function saySCReferral() {
         $.say($.lang.get('starcitizen.referral'));
+        return;
     }
 
     // Show the link to the ship matrix in chat.
     function saySCShips() {
         $.say($.lang.get('starcitizen.ships'));
+        return;
     }
 
     // Show the link to the development roadmap in chat.
     function saySCRoadmap() {
         $.say($.lang.get('starcitizen.roadmap'));
+        return;
     }
 
     // Show the message to upload and view screenshots on the webiste.
     function saySCScreenshots() {
         $.say($.lang.get('starcitizen.screenshots'));
+        return;
     }
 
     // 'Bot' to randomly pick a Star Citizen line to say in chat when the timer is invoked, but only if Star Citizen is being played.

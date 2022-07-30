@@ -73,10 +73,12 @@
 
     function sayEDCareers() {
         $.say($.lang.get('edinfo.playing.edcareers'));
+        return;
     }
 
     function sayEDScreenshots() {
         $.say($.lang.get('edinfo.playing.edscreenshots'));
+        return;
     }
 
     function edTimerBot() {

@@ -54,6 +54,7 @@
 
     function sayKontracts() {
         $.say($.lang.get('kspkommand.kontracts'));
+        return;
     }
 
     function kspTimerBot() {
