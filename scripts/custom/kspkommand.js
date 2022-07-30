@@ -69,6 +69,8 @@
                     sayKontracts();
                     break;
             }
+        } else {
+            return;
         }
     }
 
