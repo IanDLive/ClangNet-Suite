@@ -4,11 +4,6 @@
 // Chat message responses for Star Citizen related commands.
 
 (function () {
-var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
-var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
-var messageCount = 0;
-var lastNoticeSent = 0;
-
     // Initialization text for the console.
     function initText() {
         $.consoleLn("+++>>> Star Citizen commands module online");
@@ -71,10 +66,6 @@ var lastNoticeSent = 0;
             }
         }
     }
-
-    $.bind('ircChannelMessage', function (event) {
-        messageCount++;
-    });
 
     $.bind('command', function (event) {
         var command = event.getCommand();

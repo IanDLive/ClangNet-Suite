@@ -16,7 +16,7 @@
     function initText() {
         // This next line will display in the console window to show that the module is
         // loaded (when it is called from the initialisation script).
-        $.consoleLn('+++>>> Hello World Module Loaded');
+        $.consoleLn('+++>>> Hello World module loaded');
         return;
     }
 

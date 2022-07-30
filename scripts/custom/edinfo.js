@@ -16,10 +16,6 @@
     var starSystem;
     var systemBody;
     var pathSet;
-    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
-    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
-    var messageCount = 0;
-    var lastNoticeSent = 0;
 
     // Initialization text for the console.
     function initText() {
@@ -299,10 +295,6 @@
         if (command.equalsIgnoreCase('reloadedinfo')) {
             reloadEDInfo();
         }
-    });
-
-    $.bind('ircChannelMessage', function (event) {
-        messageCount++;
     });
 
     // initReady event to register the commands.

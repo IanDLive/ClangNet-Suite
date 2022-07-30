@@ -4,11 +4,6 @@
 // Chat message responses for Kerbal Space Program related commands.
 
 (function () {
-    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
-    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
-    var messageCount = 0;
-    var lastNoticeSent = 0;
-
     var baseCommand = $.getSetIniDbString('kspkommandSettings', 'baseCommand', 'kontracts');
     var allowOffline = $.getSetIniDbBoolean('kspkommandSettings', 'allowOffline', false);
     var curKontract = $.getSetIniDbString('kspkommandSettings', 'kontract', 'Kurrent Kontract - TBC');
@@ -70,10 +65,6 @@
             }
         }
     }
-
-    $.bind('ircChannelMessage', function (event) {
-        messageCount++;
-    });
 
     $.bind('command', function (event) {
         var command = event.getCommand();
