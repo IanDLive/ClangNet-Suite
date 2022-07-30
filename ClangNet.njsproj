@@ -31,6 +31,12 @@
   <ItemGroup>
     <Content Include="addons\custom\edinfo\__folderusage.txt" />
     <Content Include="addons\custom\ksp\__folderusage.txt" />
+    <Content Include="web\panel\js\pages\custom\location.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="web\panel\pages\custom\custom-location.html">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Bot-Login-Notes.md">
       <SubType>Code</SubType>
     </None>
