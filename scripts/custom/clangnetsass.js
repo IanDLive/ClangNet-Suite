@@ -27,9 +27,7 @@
     function initText() {
         allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
         debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
-        $.consoleLn("╔═════════════════════════════════════════════════╗");
-        $.consoleLn("║       Clangnet Sass commands module online      ║");
-        $.consoleLn("╚═════════════════════════════════════════════════╝");
+        $.consoleLn("+++>>> Clangnet Sass commands module online");
         if (allowOfflineCmd) {
             $.consoleLn($.lang.get('clangnetsass.offlinemodetrue'));
         }

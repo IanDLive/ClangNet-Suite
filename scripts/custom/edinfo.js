@@ -26,13 +26,11 @@
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
         debugEDInfo = $.getIniDbBoolean('edInfo', 'debugEDInfo');
         cmdrName = $.getIniDbString('edInfo', 'cmdrName');
-        $.consoleLn("╔═════════════════════════════════════════════════╗");
-        $.consoleLn("║     Elite: Dangerous commands module online     ║");
-        $.consoleLn("╚═════════════════════════════════════════════════╝");
+        $.consoleLn("+++>>> Elite: Dangerous commands module online");
         if (debugEDInfo) {
-            $.consoleLn("[EDINFO DEBUG] EDInfo Debug Facility Enabled");
+            $.consoleLn("+++>>> [EDINFO DEBUG] EDInfo Debug Facility Enabled");
         }
-        $.consoleLn("EDDiscovery OBS File Path set to: " + elitePBPath);
+        $.consoleLn("+++>>> EDDiscovery OBS File Path set to: " + elitePBPath);
         if (elitePBPath.equalsIgnoreCase('[no url set]')) {
             $.consoleLn($.lang.get('edinfo.needtosetpath'));
             return;
