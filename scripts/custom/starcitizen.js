@@ -64,8 +64,6 @@ var lastNoticeSent = 0;
                     saySCScreenshots();
                     break;
             }
-        } else {
-            return;
         }
     }
 
@@ -103,12 +101,17 @@ var lastNoticeSent = 0;
             if (command.equalsIgnoreCase('scscreenshots')) {
                 saySCScreenshots();
             }
-        } else {
-            $.say($.lang.get('starcitizen.playing.othergame'));
-        }
 
-        if (command.equalsIgnoreCase('sctb')) {
-            scTimerBot();
+            // --- !sctb command ---
+            if (command.equalsIgnoreCase('sctb')) {
+                scTimerBot();
+            }
+        } else {
+            if (command.equalsIgnoreCase('sctb')) {
+                return;
+            } else {
+                $.say($.lang.get('starcitizen.playing.othergame'));
+            }
         }
     });
 

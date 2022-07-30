@@ -67,8 +67,6 @@
                     sayKontracts();
                     break;
             }
-        } else {
-            return;
         }
     }
 
@@ -131,9 +129,17 @@
                     $.say($.lang.get('kspkommand.abort'));
                     return;
                 }
+                // --- !ksptb command ---
+                if (command.equalsIgnoreCase('ksptb')) {
+                    kspTimerBot();
+                }
             } else {
-                $.say($.lang.get('kspkommand.playing.othergame'));
-                return;
+                if (command.equalsIgnoreCase('ksptb')) {
+                    return;
+                } else {
+                    $.say($.lang.get('kspkommand.playing.othergame'));
+                    return;
+                }
             }
         } else {
             $.say($.lang.get('kspkommand.offline'));
@@ -155,11 +161,6 @@
             }
             return;
         }
-
-        if (command.equalsIgnoreCase('ksptb')) {
-            kspTimerBot();
-        }
-
     });
 
     $.bind('initReady', function () {

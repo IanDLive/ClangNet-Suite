@@ -93,8 +93,6 @@
                     sayEDScreenshots();
                     break;
             }
-        } else {
-            return;
         }
     }
 
@@ -223,9 +221,16 @@
                 if (command.equalsIgnoreCase('alicediscord')) {
                     $.say($.lang.get('edinfo.alicediscord'));
                 }
+                if (command.equalsIgnoreCase('edtb')) {
+                    edTimerBot();
+                }
             } else {
                 // Currently online, but playing something else.
-                $.say($.lang.get('edinfo.playing.othergame', cmdrName));
+                if (command.equalsIgnoreCase('edtb')) {
+                    return;
+                } else {
+                    $.say($.lang.get('edinfo.playing.othergame', cmdrName));
+                }
             }
         } else {
             $.say($.lang.get('edinfo.offline', cmdrName));
@@ -286,10 +291,6 @@
                 $.say($.lang.get('edinfo.cmdrname.nameupdated', action));
                 cmdrName = action;
             }
-        }
-
-        if (command.equalsIgnoreCase('edtb')) {
-            edTimerBot();
         }
 
         // Panel commands, no command path needed here.
