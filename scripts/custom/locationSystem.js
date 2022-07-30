@@ -14,6 +14,10 @@
         return;
     }
 
+    function reloadLocation() {
+        curLocation = $.getIniDbString('locationSystem', 'location');
+    }
+
     // Command Event
     $.bind('command', function (event) {
         var command = event.getCommand();
@@ -24,6 +28,7 @@
 
         if (command.equalsIgnoreCase('location')) {
             if (action === undefined) {
+                reloadLocation();
                 if (curLocation == 'Home') {
                     $.say($.lang.get('locationSystem.home'));
                     return;
@@ -61,4 +66,6 @@
             $.registerChatSubcommand('location', 'clear', 2);
         }
     });
-})();
+
+    $.reloadLocation = reloadLocation;
+}) ();
