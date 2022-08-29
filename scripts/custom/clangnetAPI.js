@@ -7,12 +7,18 @@
      * @function cnGetJSON
      * @export $
      * @param {String} url
+     * @param {java.util.HashMap} header
      * @returns {JSON}
      */
-    function cnGetJSON(url) {
+    function cnGetJSON(url, header) {
         var HttpRequest = Packages.com.gmt2001.HttpRequest;
         var HashMap = Packages.java.util.HashMap;
-        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', new HashMap());
+        if (header == null) {
+            var h = new HashMap();
+        } else {
+            var h = header;
+        }
+        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', h);
         return responseData.content;
     }
 
@@ -21,15 +27,21 @@
      * @function cnGetJSONPackage
      * @exports $
      * @param {String} url
+     * @param {java.util.HashMap} header
      * @returns {Object}
      * @returns {Object.content}
      * @returns {Object.httpCode}
      * @returns {Object.success}
      */
-    function cnGetJSONPackage(url) {
+    function cnGetJSONPackage(url, header) {
         var HttpRequest = Packages.com.gmt2001.HttpRequest;
         var HashMap = Packages.java.util.HashMap;
-        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', new HashMap());
+        if (header == null) {
+            var h = new HashMap();
+        } else {
+            var h = header;
+        }
+        var responseData = HttpRequest.getData(HttpRequest.RequestType.GET, encodeURI(url), '', h);
         return responseData;
     }
 

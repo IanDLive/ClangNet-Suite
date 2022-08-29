@@ -17,6 +17,8 @@
     var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
     var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
     var pretzelTwitchId = $.getSetIniDbString('clangnetSass', 'twitchId', 'NaN');
+    var dadJokesKey = $.getIniDbString('clangnetSass', 'dadJokesKey');
+    var dadJokesHost = $.getIniDbString('clangnetSass', 'dadJokesHost');
     var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
     var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
     var messageCount = 0;
@@ -40,20 +42,39 @@
     function getAnyJoke() {
         var jsonObject;
         var returnText;
-        var intJokeChoice = Math.floor(Math.random() * 3);
+        var intJokeChoice = Math.floor(Math.random() * 4);
 
         switch (intJokeChoice) {
             case 0:
-                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack'));
+                if (debugClangnet) {
+                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 0: Null header');
+                }
+                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack', null));
                 returnText = jsonObject.attachments[0].text;
                 break;
             case 1:
-                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
+                if (debugClangnet) {
+                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 2: Null header');
+                }
+                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single', null));
                 returnText = jsonObject.joke;
                 break;
             case 2:
-                jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en'));
+                if (debugClangnet) {
+                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 3: Null header');
+                }
+                jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en', null));
                 returnText = 'Useless Fact: ' + jsonObject.text;
+                break;
+            case 3:
+                if (debugClangnet) {
+                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 4: Built header');
+                }
+                var apiHead = new java.util.HashMap();
+                apiHead.put('X-RapidAPI-Key', dadJokesKey);
+                apiHead.put('X-RapidAPI-Host', dadJokesHost);
+                jsonObject = JSON.parse($.cnGetJSON('https://dad-jokes.p.rapidapi.com/random/joke', apiHead));
+                returnText = jsonObject.body[0].setup + ' ' + jsonObject.body[0].punchline;
                 break;
         }
         return returnText;
