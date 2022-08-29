@@ -57,6 +57,8 @@
      * @export $
      * @param {String} user
      * @returns {Array}
+     *          0 = @[NAME]
+     *          1 = [NAME]
      */
     function cnUserStrings(user) {
         var user_mention = '';
