@@ -160,20 +160,11 @@
                     case 'space engineers':
                         $.say($.lang.get('clangnetsass.se-mods'));
                         break;
-                    case 'fallout 4':
-                        $.say($.lang.get('clangnetsass.fo-mods'));
-                        break;
                     case 'the elder scrolls online':
                         $.say($.lang.get('clangnetsass.eso-mods'));
                         break;
-                    case 'the elder scrolls v: skyrim':
-                        $.say($.lang.get('clangnetsass.skse-mods'));
-                        break;
                     case 'elite: dangerous':
                         $.say($.lang.get('clangnetsass.ed-mods'));
-                        break;
-                    case 'kerbal space program':
-                        $.say($.lang.get('clangnetsass.ksp-mods'));
                         break;
                     default:
                         $.say($.lang.get('clangnetsass.mods-notused'));
@@ -184,7 +175,7 @@
             }
         }
 
-        if (command.equalsIgnoreCase('handle')) {
+        if (command.equalsIgnoreCase('gamertag')) {
             var handleSender = $.cnUserStrings(sender);
             if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 var currentGame = $.getGame($.channelName);
@@ -455,7 +446,7 @@
         // $.registerChatCommand('script', 'command', 'permission');
         $.registerChatCommand('./custom/clangnetsass.js', 'lurk', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'handle', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'gamertag', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'ctt', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'discord', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'followed', 7);

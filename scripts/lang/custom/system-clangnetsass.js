@@ -32,16 +32,13 @@ $.lang.register('clangnetsass.lurk.response6', 'Vanishing quicker than a snowbal
 $.lang.register('clangnetsass.mods-notused', 'There are no mods used or listed for this game.');
 $.lang.register('clangnetsass.mods-notonline', 'Looking for what mods are used $1?  Seeing IanDLive isn\'t online at the moment, I don\'t know what mods to show you.');
 $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
-$.lang.register('clangnetsass.fo-mods', 'For the full list of mods that are being used on the current run through of Fallout 4, follow the link to our website for details --> https://iand.live/fo-mods');
-$.lang.register('clangnetsass.skse-mods', 'For the full list of mods that are being used on the current run through of Skyrim Special Edition, follow the link to our website for details --> https://iand.live/skse-mods');
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 $.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
-$.lang.register('clangnetsass.ksp-mods','For the full list of mods that are being used in the current playthrough of Kerbal Space Program, follow the link to our website for details --> https://iand.live/ksp-mods');
 
 // !handle command responses
 // -------------------------
-$.lang.register('clangnetsass.handle-notonline', '$1, are you wanting to add IanDLive in game?  Seeing he\'s not online, there isn\'t a handle to share.');
-$.lang.register('clangnetsass.handle-notused', 'There isn\'t a handle that IanDLive uses that is associated with this game.');
+$.lang.register('clangnetsass.handle-notonline', '$1, are you wanting to add IanDLive in game?  Seeing he\'s not online, there isn\'t a gamertag to share.');
+$.lang.register('clangnetsass.handle-notused', 'There isn\'t a gamertag that IanDLive uses that is associated with this game.');
 $.lang.register('clangnetsass.handle-starcitizen', '$1, if you want to add IanDLive to your friends list in Star Citizen, just add him in game as \'IanD-Live\'');
 $.lang.register('clangnetsass.handle-eso', '$1, if you want to add IanDLive to your friends list in The Elder Scrolls Online, just add him in game as \'@IanDLive\'');
 $.lang.register('clangnetsass.handle-elite', '$1, if you want to add IanDLive to your friends list in Elite: Dangerous, just add him in game as \'IanD Live\'');
