@@ -235,47 +235,59 @@
         }
 
         // Universal commands, game determination not required.
-        if (command.equalsIgnoreCase('edofflinemode')) {
-            allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
-            if (allowOffline == false) {
-                allowOffline = true;
-                $.setIniDbBoolean('edInfo', 'allowOffline', true);
-                $.say($.lang.get('edinfo.offlinemodetrue'));
-                $.consoleLn($.lang.get('edinfo.offlinemodetrue'));
-            } else {
-                allowOffline = false;
-                $.setIniDbBoolean('edInfo', 'allowOffline', false);
-                $.say($.lang.get('edinfo.offlinemodefalse'));
-                $.consoleLn($.lang.get('edinfo.offlinemodefalse'));
-            }
-            return;
-        }
 
-        if (command.equalsIgnoreCase('debugedinfo')) {
-            debugEDInfo = $.getIniDbBoolean('edInfo', 'debugEDInfo');
-            if (debugEDInfo == false) {
-                debugEDInfo = true;
-                $.setIniDbBoolean('edInfo', 'debugEDInfo', true);
-                $.say($.lang.get('edinfo.debugmodetrue'));
-                $.consoleLn($.lang.get('[EDINFO DEBUG] ' + 'edinfo.debugmodetrue'));
-            } else {
-                debugEDInfo = false;
-                $.setIniDbBoolean('edInfo', 'debugEDInfo', false);
-                $.say($.lang.get('edinfo.debugmodefalse'));
-                $.consoleLn('[EDINFO DEBUG] ' + $.lang.get('edinfo.debugmodefalse'));
-            }
-        }
-
-        if (command.equalsIgnoreCase('edinfopath')) {
+        // --- !edinfo command (CASTER/BOT LEVEL) - is a shell to house sub commands.
+        if (command.equalsIgnoreCase('edinfo')) {
             if (action === undefined || action == null) {
-                // No path set with the command.
-                $.say($.lang.get('edinfo.nofilepathset'));
                 return;
             } else {
-                $.setIniDbString('edInfo', 'filePath', action);
-                $.say($.lang.get('edinfo.obsfilepathset', action));
-                elitePBPath = action;
-                return;
+                // --- offlinemode command
+                if (action.equalsIgnoreCase('offlinemode')) {
+                    allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
+                    if (allowOffline == false) {
+                        allowOffline = true;
+                        $.setIniDbBoolean('edInfo', 'allowOffline', true);
+                        $.say($.lang.get('edinfo.offlinemodetrue'));
+                        $.consoleLn($.lang.get('edinfo.offlinemodetrue'));
+                    } else {
+                        allowOffline = false;
+                        $.setIniDbBoolean('edInfo', 'allowOffline', false);
+                        $.say($.lang.get('edinfo.offlinemodefalse'));
+                        $.consoleLn($.lang.get('edinfo.offlinemodefalse'));
+                    }
+                    return;
+                }
+                // --- debug command ---
+                if (action.equalsIgnoreCase('debug')) {
+                    debugEDInfo = $.getIniDbBoolean('edInfo', 'debugEDInfo');
+                    if (debugEDInfo == false) {
+                        debugEDInfo = true;
+                        $.setIniDbBoolean('edInfo', 'debugEDInfo', true);
+                        $.say($.lang.get('edinfo.debugmodetrue'));
+                        $.consoleLn($.lang.get('[EDINFO DEBUG] ' + 'edinfo.debugmodetrue'));
+                    } else {
+                        debugEDInfo = false;
+                        $.setIniDbBoolean('edInfo', 'debugEDInfo', false);
+                        $.say($.lang.get('edinfo.debugmodefalse'));
+                        $.consoleLn('[EDINFO DEBUG] ' + $.lang.get('edinfo.debugmodefalse'));
+                    }
+                    return;
+                }
+                // --- setpath command ---
+                if (action.equalsIgnoreCase('setpath')) {
+                    if (action === undefined || action == null) {
+                        // No path set with the command.
+                        $.say($.lang.get('edinfo.nofilepathset'));
+                        return;
+                    } else {
+                        $.setIniDbString('edInfo', 'filePath', action);
+                        $.say($.lang.get('edinfo.obsfilepathset', action));
+                        elitePBPath = action;
+                        return;
+                    }
+                } else {
+                    return;
+                }
             }
         }
 
@@ -316,9 +328,10 @@
             $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
-            $.registerChatCommand('./custom/edinfo.js', 'edofflinemode', 1);
-            $.registerChatCommand('./custom/edinfo.js', 'debugedinfo', 1);
-            $.registerChatCommand('./custom/edinfo.js', 'edinfopath', 1);
+            $.registerChatCommand('./custom/edinfo.js', 'edinfo', 0);
+            $.registerChatSubcommand('edinfo', 'offlinemode', 0);
+            $.registerChatSubcommand('edinfo', 'debug', 0);
+            $.registerChatSubcommand('edinfo', 'setpath', 0);
             $.registerChatCommand('./custom/edinfo.js', 'edsetname', 1);
             $.registerChatCommand('./custom/edinfo.js', 'reloadedinfo', 1);
             $.registerChatCommand('./custom/edinfo.js', 'edtb', 0);
