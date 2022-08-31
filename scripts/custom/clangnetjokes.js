@@ -191,7 +191,7 @@
                         return;
                     }
                 }
-                // Debug Action (AT CASTER/BOT LEVEL)
+                // Debug action (AT CASTER/BOT LEVEL)
                 if (action.equalsIgnoreCase('debug')) {
                     debugJokes = $.getIniDbBoolean('clangnetJokes', 'debugJokes');
                     if (debugJokes) {
@@ -205,7 +205,7 @@
                     $.consoleLn('[JOKES DEBUG] ' + $.lang.get('clangnetjokes.debugmodetoggle', (debugJokes === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
                     return;
                 }
-                // Offline Mode Action (AT CASTER/BOT LEVEL)
+                // Offline Mode action (AT CASTER/BOT LEVEL)
                 if (action.equalsIgnoreCase('offlinemode')) {
                     allowOfflineJokes = $.getIniDbBoolean('clangnetJokes', 'allowOfflineJokes');
                     if (allowOfflineJokes) {
@@ -220,7 +220,13 @@
                         return;
                     }
                 }
-                // Show Variables Action (AT CASTER/BOT LEVEL)
+                // Reload API Keys from text file (AT CASTER/BOT LEVEL)
+                if (action.equalsIgnoreCase('reloadkeys')) {
+                    getJokeKeys();
+                    $.say($.lang.get('clangnetjokes.reloaded'));
+                    return;
+                }
+                // Show Variables action (AT CASTER/BOT LEVEL)
                 if (action.equalsIgnoreCase('showvars')) {
                     if (debugJokes) {
                         $.say($.lang.get('clangnetjokes.showvars.success'));
@@ -259,6 +265,7 @@
             $.registerChatSubcommand('jokes', 'setpath', 0);
             $.registerChatSubcommand('jokes', 'debug', 0);
             $.registerChatSubcommand('jokes', 'offlinemode', 0);
+            $.registerChatSubcommand('jokes', 'reloadkeys', 0);
             $.registerChatSubcommand('jokes', 'showvars', 0);
         }
     });
