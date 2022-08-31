@@ -8,15 +8,15 @@
 
         switch (intJokeChoice) {
             case 0:
-                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack'));
+                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack', null));
                 strJoke = jsonObject.attachments[0].text;
                 break;
             case 1:
-                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'));
+                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single', null));
                 strJoke = jsonObject.joke;
                 break;
             case 2:
-                jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en'));
+                jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en', null));
                 strJoke = 'Useless Fact: ' + jsonObject.text;
                 break;
         }
@@ -101,7 +101,7 @@
 
         // --- !jokes command ---
         if (command.equalsIgnoreCase('jokes') && channelCheck.equalsIgnoreCase('games-room')) {
-            $.discord.say(channel, $.lang.get('clangnetsass.telljoke.discord', getAnyJoke(), getAnyEmote()));
+            $.discord.say(channel, $.lang.get('clangnetjokes.telljoke.discord', getAnyJoke(), getAnyEmote()));
         }
 
         // --- !xebon command ---

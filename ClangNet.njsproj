@@ -31,7 +31,16 @@
   <ItemGroup>
     <Content Include="addons\custom\edinfo\__folderusage.txt" />
     <Content Include="addons\custom\ksp\__folderusage.txt" />
+    <Content Include="addons\custom\moddata\_folderusage.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="scripts\custom\helloWorld.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\custom\clangnetjokes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\lang\custom\system-clangnetjokes.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="web\panel\js\pages\custom\location.js">
@@ -146,6 +155,7 @@
     <Folder Include="addons\custom\" />
     <Folder Include="addons\custom\edinfo\" />
     <Folder Include="addons\custom\ksp\" />
+    <Folder Include="addons\custom\moddata\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\custom\" />
     <Folder Include="scripts\discord\" />
