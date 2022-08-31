@@ -40,6 +40,18 @@
     <Content Include="scripts\custom\clangnetjokes.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\custom\boomstick.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\discord\custom\clangnetjokes-discord.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\discord\custom\boomstick-discord.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="scripts\lang\custom\system-boomstick.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="scripts\lang\custom\system-clangnetjokes.js">
       <SubType>Code</SubType>
     </Content>

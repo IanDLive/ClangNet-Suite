@@ -2,6 +2,7 @@
 $.lang.register('clangnetjokes.needtosetpath', 'A path needs to be set for the location of the config text file.  Usage: !jokes setpath <PATH TO FILES i.e. ./addons/SomeTextFiles/>');
 $.lang.register('clangnetjokes.nofilepathset', 'A file path was not set for the location of the module data config files.');
 $.lang.register('clangnetjokes.datafilepathset', 'The path to the location of the config data file has been set to: $1');
+$.lang.register('clangnetjokes.reloaded', 'API Keys reloaded from config text file.');
 
 // ClangNet Jokes toggle response
 $.lang.register('clangnetjokes.jokesenabled', '$1, ClangNet\'s hunour has now been $2.');
