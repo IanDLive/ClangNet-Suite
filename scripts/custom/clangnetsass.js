@@ -13,17 +13,9 @@
 
 (function () {
     // Global variable for this function
-    var jokesEnabled = $.getSetIniDbBoolean('clangnetSass', 'jokesEnabled', true);
     var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
     var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
     var pretzelTwitchId = $.getSetIniDbString('clangnetSass', 'twitchId', 'NaN');
-    var dadJokesKey = $.getIniDbString('clangnetSass', 'dadJokesKey');
-    var dadJokesHost = $.getIniDbString('clangnetSass', 'dadJokesHost');
-    var noticeReqMessages = $.getIniDbNumber('noticeSettings', 'reqmessages');
-    var noticeInterval = $.getIniDbNumber('noticeSettings', 'interval');
-    var messageCount = 0;
-    var lastNoticeSent = 0;
-
 
     // Initialise variables for this function and report debug mode on startup if it is enabled.
     function initText() {
@@ -38,92 +30,6 @@
         }
     }
 
-    // Retrieve a Dad Joke from the API and say it in chat, use to make independent of bot timers.
-    function getAnyJoke() {
-        var jsonObject;
-        var returnText;
-        var intJokeChoice = Math.floor(Math.random() * 4);
-
-        switch (intJokeChoice) {
-            case 0:
-                if (debugClangnet) {
-                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 0: Null header');
-                }
-                jsonObject = JSON.parse($.cnGetJSON('https://icanhazdadjoke.com/slack', null));
-                returnText = jsonObject.attachments[0].text;
-                break;
-            case 1:
-                if (debugClangnet) {
-                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 2: Null header');
-                }
-                jsonObject = JSON.parse($.cnGetJSON('https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=single', null));
-                returnText = jsonObject.joke;
-                break;
-            case 2:
-                if (debugClangnet) {
-                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 3: Null header');
-                }
-                jsonObject = JSON.parse($.cnGetJSON('https://uselessfacts.jsph.pl/random.json?language=en', null));
-                returnText = 'Useless Fact: ' + jsonObject.text;
-                break;
-            case 3:
-                if (debugClangnet) {
-                    $.consoleLn('[CLANGNET DEBUG] intJokeChoice = 4: Built header');
-                }
-                var apiHead = new java.util.HashMap();
-                apiHead.put('X-RapidAPI-Key', dadJokesKey);
-                apiHead.put('X-RapidAPI-Host', dadJokesHost);
-                jsonObject = JSON.parse($.cnGetJSON('https://dad-jokes.p.rapidapi.com/random/joke', apiHead));
-                returnText = jsonObject.body[0].setup + ' ' + jsonObject.body[0].punchline;
-                break;
-        }
-        return returnText;
-    }
-
-    // 'Bot' used to automatically say a joke in chat.
-    function sayAnyJoke(invokedBy, isCommanded) {
-        var intEmoteChoice = Math.floor(Math.random() * 4);
-        var strEmoteChoice;
-
-        if (jokesEnabled == true) {
-            if ($.isOnline($.channelName) || allowOfflineCmd == true) {
-                switch (intEmoteChoice) {
-                    case 0:
-                        strEmoteChoice = ' TriHard';
-                        break;
-                    case 1:
-                        strEmoteChoice = ' Kreygasm';
-                        break;
-                    case 2:
-                        strEmoteChoice = ' LUL';
-                        break;
-                    case 3:
-                        strEmoteChoice = ' PogChamp';
-                        break;
-                }
-                $.say(getAnyJoke() + strEmoteChoice);
-            } else {
-                if (isCommanded == true) {
-                    atSender = $.cnUserStrings(invokedBy);
-                    $.say($.lang.get('clangnetsass.jokesonline', atSender[0]));
-                }
-            }
-        } else {
-            if (isCommanded == true) {
-                $.say($.lang.get('clangnetsass.jokesdisabled'));
-            }
-        }
-    }
-
-    function jokesTimerBot() {
-        sayAnyJoke('', false);
-    }
-
-    // IRC Message Event
-    $.bind('ircChannelMessage', function (event) {
-        messageCount++;
-    });
-
     // Command Event
     $.bind('command', function (event) {
 
@@ -135,6 +41,8 @@
         var sender = event.getSender();
         var arguments = event.getArguments();
         var args = event.getArgs();
+        var action = args[0];
+        var parameter = args[1];
         var atSender;
         var queryItem;
         var apiURL;
@@ -354,7 +262,7 @@
         // --- !song command ---
         if (command.equalsIgnoreCase('song')) {
             pretzelTwitchId = $.getIniDbString('clangnetSass', 'twitchId');
-            if (args[0] === undefined) {
+            if (action === undefined) {
                 if (pretzelTwitchId === 'NaN') {
                     $.say($.lang.get('clangnetsass.song.noid'));
                     return;
@@ -364,31 +272,16 @@
                     return;
                 }
             } else {
-                if (args[0].equalsIgnoreCase('setup')) {
-                    if (args[1] === undefined || args[1] == null) {
+                if (action.equalsIgnoreCase('setup')) {
+                    if (parameter === undefined || parameter == null) {
                         $.say($.lang.get('clangnetsass.song.failure'));
                         $.setIniDbString('clangnetSass', 'twitchId', 'NaN');
                         return;
                     } else {
-                        $.say($.lang.get('clangnetsass.song.success', args[1]));
-                        $.setIniDbString('clangnetSass', 'twitchId', args[1]);
+                        $.say($.lang.get('clangnetsass.song.success', parameter));
+                        $.setIniDbString('clangnetSass', 'twitchId', parameter);
                         return;
                     }
-                }
-            }
-        }
-
-        // --- !jokes command ('toggle' AT CASTER/BOT LEVEL) ---
-        if (command.equalsIgnoreCase('jokes')) {
-            if (args[0] === undefined) {
-                sayAnyJoke(sender, true);
-            } else {
-                if (args[0].equalsIgnoreCase('toggle')) {
-                    atSender = $.cnUserStrings(sender);
-                    jokesEnabled = !jokesEnabled;
-                    $.setIniDbBoolean('clangnetSass', 'jokesEnabled', jokesEnabled);
-                    $.say($.lang.get('clangnetsass.jokesenabled', atSender[0], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
-                    $.consoleLn($.lang.get('clangnetsass.jokesenabled', atSender[1], (jokesEnabled === true ? $.lang.get('common.enabled') : $.lang.get('common.disabled'))));
                 }
             }
         }
@@ -404,58 +297,62 @@
             $.say($.customAPI.get(apiURL).content);
         }
 
-        // --- !clangnetofflinemode command ---
-        if (command.equalsIgnoreCase('clangnetofflinemode')) {
-            allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
-            if (allowOfflineCmd == false) {
-                allowOfflineCmd = true;
-                $.setIniDbBoolean('clangnetSass', 'allowOfflineCmd', true);
-                $.say($.lang.get('clangnetsass.offlinemodetrue'));
-                $.consoleLn($.lang.get('clangnetsass.offlinemodetrue'));
+        // --- !clangnetsass command (CASTER/BOT LEVEL) - is a shell to house sub commands.
+        if (command.equalsIgnoreCase('clangnetsass')) {
+            if (action === undefined || action == null) {
+                return;
             } else {
-                allowOfflineCmd = false;
-                $.setIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
-                $.say($.lang.get('clangnetsass.offlinemodefalse'));
-                $.consoleLn($.lang.get('clangnetsass.offlinemodefalse'));
+                // --- offlinemode command ---
+                if (action.equalsIgnoreCase('offlinemode')) {
+                    allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
+                    if (allowOfflineCmd == false) {
+                        allowOfflineCmd = true;
+                        $.setIniDbBoolean('clangnetSass', 'allowOfflineCmd', true);
+                        $.say($.lang.get('clangnetsass.offlinemodetrue'));
+                        $.consoleLn($.lang.get('clangnetsass.offlinemodetrue'));
+                    } else {
+                        allowOfflineCmd = false;
+                        $.setIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
+                        $.say($.lang.get('clangnetsass.offlinemodefalse'));
+                        $.consoleLn($.lang.get('clangnetsass.offlinemodefalse'));
+                    }
+                    return;
+                }
+                // --- !debugclangnetsass command ---
+                if (action.equalsIgnoreCase('debug')) {
+                    debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
+                    if (debugClangnet == false) {
+                        debugClangnet = true;
+                        $.setIniDbBoolean('clangnetSass', 'debugClangnet', true);
+                        $.say($.lang.get('clangnetsass.debugmodetrue'));
+                        $.consoleLn('[CLANGNET DEBUG] ' + $.lang.get('clangnetsass.debugmodetrue'));
+                    } else {
+                        debugClangnet = false;
+                        $.setIniDbBoolean('clangnetSass', 'debugClangnet', false);
+                        $.say($.lang.get('clangnetsass.debugmodefalse'));
+                        $.consoleLn('[CLANGNET DEBUG] ' + $.lang.get('clangnetsass.debugmodefalse'));
+                    }
+                    return;
+                }
+                // --- !clangnetshowvars command ---
+                if (action.equalsIgnoreCase('showvars')) {
+                    if (debugClangnet) {
+                        currentGame = $.getGame($.channelName);
+                        $.say($.lang.get('clangnetsass.showvars.success'));
+                        $.consoleLn('[CLANGNET DEBUG] *** START OF VARIABLES ***');
+                        $.consoleLn('[CLANGNET DEBUG] Current Game = ' + currentGame);
+                        $.consoleLn('[CLANGNET DEBUG] ***  END OF VARIABLES  ***');
+                    } else {
+                        $.say($.lang.get('clangnetsass.showvars.failed'));
+                        $.consoleLn($.lang.get('clangnetsass.showvars.failed'));
+                    }
+                    return;
+                } else {
+                    return;
+                }
             }
-            return;
         }
 
-        // --- !debugclangnetsass command ---
-        if (command.equalsIgnoreCase('debugclangnetsass')) {
-            debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
-            if (debugClangnet == false) {
-                debugClangnet = true;
-                $.setIniDbBoolean('clangnetSass', 'debugClangnet', true);
-                $.say($.lang.get('clangnetsass.debugmodetrue'));
-                $.consoleLn('[CLANGNET DEBUG] ' + $.lang.get('clangnetsass.debugmodetrue'));
-            } else {
-                debugClangnet = false;
-                $.setIniDbBoolean('clangnetSass', 'debugClangnet', false);
-                $.say($.lang.get('clangnetsass.debugmodefalse'));
-                $.consoleLn('[CLANGNET DEBUG] ' + $.lang.get('clangnetsass.debugmodefalse'));
-            }
-            return;
-        }
-
-        // --- !clangnetshowvars command ---
-        if (command.equalsIgnoreCase('clangnetshowvars')) {
-            if (debugClangnet) {
-                currentGame = $.getGame($.channelName);
-                $.say($.lang.get('clangnetsass.showvars.success'));
-                $.consoleLn('[CLANGNET DEBUG] *** START OF VARIABLES ***');
-                $.consoleLn('[CLANGNET DEBUG] Current Game = ' + currentGame);
-                $.consoleLn('[CLANGNET DEBUG] ***  END OF VARIABLES  ***');
-            } else {
-                $.say($.lang.get('clangnetsass.showvars.failed'));
-                $.consoleLn($.lang.get('clangnetsass.showvars.failed'));
-            }
-            return;
-        }
-
-        if (command.equalsIgnoreCase('jokestb')) {
-            jokesTimerBot();
-        }
     });
 
     $.bind('initReady', function () {
@@ -490,15 +387,13 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'jokes', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
-        $.registerChatCommand('./custom/clangnetsass.js', 'clangnetofflinemode', 0);
-        $.registerChatCommand('./custom/clangnetsass.js', 'debugclangnetsass', 0);
-        $.registerChatCommand('./custom/clangnetsass.js', 'clangnetshowvars', 0);
-        $.registerChatCommand('./custom/clangnetsass.js', 'jokestb', 0);
-        $.registerChatSubcommand('jokes', 'toggle', 0);
+        $.registerChatCommand('./custom/clangnetsass.js', 'clangnetsass', 0);
         $.registerChatSubcommand('song', 'setup', 0);
+        $.registerChatSubcommand('clangnetsass', 'offlinemode', 0);
+        $.registerChatSubcommand('clangnetsass', 'debug', 0);
+        $.registerChatSubcommand('clangnetsass', 'showvars', 0);
     });
 
 }) ();

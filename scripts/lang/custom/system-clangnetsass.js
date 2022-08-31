@@ -124,13 +124,6 @@ $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of th
 $.lang.register('clangnetsass.merch', 'Get your new and latest cultist robes here --> https://iand.live/merch');
 $.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch?  Get it here --> https://iand.live/merch');
 
-// !jokes command responses
-// ------------------------
-$.lang.register('clangnetsass.jokesenabled', '$1, ClangNet\'s hunour has now been $2.');
-$.lang.register('clangnetsass.jokesdisabled', 'Someone thought I was too funny and turned my humour off!!!');
-$.lang.register('clangnetsass.jokesonline', '$1, I\'m only funny while I\'m online!!');
-$.lang.register('clangnetsass.telljoke.discord', '$1 $2');
-
 // !socials command response
 // -------------------------
 $.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://wlo.link/@IanDLive');
