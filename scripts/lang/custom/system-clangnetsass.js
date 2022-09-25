@@ -27,6 +27,13 @@ $.lang.register('clangnetsass.lurk.response4', 'I feel a tremor in the force... 
 $.lang.register('clangnetsass.lurk.response5', 'I think that $1 may have gotten distracted by a bee, I think they\'re going to follow it for a while...');
 $.lang.register('clangnetsass.lurk.response6', 'Vanishing quicker than a snowball in the Sahara, it\'s $1 deciding to lurk for a bit...');
 
+// !unlurk command responses
+// -------------------------
+$.lang.register('clangnetsass.unlurk.darkinhere', 'Trying to spring a surprise on chat?  Too early, the stream isn\'t live yet!!!');
+$.lang.register('clangnetsass.unlurk.response0', 'Put out the flags, get the marching band, $1 has returned to the chat!');
+$.lang.register('clangnetsass.unlurk.response1', 'Is the kettle on?  We need to make $1 a brew as they\'ve just come back.');
+$.lang.register('clangnetsass.unlurk.response2', 'Welcome back $1, glad to have you back in chat.');
+
 // !gamemods command responses
 // ---------------------------
 $.lang.register('clangnetsass.mods-notused', 'There are no mods used or listed for this game.');
@@ -99,10 +106,6 @@ $.lang.register('clangnetsass.humble', 'Want to get hold of games at decent pric
 // -----------------------------
 $.lang.register('clangnetsass.humblemonth', 'Do you like games?  Do you want a new batch of them each month?  Click on the link to sign up for Humble Bundle Monthly, where games are sent to you each month for a ridiculously low price!! --> https://iand.live/humble-monthly');
 
-// !emotes command response
-// ------------------------
-$.lang.register('clangnetsass.emotes', 'The subscriber emotes that are available for the channel are... $1');
-
 // !food command response
 // ----------------------
 $.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it\'s enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
@@ -138,6 +141,10 @@ $.lang.register('clangnetsass.song.noid', 'There isn\'t a current numerical Twit
 $.lang.register('clangnetsass.song.failure', 'Sorry, no Twitch ID No. was saved.');
 $.lang.register('clangnetsass.song.success', 'Twitch ID No. stored: $1');
 $.lang.register('clangnetsass.song', 'Via Pretzel - $1');
+
+// !hype command response
+// ----------------------
+$.lang.register('clangnetsass.hype', 'iandliPartyCrab iandliBaconLove iandliNeet iandliBadger iandliPartyCrab iandliBaconLove iandliNeet iandliBadger iandliPartyCrab iandliBaconLove iandliNeet iandliBadger');
 
 // !chatcomm command response
 // --------------------------
