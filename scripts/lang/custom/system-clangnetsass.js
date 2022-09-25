@@ -146,6 +146,10 @@ $.lang.register('clangnetsass.song', 'Via Pretzel - $1');
 // ----------------------
 $.lang.register('clangnetsass.hype', 'iandliPartyCrab iandliBaconLove iandliNeet iandliBadger iandliPartyCrab iandliBaconLove iandliNeet iandliBadger iandliPartyCrab iandliBaconLove iandliNeet iandliBadger');
 
+// !website command response
+// -------------------------
+$.lang.register('clangnetsass.website', 'Are you wanting to find more information about the community and other things like mod lists and game galleries and such like?  Come and check out the PoR website at https://prophetrage.co.uk - maybe even sign up and become part of the community!!! iandliBaconLove');
+
 // !chatcomm command response
 // --------------------------
 $.lang.register('clangnetsass.chatcomm', 'Do you want to find out what commands that I respond to?  Click the link and find a full list of them --> https://iand.live/chatcomm');
