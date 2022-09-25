@@ -47,7 +47,8 @@
         var queryItem;
         var apiURL;
 
-        // Determine whether the stream is online before executing any of the sass commands.
+        // Determine whether the stream is online before executing any of these sass commands.
+        // --- !lurk command ---
         if (command.equalsIgnoreCase('lurk')) {
             if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 var intResponseChoice = Math.floor(Math.random() * 7);
@@ -80,6 +81,7 @@
             }
         }
 
+        // --- !unlurk command ---
         if (command.equalsIgnoreCase('unlurk')) {
             if ($.isOnline($.channelName) || allowOfflineCmd == true) {
                 var intResponseChoice = Math.floor(Math.random() * 3);
@@ -100,6 +102,7 @@
             }
         }
 
+        // --- !gamemods command ---
         if (command.equalsIgnoreCase('gamemods')) {
             var modSender = $.cnUserStrings(sender);
             if ($.isOnline($.channelName) || allowOfflineCmd == true) {
@@ -124,6 +127,7 @@
             }
         }
 
+        // --- !gamertag command ---
         if (command.equalsIgnoreCase('gamertag')) {
             var handleSender = $.cnUserStrings(sender);
             if ($.isOnline($.channelName) || allowOfflineCmd == true) {
@@ -305,6 +309,11 @@
             $.say($.lang.get('clangnetsass.hype'));
         }
 
+        // --- !website command ---
+        if (command.equalsIgnoreCase('website')) {
+            $.say($.lang.get('clangnetsass.website'));
+        }
+
         // --- !raided command (MOD LEVEL) ---
         if (command.equalsIgnoreCase('raided')) {
             $.say($.lang.get('clangnetsass.raided'));
@@ -407,6 +416,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'hype', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'website', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetsass', 0);
