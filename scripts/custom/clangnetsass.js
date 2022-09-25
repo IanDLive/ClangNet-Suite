@@ -80,6 +80,26 @@
             }
         }
 
+        if (command.equalsIgnoreCase('unlurk')) {
+            if ($.isOnline($.channelName) || allowOfflineCmd == true) {
+                var intResponseChoice = Math.floor(Math.random() * 3);
+                var unlurkSender = $.cnUserStrings(sender);
+                switch (intResponseChoice) {
+                    case 0:
+                        $.say($.lang.get('clangnetsass.unlurk.response0', unlurkSender[0]));
+                        break;
+                    case 1:
+                        $.say($.lang.get('clangnetsass.unlurk.response1', unlurkSender[0]));
+                        break;
+                    case 2:
+                        $.say($.lang.get('clangnetsass.unlurk.response2', unlurkSender[0]));
+                        break;
+                }
+            } else {
+                $.say($.lang.get('clangnetsass.unlurk.darkinhere'));
+            }
+        }
+
         if (command.equalsIgnoreCase('gamemods')) {
             var modSender = $.cnUserStrings(sender);
             if ($.isOnline($.channelName) || allowOfflineCmd == true) {
@@ -213,12 +233,6 @@
             $.say($.lang.get('clangnetsass.humblemonth'));
         }
 
-        // --- !emotes command ---
-        if (command.equalsIgnoreCase('emotes')) {
-            apiURL = 'http://decapi.me/twitch/subscriber_emotes/iandlive';
-            $.say($.lang.get('clangnetsass.emotes', $.customAPI.get(apiURL).content));
-        }
-
         // --- !food command ---
         if (command.equalsIgnoreCase('food')) {
             $.say($.lang.get('clangnetsass.food'));
@@ -284,6 +298,11 @@
                     }
                 }
             }
+        }
+
+        // --- !hype command ---
+        if (command.equalsIgnoreCase('hype')) {
+            $.say($.lang.get('clangnetsass.hype'));
         }
 
         // --- !raided command (MOD LEVEL) ---
@@ -363,6 +382,7 @@
         // These are also used for the 'permcom' command.
         // $.registerChatCommand('script', 'command', 'permission');
         $.registerChatCommand('./custom/clangnetsass.js', 'lurk', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'unlurk', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'gamertag', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'ctt', 7);
@@ -377,7 +397,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'xebondiscord', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humble', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humblemonth', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'emotes', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'youtube', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'por-youtube', 7);
@@ -387,6 +406,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'hype', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetsass', 0);
