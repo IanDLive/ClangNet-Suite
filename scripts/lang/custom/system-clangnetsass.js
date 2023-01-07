@@ -129,7 +129,7 @@ $.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch?
 
 // !socials command response
 // -------------------------
-$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://wlo.link/@IanDLive');
+$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://linktr.ee/iandlive');
 
 // !subs command response
 // ----------------------
