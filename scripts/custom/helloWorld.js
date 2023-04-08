@@ -40,7 +40,7 @@
         // being used for the if statement as it doesn't care how it's been typed in chat.
         //
         // This command will get the bot to reply to you with the string that you see below.
-        if (command.equalIgnoreCase('hellothere')) {
+        if (command.equalsIgnoreCase('hellothere')) {
             $.say('Well hello there ' + sender);
             return;
         }
