@@ -66,7 +66,7 @@
     //    7 = Viewer
     $.bind('initReady', function () {
         if ($.bot.isModuleEnabled('./custom/helloWorld.js')) {
-            initText(); // The function above that displays the line within the consle when loaded.
+            initText(); // The function above that displays the line within the console when loaded.
             $.registerChatCommand('./custom/helloWorld.js', 'hellothere', 7);
         }
     });
