@@ -41,6 +41,7 @@ $.lang.register('clangnetsass.mods-notonline', 'Looking for what mods are used $
 $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 $.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
+$.lang.register('clangnetsass.fs22-mods', 'For the full list of mods that are being used on the Farm Sim 22 server, click here --> https://iand.live/fs22-mods');
 
 // !handle command responses
 // -------------------------
