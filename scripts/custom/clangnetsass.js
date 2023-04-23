@@ -118,6 +118,9 @@
                     case 'elite: dangerous':
                         $.say($.lang.get('clangnetsass.ed-mods'));
                         break;
+                    case 'farming simulator 22':
+                        $.say($.lang.get('clangnetsass.fs22-mods'));
+                        break;
                     default:
                         $.say($.lang.get('clangnetsass.mods-notused'));
                         break;
