@@ -24,10 +24,16 @@
         clip5Config = $.getSetIniDbBoolean('channelPointsHookSettings', 'clip5Config', false),
         clip5Hook = $.getSetIniDbString('channelPointsHookSettings', 'clip5Hook', 'noHookSet'),
         clip5Reward = $.getSetIniDbString('channelPointsHookSettings', 'clip5Reward', 'noNameSet'),
-        chuckToggle = $.getSetIniDbBoolean('channelPointsHookSettings', 'chuckToggle', false),
-        chuckID = $.getSetIniDbString('channelPointsHookSettings', 'chuckID', 'noIDSet'),
-        chuckConfig = $.getSetIniDbBoolean('channelPointsHookSettings', 'chuckConfig', false),
-        chuckReward = $.getSetIniDbString('channelPointsHookSettings', 'chuckReward', 'noNameSet');
+        clip6Toggle = $.getSetIniDbBoolean('channelPointsHookSettings', 'clip6Toggle', false),
+        clip6ID = $.getSetIniDbString('channelPointsHookSettings', 'clip6ID', 'noIDSet'),
+        clip6Config = $.getSetIniDbBoolean('channelPointsHookSettings', 'clip6Config', false),
+        clip6Hook = $.getSetIniDbString('channelPointsHookSettings', 'clip6Hook', 'noHookSet'),
+        clip6Reward = $.getSetIniDbString('channelPointsHookSettings', 'clip6Reward', 'noNameSet'),
+        clip7Toggle = $.getSetIniDbBoolean('channelPointsHookSettings', 'clip7Toggle', false),
+        clip7ID = $.getSetIniDbString('channelPointsHookSettings', 'clip7ID', 'noIDSet'),
+        clip7Config = $.getSetIniDbBoolean('channelPointsHookSettings', 'clip7Config', false),
+        clip7Hook = $.getSetIniDbString('channelPointsHookSettings', 'clip7Hook', 'noHookSet'),
+        clip7Reward = $.getSetIniDbString('channelPointsHookSettings', 'clip7Reward', 'noNameSet');
 
     function updateChannelPointsHookConfig() {
         clip1Toggle = $.getIniDbBoolean('channelPointsHookSettings', 'clip1Toggle', false);
@@ -55,10 +61,16 @@
         clip5Config = $.getIniDbBoolean('channelPointsHookSettings', 'clip5Config', false);
         clip5Hook = $.getIniDbString('channelPointsHookSettings', 'clip5Hook', 'noHookSet');
         clip5Reward = $.getIniDbString('channelPointsHookSettings', 'clip5Reward', 'noNameSet');
-        chuckToggle = $.getIniDbBoolean('channelPointsHookSettings', 'chuckToggle', false);
-        chuckID = $.getIniDbString('channelPointsHookSettings', 'chuckID', 'niIDSet');
-        chuckConfig = $.getIniDbBoolean('channelPointsHookSettings', 'chuckConfig', false);
-        chuckReward = $.getIniDbString('channelPointsHookSettings', 'chuckReward', 'noNameSet');
+        clip6Toggle = $.getIniDbBoolean('channelPointsHookSettings', 'clip6Toggle', false);
+        clip6ID = $.getIniDbString('channelPointsHookSettings', 'clip6ID', 'noIDSet');
+        clip6Config = $.getIniDbBoolean('channelPointsHookSettings', 'clip6Config', false);
+        clip6Hook = $.getIniDbString('channelPointsHookSettings', 'clip6Hook', 'noHookSet');
+        clip6Reward = $.getIniDbString('channelPointsHookSettings', 'clip6Reward', 'noNameSet');
+        clip7Toggle = $.getIniDbBoolean('channelPointsHookSettings', 'clip7Toggle', false);
+        clip7ID = $.getIniDbString('channelPointsHookSettings', 'clip7ID', 'noIDSet');
+        clip7Config = $.getIniDbBoolean('channelPointsHookSettings', 'clip7Config', false);
+        clip7Hook = $.getIniDbString('channelPointsHookSettings', 'clip7Hook', 'noHookSet');
+        clip7Reward = $.getIniDbString('channelPointsHookSettings', 'clip7Reward', 'noNameSet');
     }
 
     /*
@@ -72,7 +84,7 @@
 
         if (command.equalsIgnoreCase('channelpointshook')) {
             if (action === undefined) {
-                if (clip1Toggle === false && clip2Toggle === false && clip3Toggle === false && clip4Toggle === false && clip5Toggle === false && chuckToggle=== false) {
+                if (clip1Toggle === false && clip2Toggle === false && clip3Toggle === false && clip4Toggle === false && clip5Toggle === false && clip6Toggle === false && clip7Toggle === false) {
                     $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.notenabled'));
                     return;
                 }
@@ -92,8 +104,11 @@
                 if (clip5Toggle === true) {
                     config += ' clip5';
                 }
-                if (chuckToggle === true) {
-                    config += ' chuck';
+                if (clip6Toggle === true) {
+                    config += ' clip6';
+                }
+                if (clip7Toggle == true) {
+                    config += ' clip7';
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.current', config));
                 return;
@@ -511,38 +526,38 @@
             }
 
             /*
-             * @commandpath chuck
+             * @commandpath clip6
              */
-            if (action.equalsIgnoreCase('chuck')) {
+            if (action.equalsIgnoreCase('clip6')) {
                 if (args[1] === undefined) {
-                    if (chuckToggle === false) {
-                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.info'));
+                    if (clip6Toggle === false) {
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.info'));
                         return;
                     }
-                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.current', chuckReward));
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.current', clip6Reward, clip6Hook));
                     return;
                 }
 
                 /*
-                 * @commandpath chuck usage
+                 * @commandpath clip6 usage
                  */
                 if (args[1].equalsIgnoreCase('usage')) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.usage'));
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.usage'));
                     return;
                 }
 
                 /*
-                 * @commandpath chuck config
+                 * @commandpath clip6 config
                  */
                 if (args[1].equalsIgnoreCase('config')) {
-                    chuckConfig = !chuckConfig;
-                    $.getSetIniDbBoolean('channelPointsHookSettings', 'chuckConfig', chuckConfig);
-                    if (chuckConfig === true) {
-                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.config.start'));
-                        chuckID = 'noIDSet';
-                        chuckReward = 'noNameSet';
-                        $.setIniDbString('channelPointsHookSettings', 'chuckID', chuckID);
-                        $.setIniDbString('channelPointsHookSettings', 'chuckReward', chuckReward);
+                    clip6Config = !clip6Config;
+                    $.getSetIniDbBoolean('channelPointsHookSettings', 'clip6Config', clip6Config);
+                    if (clip6Config === true) {
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.config.start'));
+                        clip6ID = 'noIDSet';
+                        clip6Reward = 'noNameSet';
+                        $.setIniDbString('channelPointsHookSettings', 'clip6ID', clip6ID);
+                        $.setIniDbString('channelPointsHookSettings', 'clip6Reward', clip6Reward);
                         return;
                     }
                     $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.config.failed'));
@@ -551,18 +566,119 @@
                 }
 
                 /*
-                 * @commandpath chuck toggle
+                 * @commandpath clip6 hook
+                 */
+                if (args[1].equalsIgnoreCase('hook')) {
+                    if (args[2] === undefined) {
+                        if (clip6Hook.equals('noHookSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.hook.notset'));
+                            return;
+                        }
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.hook.usage', clip6Hook));
+                        return;
+                    }
+                    clip6Hook = args[2];
+                    $.setIniDbString('channelPointsHookSettings', 'clip6Hook', clip6Hook);
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.hook.message', clip6Hook));
+                    return;
+                }
+
+                /*
+                 * @commandpath clip6 toggle
                  */
                 if (args[1].equalsIgnoreCase('toggle')) {
-                    if (chuckToggle === false) {
-                        if (chuckID.equals('noIDSet')) {
-                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.chuck.toggle.id'));
+                    if (clip6Toggle === false) {
+                        if (clip6ID.equals('noIDSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.toggle.id'));
+                            return;
+                        }
+                        if (clip6Hook.equals('noHookSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip6.toggle.hook'));
                             return;
                         }
                     }
-                    chuckToggle = !chuckToggle;
-                    $.setIniDbBoolean('channelPointsHookSettings', 'chuckToggle', chuckToggle);
-                    $.say($.whisperPrefix(sender) + (chuckToggle ? $.lang.get('channelpointshook.chuck.enabled', chuckReward) : $.lang.get('channelpointshook.chuck.disabled')));
+                    clip6Toggle = !clip6Toggle;
+                    $.setIniDbBoolean('channelPointsHookSettings', 'clip6Toggle', clip6Toggle);
+                    $.say($.whisperPrefix(sender) + (clip6Toggle ? $.lang.get('channelpointshook.clip6.enabled', clip6Reward) : $.lang.get('channelpointshook.clip6.disabled')));
+                    return;
+                }
+            }
+
+            /*
+             * @commandpath clip7
+             */
+            if (action.equalsIgnoreCase('clip7')) {
+                if (args[1] === undefined) {
+                    if (clip7Toggle === false) {
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.info'));
+                        return;
+                    }
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.current', clip7Reward, clip7Hook));
+                    return;
+                }
+
+                /*
+                 * @commandpath clip7 usage
+                 */
+                if (args[1].equalsIgnoreCase('usage')) {
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.usage'));
+                    return;
+                }
+
+                /*
+                 * @commandpath clip7 config
+                 */
+                if (args[1].equalsIgnoreCase('config')) {
+                    clip7Config = !clip7Config;
+                    $.getSetIniDbBoolean('channelPointsHookSettings', 'clip7Config', clip7Config);
+                    if (clip7Config === true) {
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.config.start'));
+                        clip7ID = 'noIDSet';
+                        clip7Reward = 'noNameSet';
+                        $.setIniDbString('channelPointsHookSettings', 'clip7ID', clip7ID);
+                        $.setIniDbString('channelPointsHookSettings', 'clip7Reward', clip7Reward);
+                        return;
+                    }
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.config.failed'));
+                    // config is closed when the reward is successfully redeemed - see the reward ID config in channel points events below.
+                    return;
+                }
+
+                /*
+                 * @commandpath clip7 hook
+                 */
+                if (args[1].equalsIgnoreCase('hook')) {
+                    if (args[2] === undefined) {
+                        if (clip7Hook.equals('noHookSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.hook.notset'));
+                            return;
+                        }
+                        $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.hook.usage', clip7Hook));
+                        return;
+                    }
+                    clip7Hook = args[2];
+                    $.setIniDbString('channelPointsHookSettings', 'clip7Hook', clip7Hook);
+                    $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.hook.message', clip7Hook));
+                    return;
+                }
+
+                /*
+                 * @commandpath clip7 toggle
+                 */
+                if (args[1].equalsIgnoreCase('toggle')) {
+                    if (clip7Toggle === false) {
+                        if (clip7ID.equals('noIDSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.toggle.id'));
+                            return;
+                        }
+                        if (clip7Hook.equals('noHookSet')) {
+                            $.say($.whisperPrefix(sender) + $.lang.get('channelpointshook.clip7.toggle.hook'));
+                            return;
+                        }
+                    }
+                    clip7Toggle = !clip7Toggle;
+                    $.setIniDbBoolean('channelPointsHookSettings', 'clip7Toggle', clip7Toggle);
+                    $.say($.whisperPrefix(sender) + (clip7Toggle ? $.lang.get('channelpointshook.clip7.enabled', clip7Reward) : $.lang.get('channelpointshook.clip7.disabled')));
                     return;
                 }
             }
@@ -644,14 +760,25 @@
             return;
         }
 
-        if (chuckConfig === true) {
-            chuckID = rewardID;
-            chuckReward = rewardTitle;
-            $.setIniDbString('channelPointsHookSettings', 'chuckID', chuckID);
-            $.setIniDbString('channelPointsHookSettings', 'chuckReward', chuckReward);
-            chuckConfig = false;
-            $.setIniDbBoolean('channelPointsHookSettings', 'chuckConfig', chuckConfig);
-            $.say($.lang.get('channelpointshook.chuck.config.complete', chuckReward));
+        if (clip6Config === true) {
+            clip6ID = rewardID;
+            clip6Reward = rewardTitle;
+            $.setIniDbString('channelPointsHookSettings', 'clip6ID', clip6ID);
+            $.setIniDbString('channelPointsHookSettings', 'clip6Reward', clip6Reward);
+            clip6Config = false;
+            $.setIniDbBoolean('channelPointsHookSettings', 'clip6Config', clip6Config);
+            $.say($.lang.get('channelpointshook.clip6.config.complete', clip6Reward));
+            return;
+        }
+
+        if (clip7Config === true) {
+            clip7ID = rewardID;
+            clip7Reward = rewardTitle;
+            $.setIniDbString('channelPointsHookSettings', 'clip7ID', clip7ID);
+            $.setIniDbString('channelPointsHookSettings', 'clip7Reward', clip7Reward);
+            clip7Config = false;
+            $.setIniDbBoolean('channelPointsHookSettings', 'clip7Config', clip7Config);
+            $.say($.lang.get('channelpointshook.clip7.config.complete', clip7Reward));
             return;
         }
 
@@ -719,10 +846,26 @@
             }
         }
 
-        if (rewardID.equals(chuckID)) {
-            if (chuckToggle === true) {
-                $.consoleDebug('chuckRunStart');
-                $.cnChuckRandom();
+        if (rewardID.equals(clip6ID)) {
+            if (clip6Toggle === true) {
+                $.consoleDebug('clip6RunStart');
+                if (!$.audioHookExists(clip6Hook)) {
+                    $.say($.lang.get('channelpointshook.audiohook.failed'));
+                } else {
+                    $.alertspollssocket.triggerAudioPanel(clip6Hook);
+                }
+                return;
+            }
+        }
+
+        if (rewardID.equals(clip7ID)) {
+            if (clip7Toggle === true) {
+                $.consoleDebug('clip7RunStart');
+                if (!$.audioHookExists(clip7Hook)) {
+                    $.say($.lang.get('channelpointshook.audiohook.failed'));
+                } else {
+                    $.alertspollssocket.triggerAudioPanel(clip7Hook);
+                }
                 return;
             }
         }
