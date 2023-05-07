@@ -70,11 +70,28 @@ $.lang.register('channelpointshook.clip5.toggle.hook', 'unable to enable clip5 a
 $.lang.register('channelpointshook.clip5.enabled', 'channel points redemtion clip5 enabled for reward $1.');
 $.lang.register('channelpointshook.clip5.disabled', 'channel points redemtion clip5 disabled.');
 
-$.lang.register('channelpointshook.chuck.info', 'Chuck Norris facts are not enabled. When a fact redemption is claimed, a fact will be returned for them. To configure please use "!channelpointshook chuck config" or for more info please use "!channelpointshook chuck usage".');
-$.lang.register('channelpointshook.chuck.current', 'Chuck Norris facts are registered to $1 and a fact will be retrieved for each redemption. To change please use "!channelpointshook chuck config"');
-$.lang.register('channelpointshook.chuck.usage', 'Usage: !channelpointshook chuck [usage / config / toggle]');
-$.lang.register('channelpointshook.chuck.config.start', 'channel points chuck config active. Please redeem desired reward.');
-$.lang.register('channelpointshook.chuck.config.complete', 'Channel points chuck config complete. Chuck Norris facts are now registered to reward $1.');
-$.lang.register('channelpointshook.chuck.toggle.id', 'unable to enable Chuck Norris facts as no valid reward ID was found. Please use "!channelpointshook chuck config" to set reward.');
-$.lang.register('channelpointshook.chuck.enabled', 'channel points redemption chuck enabled for reward $1.');
-$.lang.register('channelpointshook.chuck.disabled', 'channel points redemption chuck disabled.');
+$.lang.register('channelpointshook.clip6.info', 'audio hook 6 is not enabled. When the audio hook redemption is claimed, the user will have a set audio hook played for them. To configure please use "!channelpointshook clip6 config" or for more info please use "!channelpointshook clip6 usage".');
+$.lang.register('channelpointshook.clip6.current', 'audio hook 6 is registered to $1 and the user will have the hook $2 played for each redemtion. To change please use "!channelpointshook clip6 [config / hook]"');
+$.lang.register('channelpointshook.clip6.usage', 'Usage: !channelpointshook clip6 [usage / config / hook / toggle]');
+$.lang.register('channelpointshook.clip6.config.start', 'channel points clip6 config active. Please redeen desired reward.');
+$.lang.register('channelpointshook.clip6.config.complete', 'Channel points clip6 config complete. Audio hook 6 is now registered to reward $1.');
+$.lang.register('channelpointshook.clip6.hook.notset', 'channel points reward, the audio hook to play has not been set. use "!channelpointshook clip6 hook [name of the audio hook to play]" to set.');
+$.lang.register('channelpointshook.clip6.hook.usage', 'channel points reward, the audio hook to play is set to $1. Use "!channelpointshook clip6 hook [name of the hook to play]" to change.');
+$.lang.register('channelpointshook.clip6.hook.message', 'channel points redemption clip6 will play audio hook $1 for the user who redeemed the reward.');
+$.lang.register('channelpointshook.clip6.toggle.id', 'unable to enable clip6 as no valid reward ID was found. Please use "!channelpointshook clip6 config" to set reward.');
+$.lang.register('channelpointshook.clip6.toggle.hook', 'unable to enable clip6 as no audio hook has been set. Please use "!channelpointshook clip6 hook [name of the hook to play]" to set.');
+$.lang.register('channelpointshook.clip6.enabled', 'channel points redemtion clip6 enabled for reward $1.');
+$.lang.register('channelpointshook.clip6.disabled', 'channel points redemtion clip6 disabled.');
+
+$.lang.register('channelpointshook.clip7.info', 'audio hook 7 is not enabled. When the audio hook redemption is claimed, the user will have a set audio hook played for them. To configure please use "!channelpointshook clip7 config" or for more info please use "!channelpointshook clip7 usage".');
+$.lang.register('channelpointshook.clip7.current', 'audio hook 7 is registered to $1 and the user will have the hook $2 played for each redemtion. To change please use "!channelpointshook clip7 [config / hook]"');
+$.lang.register('channelpointshook.clip7.usage', 'Usage: !channelpointshook clip7 [usage / config / hook / toggle]');
+$.lang.register('channelpointshook.clip7.config.start', 'channel points clip7 config active. Please redeen desired reward.');
+$.lang.register('channelpointshook.clip7.config.complete', 'Channel points clip7 config complete. Audio hook 7 is now registered to reward $1.');
+$.lang.register('channelpointshook.clip7.hook.notset', 'channel points reward, the audio hook to play has not been set. use "!channelpointshook clip7 hook [name of the audio hook to play]" to set.');
+$.lang.register('channelpointshook.clip7.hook.usage', 'channel points reward, the audio hook to play is set to $1. Use "!channelpointshook clip7 hook [name of the hook to play]" to change.');
+$.lang.register('channelpointshook.clip7.hook.message', 'channel points redemption clip7 will play audio hook $1 for the user who redeemed the reward.');
+$.lang.register('channelpointshook.clip7.toggle.id', 'unable to enable clip7 as no valid reward ID was found. Please use "!channelpointshook clip7 config" to set reward.');
+$.lang.register('channelpointshook.clip7.toggle.hook', 'unable to enable clip7 as no audio hook has been set. Please use "!channelpointshook clip7 hook [name of the hook to play]" to set.');
+$.lang.register('channelpointshook.clip7.enabled', 'channel points redemtion clip7 enabled for reward $1.');
+$.lang.register('channelpointshook.clip7.disabled', 'channel points redemtion clip7 disabled.');
