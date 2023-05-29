@@ -83,6 +83,10 @@ $.lang.register('clangnetsass.howlong.discord', '$1, you have followed the IanDL
 // ---------------------------
 $.lang.register('clangnetsass.howserver', 'Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
 
+// !howsong command response
+// -------------------------
+$.lang.register('clangnetsass.howsong', 'Type !sr followed by <song name> <song artist> or with a YouTube link to add your track to the song request list.  If you get it wrong, use !wrongsong to remove the track you have just added.');
+
 // !steamgroup command response
 // ----------------------------
 $.lang.register('clangnetsass.steamgroup', 'Want to join the Prophets of Rage Steam group so that you can access the servers?  Follow the link to get to the group page to join up --> https://iand.live/SteamGroup');
