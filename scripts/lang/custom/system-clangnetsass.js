@@ -129,8 +129,8 @@ $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of th
 
 // !merch command response
 // -----------------------
-$.lang.register('clangnetsass.merch', 'Get your new and latest cultist robes here --> https://iand.live/merch');
-$.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch?  Get it here --> https://iand.live/merch');
+$.lang.register('clangnetsass.merch', 'Get your new and latest PoR clothing and merch, or even help support the servers here --> https://iand.live/merch');
+$.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch, or help support the servers?  Get it all here --> https://iand.live/merch');
 
 // !socials command response
 // -------------------------
