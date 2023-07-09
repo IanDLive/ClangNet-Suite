@@ -87,6 +87,10 @@ $.lang.register('clangnetsass.howserver', 'Want to get onto our community server
 // -------------------------
 $.lang.register('clangnetsass.howsong', 'Type !sr followed by <song name> <song artist> or with a YouTube link to add your track to the song request list.  If you get it wrong, use !wrongsong to remove the track you have just added.');
 
+// !notifications command response
+// -------------------------------
+$.lang.register('clangnetsass.notifications', 'Enjoying the stream and want to know when the next one is? Follow the channel and ensure that notifications are turned on; if they already are then IT Crowd it and turn them off and on again, or you can join us on Discord (https://iand.live/discord) and sign up for notifications there!');
+
 // !steamgroup command response
 // ----------------------------
 $.lang.register('clangnetsass.steamgroup', 'Want to join the Prophets of Rage Steam group so that you can access the servers?  Follow the link to get to the group page to join up --> https://iand.live/SteamGroup');
