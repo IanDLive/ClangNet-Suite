@@ -111,7 +111,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\discord\custom\clangnetsass-discord.js" />
-    <Content Include="scripts\discord\custom\goingLiveSystem-discord.js" />
     <Content Include="scripts\lang\custom\system-starcitizen.js">
       <SubType>Code</SubType>
     </Content>
