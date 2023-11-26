@@ -34,6 +34,7 @@
     <Content Include="addons\custom\moddata\_folderusage.txt">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="addons\youtubePlayer\currentsong.txt" />
     <Content Include="scripts\custom\helloWorld.js">
       <SubType>Code</SubType>
     </Content>
@@ -161,6 +162,7 @@
     <Folder Include="addons\custom\edinfo\" />
     <Folder Include="addons\custom\ksp\" />
     <Folder Include="addons\custom\moddata\" />
+    <Folder Include="addons\youtubePlayer\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\custom\" />
     <Folder Include="scripts\discord\" />
