@@ -51,10 +51,6 @@ $.lang.register('clangnetsass.handle-starcitizen', '$1, if you want to add IanDL
 $.lang.register('clangnetsass.handle-eso', '$1, if you want to add IanDLive to your friends list in The Elder Scrolls Online, just add him in game as \'@IanDLive\'');
 $.lang.register('clangnetsass.handle-elite', '$1, if you want to add IanDLive to your friends list in Elite: Dangerous, just add him in game as \'IanD Live\'');
 
-// !ctt (Click-to-Tweet) command response
-// --------------------------------------
-$.lang.register('clangnetsass.ctt', 'Want to help spread the love of this channel on Twitter?  Click here to do so --> https://iand.live/ctt');
-
 // !discord command response
 // -------------------------
 $.lang.register('clangnetsass.discord', 'Come and join in the banter on and offline in the PoR Discord --> https://iand.live/discord');
@@ -81,11 +77,11 @@ $.lang.register('clangnetsass.howlong.discord', '$1, you have followed the IanDL
 
 // !howserver command response
 // ---------------------------
-$.lang.register('clangnetsass.howserver', 'Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
+$.lang.register('clangnetsass.howserver', '.announcegreen Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
 
 // !howsong command response
 // -------------------------
-$.lang.register('clangnetsass.howsong', 'Type !sr followed by <song name> <song artist> or with a YouTube link to add your track to the song request list.  If you get it wrong, use !wrongsong to remove the track you have just added.');
+$.lang.register('clangnetsass.howsong', '.announcegreen Type !sr followed by <song name> <song artist> or with a YouTube link to add your track to the song request list.  If you get it wrong, use !wrongsong to remove the track you have just added.');
 
 // !notifications command response
 // -------------------------------
@@ -133,7 +129,7 @@ $.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of th
 
 // !merch command response
 // -----------------------
-$.lang.register('clangnetsass.merch', 'Get your new and latest PoR clothing and merch, or even help support the servers here --> https://iand.live/merch');
+$.lang.register('clangnetsass.merch', '.announceorange Get your new and latest PoR clothing and merch, or even help support the servers here --> https://iand.live/merch');
 $.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch, or help support the servers?  Get it all here --> https://iand.live/merch');
 
 // !socials command response
@@ -142,14 +138,16 @@ $.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date wi
 
 // !subs command response
 // ----------------------
-$.lang.register('clangnetsass.subs', 'Twitch now has regional subscriber pricing, do you want to know more?? *click*  -  Subscribe to the channel cheaper or for free with Twitch Prime!!!');
+$.lang.register('clangnetsass.subs', '.announcepurple Twitch now has regional subscriber pricing, do you want to know more?? *click*  -  Subscribe to the channel cheaper or for free with Twitch Prime!!!');
 
+/*
 // !song command response
 // ----------------------
 $.lang.register('clangnetsass.song.noid', 'There isn\'t a current numerical Twitch ID set to execute the command.  Please use !song setup <Twitch ID No.> to set up the command.');
 $.lang.register('clangnetsass.song.failure', 'Sorry, no Twitch ID No. was saved.');
 $.lang.register('clangnetsass.song.success', 'Twitch ID No. stored: $1');
 $.lang.register('clangnetsass.song', 'Via Pretzel - $1');
+*/ 
 
 // !hype command response
 // ----------------------
@@ -157,7 +155,7 @@ $.lang.register('clangnetsass.hype', 'iandliPartyCrab iandliBaconLove iandliNeet
 
 // !website command response
 // -------------------------
-$.lang.register('clangnetsass.website', 'Are you wanting to find more information about the community and other things like mod lists and game galleries and such like?  Come and check out the PoR website at https://prophetrage.co.uk - maybe even sign up and become part of the community!!! iandliBaconLove');
+$.lang.register('clangnetsass.website', '.announceblue Are you wanting to find more information about the community and other things like mod lists and game galleries and such like?  Come and check out the PoR website at https://prophetrage.co.uk - maybe even sign up and become part of the community!!! iandliBaconLove');
 
 // !chatcomm command response
 // --------------------------
@@ -165,4 +163,8 @@ $.lang.register('clangnetsass.chatcomm', 'Do you want to find out what commands 
 
 // !raided command response
 // ------------------------
-$.lang.register('clangnetsass.raided', 'If you have just joined the channel from a raid, thanks for sticking around.  Please consider removing from the url \'?referrer=raid\' so that you are counted as an active viewer, or just click the link https://twitch.tv/iandlive - enjoy the show!');
+$.lang.register('clangnetsass.raided', '.announcepurple If you have just joined the channel from a raid, thanks for sticking around.  Please consider removing from the url \'?referrer=raid\' so that you are counted as an active viewer, or just click the link https://twitch.tv/iandlive - enjoy the show!');
+
+// !chattest command response
+// --------------------------
+$.lang.register('clangnetsass.chattest', '.announce This is some test text');

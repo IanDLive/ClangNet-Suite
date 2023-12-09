@@ -15,7 +15,7 @@
     // Global variable for this function
     var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
     var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
-    var pretzelTwitchId = $.getSetIniDbString('clangnetSass', 'twitchId', 'NaN');
+    // var pretzelTwitchId = $.getSetIniDbString('clangnetSass', 'twitchId', 'NaN');
 
     // Initialise variables for this function and report debug mode on startup if it is enabled.
     function initText() {
@@ -156,11 +156,6 @@
         }
 
         // Commands that are not online/offline dependent.
-        // --- !ctt (Click-to-Tweet) command ---
-        if (command.equalsIgnoreCase('ctt')) {
-            $.say($.lang.get('clangnetsass.ctt'));
-        }
-
         // --- !discord command ---
         if (command.equalsIgnoreCase('discord')) {
             $.say($.lang.get('clangnetsass.discord'));
@@ -291,6 +286,7 @@
         }
 
         // --- !song command ---
+        /*
         if (command.equalsIgnoreCase('song')) {
             pretzelTwitchId = $.getIniDbString('clangnetSass', 'twitchId');
             if (action === undefined) {
@@ -316,6 +312,7 @@
                 }
             }
         }
+        */
 
         // --- !hype command ---
         if (command.equalsIgnoreCase('hype')) {
@@ -407,7 +404,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'unlurk', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'gamemods', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'gamertag', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'ctt', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'discord', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'followed', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'followers', 7);
@@ -429,13 +425,13 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'chatcomm', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
+        // $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'hype', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'website', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetsass', 0);
-        $.registerChatSubcommand('song', 'setup', 0);
+        // $.registerChatSubcommand('song', 'setup', 0);
         $.registerChatSubcommand('clangnetsass', 'offlinemode', 0);
         $.registerChatSubcommand('clangnetsass', 'debug', 0);
         $.registerChatSubcommand('clangnetsass', 'showvars', 0);
