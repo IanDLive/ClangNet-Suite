@@ -165,6 +165,10 @@ $.lang.register('clangnetsass.chatcomm', 'Do you want to find out what commands 
 // ------------------------
 $.lang.register('clangnetsass.raided', '.announcepurple If you have just joined the channel from a raid, thanks for sticking around.  Please consider removing from the url \'?referrer=raid\' so that you are counted as an active viewer, or just click the link https://twitch.tv/iandlive - enjoy the show!');
 
+// !ads command response
+// ---------------------
+$.lang.register('clangnetsass.ads', '.announcepurple Ads get played on this channel, and may be coming up soon.  If you don\'t want to see ads while watching the channel, you can get rid of them by subscribing, or alternatively to get rid of ads from all channels you could subscribe to Twitch Turbo. Subscriptions to Twitch Turbo still supports your favourite streamers :)');
+
 // !chattest command response
 // --------------------------
 $.lang.register('clangnetsass.chattest', '.announce This is some test text');
