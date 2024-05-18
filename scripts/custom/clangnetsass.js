@@ -121,6 +121,9 @@
                     case 'farming simulator 22':
                         $.say($.lang.get('clangnetsass.fs22-mods'));
                         break;
+                    case 'fallout 4':
+                        $.say($.lang.get('clangnetsass.fo4-mods'));
+                        break;
                     default:
                         $.say($.lang.get('clangnetsass.mods-notused'));
                         break;
