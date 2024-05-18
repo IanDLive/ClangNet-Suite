@@ -42,6 +42,7 @@ $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are b
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 $.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
 $.lang.register('clangnetsass.fs22-mods', 'For the full list of mods that are being used on the Farm Sim 22 server, click here --> https://iand.live/fs22-mods');
+$.lang.register('clangnetsass.fo4-mods', 'For the full list of mods as a collection that you can see being used on the stream in Fallout 4, click here --> https://iand.live/fo4-mods');
 
 // !handle command responses
 // -------------------------
