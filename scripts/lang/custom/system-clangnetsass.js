@@ -1,6 +1,13 @@
 // Language file for clangnetsass.js
 // =================================
 
+// ClangNetSass config file path responses
+// ---------------------------------------
+$.lang.register('clangnetsass.needtosetpath', 'A path needs to be set for the location of the config text file.  Usage: !clangnetsass setpath <PATH TO FILES i.e. ./addons/SomeTextFiles/>');
+$.lang.register('clangnetsass.nofilepathset', 'A file path was not set for the location of the module data config files.');
+$.lang.register('clangnetsass.datafilepathset', 'The path to the location of the config data file has been set to: $1');
+$.lang.register('clangnetsass.reloaded', 'API Key reloaded from the config text file.');
+
 // !clangnetofflinemode responses
 // ------------------------------
 $.lang.register('clangnetsass.offlinemodetrue', 'Clangnet no longer checking to whether the stream is online.');

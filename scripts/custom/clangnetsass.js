@@ -16,17 +16,52 @@
     var allowOfflineCmd = $.getSetIniDbBoolean('clangnetSass', 'allowOfflineCmd', false);
     var debugClangnet = $.getSetIniDbBoolean('clangnetSass', 'debugClangnet', false);
     // var pretzelTwitchId = $.getSetIniDbString('clangnetSass', 'twitchId', 'NaN');
+    var decAPIConfigPath = $.getSetIniDbString('clangnetSass', 'decAPIConfigPath', '[No URL Set]');
+    var configFile;
+    var decAPIKey;
 
     // Initialise variables for this function and report debug mode on startup if it is enabled.
     function initText() {
         allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
         debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
         $.consoleLn("+++>>> Clangnet Sass commands module online");
+        $.consoleLn("+++>>> Module Config Data File Path set to: " + decAPIConfigPath);
+        if (decAPIConfigPath.equalsIgnoreCase('[no url set]')) {
+            $.consoleLn($.lang.get('clangnetsass.needtosetpath'));
+            return;
+        } else {
+            getDecAPIKey();
+            return;
+        }
         if (allowOfflineCmd) {
             $.consoleLn($.lang.get('clangnetsass.offlinemodetrue'));
         }
         if (debugClangnet) {
             $.consoleLn('[CLANGNET DEBUG] ClangnetSass Debug Facility Enabled');
+        }
+    }
+
+    // Get the API Key for decAPI endpoint.
+    function getDecAPIKey() {
+        if (decAPIConfigPath.equalsIgnoreCase('[no url set]')) {
+            $.consoleLn($.lang.get('clangnetsass.needtosetpath'));
+            return;
+        } else {
+            configFile = $.readFile(decAPIConfigPath + 'modData.txt');
+            for (var i = 0; i < configFile.length; i++) {
+                if (configFile[i].substr(0, 1) != '#' || configFile[i].substr(0, 1) != '') {
+                    var delimiter = configFile[i].indexOf('=');
+                    var keyLength = configFile[i].length;
+                    var keyName = configFile[i].substr(0, delimiter);
+                    var keyValue = configFile[i].substr(delimiter + 1, keyLength - 1);
+                    var lc_keyName = keyName.toLowerCase();
+                    switch (lc_keyName) {
+                        case 'decapi':
+                            decAPIKey = keyValue;
+                            break;
+                    }
+                }
+            }
         }
     }
 
@@ -162,6 +197,7 @@
         // --- !discord command ---
         if (command.equalsIgnoreCase('discord')) {
             $.say($.lang.get('clangnetsass.discord'));
+            return;
         }
 
         // --- !followed command ---
@@ -169,11 +205,13 @@
             atSender = $.cnUserStrings(sender);
             if (args[0] !== undefined) {
                 queryItem = $.cnUserStrings(args[0]);
-                apiURL = 'https://decapi.me/twitch/followed/iandlive/' + queryItem[1];
+                apiURL = 'https://decapi.me/twitch/followed/iandlive/' + queryItem[1] + '?token=' + decAPIKey;
                 $.say($.lang.get('clangnetsass.followedquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
+                return;
             } else {
-                apiURL = 'https://decapi.me/twitch/followed/iandlive/' + sender;
+                apiURL = 'https://decapi.me/twitch/followed/iandlive/' + sender + '?token=' + decAPIKey;
                 $.say($.lang.get('clangnetsass.followed', atSender[0], $.customAPI.get(apiURL).content));
+                return;
             }
         }
 
@@ -184,9 +222,11 @@
                 queryItem = $.cnUserStrings(args[0]);
                 apiURL = 'https://decapi.me/twitch/followcount/' + queryItem[1];
                 $.say($.lang.get('clangnetsass.followersquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
+                return;
             } else {
                 apiURL = 'https://decapi.me/twitch/followcount/iandlive';
                 $.say($.lang.get('clangnetsass.followers', atSender[0], $.customAPI.get(apiURL).content));
+                return;
             }
         }
 
@@ -195,152 +235,140 @@
             atSender = $.cnUserStrings(sender);
             if (args[0] !== undefined) {
                 queryItem = $.cnUserStrings(args[0]);
-                apiURL = 'https://decapi.me/twitch/followage/iandlive/' + queryItem[1];
+                apiURL = 'https://decapi.me/twitch/followage/iandlive/' + queryItem[1] + '?token=' + decAPIKey;
                 $.say($.lang.get('clangnetsass.howlongquery', atSender[0], queryItem[1], $.customAPI.get(apiURL).content));
+                return;
             } else {
-                apiURL = 'https://decapi.me/twitch/followage/iandlive/' + sender;
+                apiURL = 'https://decapi.me/twitch/followage/iandlive/' + sender + '?token=' + decAPIKey;
                 $.say($.lang.get('clangnetsass.howlong', atSender[0], $.customAPI.get(apiURL).content));
+                return;
             }
         }
 
         // --- !howserver command ---
         if (command.equalsIgnoreCase('howserver')) {
             $.say($.lang.get('clangnetsass.howserver'));
+            return;
         }
 
         // --- !howsong command ---
         if (command.equalsIgnoreCase('howsong')) {
             $.say($.lang.get('clangnetsass.howsong'));
+            return;
         }
 
         // --- !notifications command ---
         if (command.equalsIgnoreCase('notifications')) {
             $.say($.lang.get('clangnetsass.notifications'));
+            return;
         }
 
         // --- !steamgroup command ---
         if (command.equalsIgnoreCase('steamgroup')) {
             $.say($.lang.get('clangnetsass.steamgroup'));
+            return;
         }
 
         // --- !steam command ---
         if (command.equalsIgnoreCase('steam')) {
             $.say($.lang.get('clangnetsass.steam'));
+            return;
         }
 
         // --- !xebon command ---
         if (command.equalsIgnoreCase('xebon')) {
             $.say($.lang.get('clangnetsass.xebon'));
+            return;
         }
 
         // --- !xebondiscord command ---
         if (command.equalsIgnoreCase('xebondiscord')) {
             $.say($.lang.get('clangnetsass.xebondiscord'));
+            return;
         }
 
         // --- !humble command ---
         if (command.equalsIgnoreCase('humble')) {
             $.say($.lang.get('clangnetsass.humble'));
+            return;
         }
 
         // --- !humblemonth command ---
         if (command.equalsIgnoreCase('humblemonth')) {
             $.say($.lang.get('clangnetsass.humblemonth'));
+            return;
         }
 
         // --- !food command ---
         if (command.equalsIgnoreCase('food')) {
             $.say($.lang.get('clangnetsass.food'));
+            return;
         }
 
         // --- !youtube command ---
         if (command.equalsIgnoreCase('youtube')) {
             $.say($.lang.get('clangnetsass.youtube'));
+            return;
         }
 
         // --- !por-youtube command ---
         if (command.equalsIgnoreCase('por-youtube')) {
             $.say($.lang.get('clangnetsass.por-youtube'));
+            return;
         }
 
         // --- !cdkeys command ---
         if (command.equalsIgnoreCase('cdkeys')) {
             $.say($.lang.get('clangnetsass.cdkeys'));
+            return;
         }
 
         // --- !merch command ---
         if (command.equalsIgnoreCase('merch')) {
             $.say($.lang.get('clangnetsass.merch'));
+            return;
         }
 
         // --- !chatcomm command ---
         if (command.equalsIgnoreCase('chatcomm')) {
             $.say($.lang.get('clangnetsass.chatcomm'));
+            return;
         }
 
         // --- !socials command ---
         if (command.equalsIgnoreCase('socials')) {
             $.say($.lang.get('clangnetsass.socials'));
+            return;
         }
 
         // --- !subs command ---
         if (command.equalsIgnoreCase('subs')) {
             $.say($.lang.get('clangnetsass.subs'));
+            return;
         }
-
-        // --- !song command ---
-        /*
-        if (command.equalsIgnoreCase('song')) {
-            pretzelTwitchId = $.getIniDbString('clangnetSass', 'twitchId');
-            if (action === undefined) {
-                if (pretzelTwitchId === 'NaN') {
-                    $.say($.lang.get('clangnetsass.song.noid'));
-                    return;
-                } else {
-                    var apiURL = 'https://api.pretzel.tv/playing/twitch/' + pretzelTwitchId;
-                    $.say($.lang.get('clangnetsass.song', $.customAPI.get(apiURL).content));
-                    return;
-                }
-            } else {
-                if (action.equalsIgnoreCase('setup')) {
-                    if (parameter === undefined || parameter == null) {
-                        $.say($.lang.get('clangnetsass.song.failure'));
-                        $.setIniDbString('clangnetSass', 'twitchId', 'NaN');
-                        return;
-                    } else {
-                        $.say($.lang.get('clangnetsass.song.success', parameter));
-                        $.setIniDbString('clangnetSass', 'twitchId', parameter);
-                        return;
-                    }
-                }
-            }
-        }
-        */
 
         // --- !hype command ---
         if (command.equalsIgnoreCase('hype')) {
             $.say($.lang.get('clangnetsass.hype'));
+            return;
         }
 
         // --- !website command ---
         if (command.equalsIgnoreCase('website')) {
             $.say($.lang.get('clangnetsass.website'));
+            return;
         }
 
         // --- !ads command ---
         if (command.equalsIgnoreCase('ads')) {
-            $.say($.lang.get('clangnetsass.ads'))
+            $.say($.lang.get('clangnetsass.ads'));
+            return;
         }
 
         // --- !raided command (MOD LEVEL) ---
         if (command.equalsIgnoreCase('raided')) {
             $.say($.lang.get('clangnetsass.raided'));
-        }
-
-        // --- !chatrules command (MOD LEVEL) ---
-        if (command.equalsIgnoreCase('chatrules')) {
-            apiURL = 'http://decapi.me/twitch/chat_rules/iandlive';
-            $.say($.customAPI.get(apiURL).content);
+            return;
         }
 
         // --- !clangnetsass command (CASTER/BOT LEVEL) - is a shell to house sub commands.
@@ -348,7 +376,7 @@
             if (action === undefined || action == null) {
                 return;
             } else {
-                // --- offlinemode command ---
+                // --- !clangnetsass offlinemode command ---
                 if (action.equalsIgnoreCase('offlinemode')) {
                     allowOfflineCmd = $.getIniDbBoolean('clangnetSass', 'allowOfflineCmd');
                     if (allowOfflineCmd == false) {
@@ -364,7 +392,7 @@
                     }
                     return;
                 }
-                // --- !debugclangnetsass command ---
+                // --- !clangnetsass debug command ---
                 if (action.equalsIgnoreCase('debug')) {
                     debugClangnet = $.getIniDbBoolean('clangnetSass', 'debugClangnet');
                     if (debugClangnet == false) {
@@ -380,7 +408,7 @@
                     }
                     return;
                 }
-                // --- !clangnetshowvars command ---
+                // --- !clangnetsass showvars command ---
                 if (action.equalsIgnoreCase('showvars')) {
                     if (debugClangnet) {
                         currentGame = $.getGame($.channelName);
@@ -393,7 +421,24 @@
                         $.consoleLn($.lang.get('clangnetsass.showvars.failed'));
                     }
                     return;
-                } else {
+                }
+
+                // --- !clangnetsass setpath command ---
+                if (action.equalsIgnoreCase('setpath')) {
+                    if (parameter === undefined || parameter == null) {
+                        $.say($.lang.get('clangnetsass.nofilepathset'));
+                        return;
+                    } else {
+                        $.setIniDbString('clangnetsass', 'decAPIConfigPath', parameter);
+                        $.say($.lang.get('clangnetsass.datafilepathset', parameter));
+                        decAPIConfigPath = parameter;
+                        return;
+                    }
+                }
+                // --- !clangnetsass reloadkeys command ---
+                if (action.equalsIgnoreCase('reloadkeys')) {
+                    getDecAPIKey();
+                    $.say($.lang.get('clangnetsass.reloaded'));
                     return;
                 }
             }
@@ -433,17 +478,16 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'chatcomm', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
-        // $.registerChatCommand('./custom/clangnetsass.js', 'song', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'hype', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'website', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'ads', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
-        $.registerChatCommand('./custom/clangnetsass.js', 'chatrules', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetsass', 0);
-        // $.registerChatSubcommand('song', 'setup', 0);
         $.registerChatSubcommand('clangnetsass', 'offlinemode', 0);
         $.registerChatSubcommand('clangnetsass', 'debug', 0);
         $.registerChatSubcommand('clangnetsass', 'showvars', 0);
+        $.registerChatSubcommand('clangnetsass', 'setpath', 0);
+        $.registerChatSubcommand('clangnetsass', 'reloadkeys', 0);
     });
 
 }) ();
