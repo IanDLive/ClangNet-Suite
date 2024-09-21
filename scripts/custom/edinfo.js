@@ -123,7 +123,7 @@
                     getEDData();
                     if (pathSet) {
                         strShip = String(shipModel);
-                        strShipInitial = strShip.substr(0, 1);
+                        strShipInitial = strShip.substring(0, 1);
                         if (strShipInitial.equalsIgnoreCase('a') || strShipInitial.equalsIgnoreCase('e') || strShipInitial.equalsIgnoreCase('i') || strShipInitial.equalsIgnoreCase('o') || strShipInitial.equalsIgnoreCase('u')) {
                             $.say($.lang.get('edinfo.playing.shipwitha', cmdrName, shipModel, shipName));
                         } else {
@@ -338,6 +338,7 @@
             $.registerChatSubcommand('edshipbuild', 'add', 1);
             $.registerChatSubcommand('edshipbuild', 'delete', 1);
             $.registerChatSubcommand('edshipbuild', 'update', 1);
+            $.registerChatSubcommand('edshipbuild', 'search', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
