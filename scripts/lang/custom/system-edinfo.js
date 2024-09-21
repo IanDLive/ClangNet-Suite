@@ -7,7 +7,7 @@ $.lang.register('edinfo.playing.shipwitha', 'The ship $1 is piloting is an $2 wh
 $.lang.register('edinfo.playing.shipwithouta', 'The ship $1 is piloting is a $2 which is called "$3".');
 $.lang.register('edinfo.playing.systemdocked', '$1 is in the $2 system and is currently docked at $3.');
 $.lang.register('edinfo.playing.systemflying', '$1 is currently flying around in the $2 system.');
-$.lang.register('edinfo.playing.shipbuild.current', 'If you want to look at the current $1 build, take a look on EDSM here --> $2');
+$.lang.register('edinfo.playing.shipbuild.current', 'If you want to look at the current $1 build, take a look on Inara here --> $2');
 $.lang.register('edinfo.playing.shipbuild.notlogged', 'The loadout information for the current ship has not been added to to the database.');
 $.lang.register('edinfo.playing.shipbuild.addnoname', 'Unable to add ship to the database, a ship name was not specified.');
 $.lang.register('edinfo.playing.shipbuild.addnoURL', 'Unable to add ship to the database, the build URL for the ship was not specified.');
@@ -18,6 +18,8 @@ $.lang.register('edinfo.playing.shipbuild.delsuccess', 'The build information fo
 $.lang.register('edinfo.playing.shipbuild.updatenoname', 'Unable to update the ship build on the database, a ship name was not specified.');
 $.lang.register('edinfo.playing.shipbuild.updatenoURL', 'Unable to update the ship build on the database, the new build URL for the ship was not specified.');
 $.lang.register('edinfo.playing.shipbuild.updatesuccess', 'The build information for $1 was successfully updated within the database with the new build URL of --> $2');
+$.lang.register('edinfo.playing.shipbuild.found', 'The loudout information for the ship $1 can be found on Inara here --> $2');
+$.lang.register('edinfo.playing.shipbuild.notfound', 'The ship that you were searching for, $1, has not been found in the database.');
 $.lang.register('edinfo.playing.edcareers', 'Want to see what careers you can embark upon in Elite: Dangerous?  Take a look at this image made by CMDR Qohen Leth for the options that are available --> https://iand.live/EDCareers');
 $.lang.register('edinfo.playing.edscreenshots', 'Are you flying around the Milky Way, seen something cool and want to share it with everyone?  If so take a look at the gallery on our website --> https://iand.live/ed-screenshots');
 $.lang.register('edinfo.playing.guardian.module', 'Guardian Module Blueprint Location: SYNUEFE NL - N C23 - 4 B3');

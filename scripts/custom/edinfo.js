@@ -159,6 +159,20 @@
                             }
 
                         } else {
+                            if (action.equalsIgnoreCase('search')) {
+                                if ($.inidb.FileExists('edShipBuild')) {
+                                    if ($.inidb.exists('edShipBuild', argShipName)) {
+                                        shipBuildEntry = $.getIniDbString('edShipBuild', argShipName, '[No URL stored for key]');
+                                        $.say($.lang.get('edinfo.playing.shipbuild.found', argShipName, shipBuildEntry));
+                                        return;
+                                    } else {
+                                        $.say($.lang.get('edinfo.playing.shipbuild.notfound', argShipName));
+                                        return;
+                                    }
+                                } else {
+                                    $.consoleLn('edShipbuild table does not exist yet!');
+                                }
+                            }
                             if (action.equalsIgnoreCase('add')) {
                                 if (argShipName === undefined || argShipName == null) {
                                     $.say($.lang.get('edinfo.playing.shipbuild.addnoname'));
