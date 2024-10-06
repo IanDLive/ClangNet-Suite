@@ -47,11 +47,11 @@
         } else {
             configFile = $.readFile(jokesConfigPath + 'modData.txt');
             for (var i = 0; i < configFile.length; i++) {
-                if (configFile[i].substring(0, 1) != '#' || configFile[i].substr(0, 1) != '') {
+                if (configFile[i].substr(0, 1) != '#' || configFile[i].substr(0, 1) != '') {
                     var delimiter = configFile[i].indexOf('=');
                     var keyLength = configFile[i].length;
-                    var keyName = configFile[i].substring(0, delimiter);
-                    var keyValue = configFile[i].substring(delimiter + 1, keyLength - 1);
+                    var keyName = configFile[i].substr(0, delimiter);
+                    var keyValue = configFile[i].substr(delimiter + 1, keyLength - 1);
                     var lc_keyName = keyName.toLowerCase();
                     switch (lc_keyName) {
                         case 'dadjokeskeyname':
