@@ -123,7 +123,7 @@
                     getEDData();
                     if (pathSet) {
                         strShip = String(shipModel);
-                        strShipInitial = strShip.substr(0, 1);
+                        strShipInitial = strShip.substring(0, 1);
                         if (strShipInitial.equalsIgnoreCase('a') || strShipInitial.equalsIgnoreCase('e') || strShipInitial.equalsIgnoreCase('i') || strShipInitial.equalsIgnoreCase('o') || strShipInitial.equalsIgnoreCase('u')) {
                             $.say($.lang.get('edinfo.playing.shipwitha', cmdrName, shipModel, shipName));
                         } else {
@@ -159,6 +159,20 @@
                             }
 
                         } else {
+                            if (action.equalsIgnoreCase('search')) {
+                                if ($.inidb.FileExists('edShipBuild')) {
+                                    if ($.inidb.exists('edShipBuild', argShipName)) {
+                                        shipBuildEntry = $.getIniDbString('edShipBuild', argShipName, '[No URL stored for key]');
+                                        $.say($.lang.get('edinfo.playing.shipbuild.found', argShipName, shipBuildEntry));
+                                        return;
+                                    } else {
+                                        $.say($.lang.get('edinfo.playing.shipbuild.notfound', argShipName));
+                                        return;
+                                    }
+                                } else {
+                                    $.consoleLn('edShipBuild table does not exist yet!');
+                                }
+                            }
                             if (action.equalsIgnoreCase('add')) {
                                 if (argShipName === undefined || argShipName == null) {
                                     $.say($.lang.get('edinfo.playing.shipbuild.addnoname'));
@@ -221,6 +235,32 @@
                 }
                 if (command.equalsIgnoreCase('edtb')) {
                     edTimerBot();
+                }
+                if (command.equalsIgnoreCase('edguardian')) {
+                    if (action === undefined || action == null) {
+                        $.say($.lang.get('edinfo.playing.guardian.noreference'));
+                        return;
+                    } else {
+                        if (action.equalsIgnoreCase('module')) {
+                            $.say($.lang.get('edinfo.playing.guardian.module'));
+                            return;
+                        }
+                        if (action.equalsIgnoreCase('weapons')) {
+                            $.say($.lang.get('edinfo.playing.guardian.weapons'));
+                            return;
+                        }
+                        if (action.equalsIgnoreCase('ship')) {
+                            $.say($.lang.get('edinfo.playing.guardian.ship'));
+                            return;
+                        }
+                        if (action.equalsIgnoreCase('beacon')) {
+                            $.say($.lang.get('edinfo.playing.guardian.beacon'));
+                            return;
+                        } else {
+                            $.say($.lang.get('edinfo.playing.guardian.wrongref', action));
+                            return;
+                        }
+                    }
                 }
             } else {
                 // Currently online, but playing something else.
@@ -329,6 +369,11 @@
             $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edguardian', 7);
+            $.registerChatSubcommand('edguardian', 'module', 7);
+            $.registerChatSubcommand('edguardian', 'weapons', 7);
+            $.registerChatSubcommand('edguardian', 'ship', 7);
+            $.registerChatSubcommand('edguardian', 'beacon', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edinfo', 0);
             $.registerChatSubcommand('edinfo', 'offlinemode', 0);
             $.registerChatSubcommand('edinfo', 'debug', 0);
