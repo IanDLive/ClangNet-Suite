@@ -76,9 +76,9 @@
         var user_mention = '';
         var user_string = '';
 
-        if (user.substr(0, 1) == '@') {
+        if (user.substring(0, 1) == '@') {
             user_mention = user;
-            user_string = user.substr(1);
+            user_string = user.substring(1);
         } else {
             user_mention = '@' + user;
             user_string = user;
