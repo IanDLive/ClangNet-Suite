@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.89-alpha">
+  <PropertyGroup>
+    <!--Command to run on project build-->
+    <BuildCommand>
+    </BuildCommand>
+    <!--Command to run on project clean-->
+    <CleanCommand>
+    </CleanCommand>
+    <StartupCommand>set PORT=1337 &amp; npm run start</StartupCommand>
+    <BuildOutputFolder>C:\Users\wolfc\Desktop\Workspace\-- ClangNet Build Folder</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="addons\custom\edinfo\__folderusage.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Include="addons\custom\edinfo\__folderusage.txt" />
+  </ItemGroup>
+</Project>

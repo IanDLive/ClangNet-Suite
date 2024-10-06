@@ -364,6 +364,7 @@
             $.registerChatSubcommand('edshipbuild', 'add', 1);
             $.registerChatSubcommand('edshipbuild', 'delete', 1);
             $.registerChatSubcommand('edshipbuild', 'update', 1);
+            $.registerChatSubcommand('edshipbuild', 'search', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
