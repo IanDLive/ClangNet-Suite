@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ClangNet", "ClangNet.esproj", "{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ClangNet", "ClangNet.njsproj", "{F31D425C-65B8-43AB-98DC-3E034107369E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DC6F9B8-926B-420F-B2B3-01F91E072B2E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F31D425C-65B8-43AB-98DC-3E034107369E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31D425C-65B8-43AB-98DC-3E034107369E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31D425C-65B8-43AB-98DC-3E034107369E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31D425C-65B8-43AB-98DC-3E034107369E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
