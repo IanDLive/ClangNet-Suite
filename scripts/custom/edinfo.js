@@ -170,7 +170,7 @@
                                         return;
                                     }
                                 } else {
-                                    $.consoleLn('edShipbuild table does not exist yet!');
+                                    $.consoleLn('edShipBuild table does not exist yet!');
                                 }
                             }
                             if (action.equalsIgnoreCase('add')) {
@@ -235,6 +235,32 @@
                 }
                 if (command.equalsIgnoreCase('edtb')) {
                     edTimerBot();
+                }
+                if (command.equalsIgnoreCase('edguardian')) {
+                    if (action === undefined || action == null) {
+                        $.say($.lang.get('edinfo.playing.guardian.noreference'));
+                        return;
+                    } else {
+                        if (action.equalsIgnoreCase('module')) {
+                            $.say($.lang.get('edinfo.playing.guardian.module'));
+                            return;
+                        }
+                        if (action.equalsIgnoreCase('weapons')) {
+                            $.say($.lang.get('edinfo.playing.guardian.weapons'));
+                            return;
+                        }
+                        if (action.equalsIgnoreCase('ship')) {
+                            $.say($.lang.get('edinfo.playing.guardian.ship'));
+                            return;
+                        }
+                        if (action.equalsIgnoreCase('beacon')) {
+                            $.say($.lang.get('edinfo.playing.guardian.beacon'));
+                            return;
+                        } else {
+                            $.say($.lang.get('edinfo.playing.guardian.wrongref', action));
+                            return;
+                        }
+                    }
                 }
             } else {
                 // Currently online, but playing something else.
@@ -343,6 +369,11 @@
             $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'edguardian', 7);
+            $.registerChatSubcommand('edguardian', 'module', 7);
+            $.registerChatSubcommand('edguardian', 'weapons', 7);
+            $.registerChatSubcommand('edguardian', 'ship', 7);
+            $.registerChatSubcommand('edguardian', 'beacon', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edinfo', 0);
             $.registerChatSubcommand('edinfo', 'offlinemode', 0);
             $.registerChatSubcommand('edinfo', 'debug', 0);

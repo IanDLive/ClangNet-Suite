@@ -18,7 +18,7 @@ $.lang.register('edinfo.playing.shipbuild.delsuccess', 'The build information fo
 $.lang.register('edinfo.playing.shipbuild.updatenoname', 'Unable to update the ship build on the database, a ship name was not specified.');
 $.lang.register('edinfo.playing.shipbuild.updatenoURL', 'Unable to update the ship build on the database, the new build URL for the ship was not specified.');
 $.lang.register('edinfo.playing.shipbuild.updatesuccess', 'The build information for $1 was successfully updated within the database with the new build URL of --> $2');
-$.lang.register('edinfo.playing.shipbuild.found', 'The loudout information for the ship $1 can be found on Inara here --> $2');
+$.lang.register('edinfo.playing.shipbuild.found', 'The loadout information for the ship $1 can be found on Inara here --> $2');
 $.lang.register('edinfo.playing.shipbuild.notfound', 'The ship that you were searching for, $1, has not been found in the database.');
 $.lang.register('edinfo.playing.edcareers', 'Want to see what careers you can embark upon in Elite: Dangerous?  Take a look at this image made by CMDR Qohen Leth for the options that are available --> https://iand.live/EDCareers');
 $.lang.register('edinfo.playing.edscreenshots', 'Are you flying around the Milky Way, seen something cool and want to share it with everyone?  If so take a look at the gallery on our website --> https://iand.live/ed-screenshots');
@@ -26,6 +26,8 @@ $.lang.register('edinfo.playing.guardian.module', 'Guardian Module Blueprint Loc
 $.lang.register('edinfo.playing.guardian.weapons', 'Guardian Weapons Blueprint Location: SYNUEFE EU - Q C21 - 10 A3');
 $.lang.register('edinfo.playing.guardian.ship', 'Guardian Ship Blueprint Location: SYNUEFE EU - Q C21 - 15 A1');
 $.lang.register('edinfo.playing.guardian.beacon', 'Guardian Beacon Location: SYNUEFE KU - F B44 - 4');
+$.lang.register('edinfo.playing.guardian.noreference', 'Please request one of the following locations - MODULE | WEAPONS | SHIP | BEACON');
+$.lang.register('edinfo.playing.guardian.wrongref', 'Couldn\'t find the requested location type $1, please use either MODULE | WEAPONS| SHIP| BEACON');
 
 // Online, but playing something else
 // ----------------------------------
