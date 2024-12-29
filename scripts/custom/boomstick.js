@@ -41,7 +41,7 @@
                     var delimiter = configFile[i].indexOf('=');
                     var keyLength = configFile[i].length;
                     var keyName = configFile[i].substring(0, delimiter);
-                    var keyValue = configFile[i].substring(delimiter + 1, keyLength - 1);
+                    var keyValue = configFile[i].substring(delimiter + 1, keyLength);
                     var lc_keyName = keyName.toLowerCase();
                     switch (lc_keyName) {
                         case 'rocketlaunch':
@@ -120,6 +120,9 @@
                     if (debugLaunch) {
                         $.say($.lang.get('boomstick.showvars.success'));
                         $.consoleLn('[LAUNCH DEBUG] *** START OF VARIABLES ***');
+                        $.consoleLn('[LAUNCH DEBUG] Config Path     = ' + launchConfigPath);
+                        $.consoleLn('[LAUNCH DEBUG] Config Raw Data = ' + configFile);
+                        $.consoleLn('[LAUNCH DEBUG] Launch Key      = ' + launchAPIKey);
                         $.consoleLn('[LAUNCH DEBUG] ***  END OF VARIABLES  ***');
                         return;
                     } else {
