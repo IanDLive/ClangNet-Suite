@@ -53,7 +53,7 @@
                     var delimiter = configFile[i].indexOf('=');
                     var keyLength = configFile[i].length;
                     var keyName = configFile[i].substring(0, delimiter);
-                    var keyValue = configFile[i].substring(delimiter + 1, keyLength - 1);
+                    var keyValue = configFile[i].substring(delimiter + 1, keyLength);
                     var lc_keyName = keyName.toLowerCase();
                     switch (lc_keyName) {
                         case 'decapi':
@@ -414,7 +414,10 @@
                         currentGame = $.getGame($.channelName);
                         $.say($.lang.get('clangnetsass.showvars.success'));
                         $.consoleLn('[CLANGNET DEBUG] *** START OF VARIABLES ***');
-                        $.consoleLn('[CLANGNET DEBUG] Current Game = ' + currentGame);
+                        $.consoleLn('[CLANGNET DEBUG] Current Game    = ' + currentGame);
+                        $.consoleLn('[CLANGNET DEBUG] Config Path     = ' + decAPIConfigPath);
+                        $.consoleLn('[CLANGNET DEBUG] Config Raw Data = ' + configFile);
+                        $.consoleLn('[CLANGNET DEBUG] DecAPI Key      = ' + decAPIKey);
                         $.consoleLn('[CLANGNET DEBUG] ***  END OF VARIABLES  ***');
                     } else {
                         $.say($.lang.get('clangnetsass.showvars.failed'));
