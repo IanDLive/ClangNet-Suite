@@ -33,12 +33,6 @@
         return;
     }
 
-    // Show the message to upload and view screenshots on the webiste.
-    function saySCScreenshots() {
-        $.say($.lang.get('starcitizen.screenshots'));
-        return;
-    }
-
     // 'Bot' to randomly pick a Star Citizen line to say in chat when the timer is invoked, but only if Star Citizen is being played.
     function scTimerBot() {
         var currentGame;
@@ -93,11 +87,6 @@
                 saySCRoadmap();
             }
 
-            // --- !scscreenshot command ---
-            if (command.equalsIgnoreCase('scscreenshots')) {
-                saySCScreenshots();
-            }
-
             // --- !sctb command ---
             if (command.equalsIgnoreCase('sctb')) {
                 scTimerBot();
@@ -118,7 +107,6 @@
             $.registerChatCommand('./custom/starcitizen.js', 'screferral', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'scships', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'scroadmap', 7);
-            $.registerChatCommand('./custom/starcitizen.js', 'scscreenshots', 7);
             $.registerChatCommand('./custom/starcitizen.js', 'sctb', 0);
         }
     });

@@ -21,7 +21,6 @@ $.lang.register('edinfo.playing.shipbuild.updatesuccess', 'The build information
 $.lang.register('edinfo.playing.shipbuild.found', 'The loadout information for the ship $1 can be found on Inara here --> $2');
 $.lang.register('edinfo.playing.shipbuild.notfound', 'The ship that you were searching for, $1, has not been found in the database.');
 $.lang.register('edinfo.playing.edcareers', 'Want to see what careers you can embark upon in Elite: Dangerous?  Take a look at this image made by CMDR Qohen Leth for the options that are available --> https://iand.live/EDCareers');
-$.lang.register('edinfo.playing.edscreenshots', 'Are you flying around the Milky Way, seen something cool and want to share it with everyone?  If so take a look at the gallery on our website --> https://iand.live/ed-screenshots');
 $.lang.register('edinfo.playing.guardian.module', 'Guardian Module Blueprint Location: SYNUEFE NL - N C23 - 4 B3');
 $.lang.register('edinfo.playing.guardian.weapons', 'Guardian Weapons Blueprint Location: SYNUEFE EU - Q C21 - 10 A3');
 $.lang.register('edinfo.playing.guardian.ship', 'Guardian Ship Blueprint Location: SYNUEFE EU - Q C21 - 15 A1');

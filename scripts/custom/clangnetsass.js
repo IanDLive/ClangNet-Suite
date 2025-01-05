@@ -153,11 +153,14 @@
                     case 'elite: dangerous':
                         $.say($.lang.get('clangnetsass.ed-mods'));
                         break;
-                    case 'farming simulator 22':
-                        $.say($.lang.get('clangnetsass.fs22-mods'));
+                    case 'farming simulator 25':
+                        $.say($.lang.get('clangnetsass.fs25-mods'));
                         break;
                     case 'fallout 4':
                         $.say($.lang.get('clangnetsass.fo4-mods'));
+                        break;
+                    case 'starfield':
+                        $.say($.lang.get('clangnetsass.starfield-mods'));
                         break;
                     default:
                         $.say($.lang.get('clangnetsass.mods-notused'));
@@ -275,18 +278,6 @@
             return;
         }
 
-        // --- !xebon command ---
-        if (command.equalsIgnoreCase('xebon')) {
-            $.say($.lang.get('clangnetsass.xebon'));
-            return;
-        }
-
-        // --- !xebondiscord command ---
-        if (command.equalsIgnoreCase('xebondiscord')) {
-            $.say($.lang.get('clangnetsass.xebondiscord'));
-            return;
-        }
-
         // --- !humble command ---
         if (command.equalsIgnoreCase('humble')) {
             $.say($.lang.get('clangnetsass.humble'));
@@ -338,6 +329,12 @@
         // --- !socials command ---
         if (command.equalsIgnoreCase('socials')) {
             $.say($.lang.get('clangnetsass.socials'));
+            return;
+        }
+
+        // -- !screenshots command ---
+        if (command.equalsIgnoreCase('screenshots')) {
+            $.say($.lang.get('clangnetsass.screenshots'));
             return;
         }
 
@@ -469,8 +466,6 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'notifications', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'steamgroup', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'steam', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'xebon', 7);
-        $.registerChatCommand('./custom/clangnetsass.js', 'xebondiscord', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humble', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'humblemonth', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'food', 7);
