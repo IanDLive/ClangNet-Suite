@@ -475,6 +475,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'merch', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'chatcomm', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'socials', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'screenshots', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'subs', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'hype', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'website', 7);
