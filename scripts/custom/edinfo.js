@@ -72,11 +72,6 @@
         return;
     }
 
-    function sayEDScreenshots() {
-        $.say($.lang.get('edinfo.playing.edscreenshots'));
-        return;
-    }
-
     function edTimerBot() {
         var currentGame;
         var intTimerChoice = Math.floor(Math.random() * 2);
@@ -224,9 +219,6 @@
                 if (command.equalsIgnoreCase('edcareers')) {
                     sayEDCareers();
                 }
-                if (command.equalsIgnoreCase('edscreenshots')) {
-                    sayEDScreenshots();
-                }
                 if (command.equalsIgnoreCase('designations')) {
                     $.say($.lang.get('edinfo.designations'));
                 }
@@ -366,7 +358,6 @@
             $.registerChatSubcommand('edshipbuild', 'update', 1);
             $.registerChatSubcommand('edshipbuild', 'search', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
-            $.registerChatCommand('./custom/edinfo.js', 'edscreenshots', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
             $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edguardian', 7);

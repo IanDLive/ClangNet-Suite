@@ -48,8 +48,9 @@ $.lang.register('clangnetsass.mods-notonline', 'Looking for what mods are used $
 $.lang.register('clangnetsass.se-mods', 'For the current list of mods that are being used on the Space Engineers stream server, click here --> https://iand.live/se-mods');
 $.lang.register('clangnetsass.eso-mods', 'For the full list of add-ons that are being used to enhance The Elder Scrolls Online, follow the link to our website for details --> https://iand.live/eso-mods');
 $.lang.register('clangnetsass.ed-mods', 'For the full list of add-ons that are being used and that are available for Elite: Dangerous, follow the link to our website for details --> https://iand.live/ed-mods');
-$.lang.register('clangnetsass.fs22-mods', 'For the full list of mods that are being used on the Farm Sim 22 server, click here --> https://iand.live/fs22-mods');
+$.lang.register('clangnetsass.fs25-mods', 'For the full list of the mods that are being used in the Farm Sim 25 server, click here --> https://iand.live/fs25-mods');
 $.lang.register('clangnetsass.fo4-mods', 'For the full list of mods as a collection that you can see being used on the stream in Fallout 4, click here --> https://iand.live/fo4-mods');
+$.lang.register('clangnetsass.starfield-mods', 'For the full list of mods as a collection that you can see being used on the stream in Starfield, click here --> https://iand.live/starfield-mods');
 
 // !handle command responses
 // -------------------------
@@ -103,14 +104,6 @@ $.lang.register('clangnetsass.steamgroup', 'Want to join the Prophets of Rage St
 // -----------------------
 $.lang.register('clangnetsass.steam', 'Looking to join Ian on stream in the game?  Click on the link to get to his Steam profile so you can join the game from there --> https://iand.live/steam');
 
-// !xebon command response
-// -----------------------
-$.lang.register('clangnetsass.xebon', 'Have you enjoyed what you have been watching?  Want to see other similar streamers?  If so check out the other members of Team Xebon and see what they are up to --> https://twitch.tv/team/xebon');
-
-// !xebondiscord command response
-// ------------------------------
-$.lang.register('clangnetsass.xebondiscord', 'Keep up with things as they are happening within the stream team by following the link to join the Xebon Discord --> https://iand.live/XebonDiscord');
-
 // !humble command response
 // ------------------------
 $.lang.register('clangnetsass.humble', 'Want to get hold of games at decent prices while supporting a) this channel and b) an awesome charity?  If the answer is yes then pop over to Humble Bundle and check out their latest offers by clicking on this link --> https://iand.live/humble-store');
@@ -143,6 +136,10 @@ $.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch,
 // !socials command response
 // -------------------------
 $.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://iand.live/socials');
+
+// !screenshots command response
+// -----------------------------
+$.lang.register('clangnetsass.screenshots', 'Get hold of some of the coolest screenshots to use as wallpapers, or maybe add some of your own to the PoR website --> https://iand.live/screenshots');
 
 // !subs command response
 // ----------------------
