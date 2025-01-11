@@ -413,7 +413,10 @@
                         $.consoleLn('[CLANGNET DEBUG] *** START OF VARIABLES ***');
                         $.consoleLn('[CLANGNET DEBUG] Current Game    = ' + currentGame);
                         $.consoleLn('[CLANGNET DEBUG] Config Path     = ' + decAPIConfigPath);
-                        $.consoleLn('[CLANGNET DEBUG] Config Raw Data = ' + configFile);
+                        $.consoleLn('[CLANGNET DEBUG] Config Raw Data = ' + configFile[0]);
+                        for (var i = 1; i < configFile.length; i++) {
+                            $.consoleLn('[CLANGNET DEBUG]                 = ' + configFile[i]);
+                        }
                         $.consoleLn('[CLANGNET DEBUG] DecAPI Key      = ' + decAPIKey);
                         $.consoleLn('[CLANGNET DEBUG] ***  END OF VARIABLES  ***');
                     } else {

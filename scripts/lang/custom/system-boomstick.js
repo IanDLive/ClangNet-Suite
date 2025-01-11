@@ -3,7 +3,7 @@ $.lang.register('boomstick.needtosetpath', 'A path needs to be set for the locat
 $.lang.register('boomstick.nofilepathset', 'A file path was not set for the location of the module data config files.');
 $.lang.register('boomstick.datafilepathset', 'The path to the location of the config data file has been set to: $1');
 $.lang.register('boomstick.reloaded', 'API Key reloaded from the config text file.');
-$.lang.register('boomstick.discord.failed', 'A path needs to be set for the location of the config text file.  See console for details.')
+$.lang.register('boomstick.discord.failed', 'A path needs to be set for the location of the config text file.  See console for details.');
 
 // Boomstick response
 $.lang.register('boomstick.response', 'Next scheduled rocket launch --> $1');
