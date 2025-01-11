@@ -44,18 +44,21 @@
     <Content Include="scripts\custom\boomstick.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\custom\weather.js" />
     <Content Include="scripts\discord\custom\clangnetjokes-discord.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\discord\custom\boomstick-discord.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\discord\custom\weather-discord.js" />
     <Content Include="scripts\lang\custom\system-boomstick.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\lang\custom\system-clangnetjokes.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\lang\custom\system-weather.js" />
     <Content Include="web\panel\js\pages\custom\location.js">
       <SubType>Code</SubType>
     </Content>

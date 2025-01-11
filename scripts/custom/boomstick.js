@@ -121,7 +121,10 @@
                         $.say($.lang.get('boomstick.showvars.success'));
                         $.consoleLn('[LAUNCH DEBUG] *** START OF VARIABLES ***');
                         $.consoleLn('[LAUNCH DEBUG] Config Path     = ' + launchConfigPath);
-                        $.consoleLn('[LAUNCH DEBUG] Config Raw Data = ' + configFile);
+                        $.consoleLn('[LAUNCH DEBUG] Config Raw Data = ' + configFile[0]);
+                        for (var i = 1; i < configFile.length; i++) {
+                            $.consoleLn('[LAUNCH DEBUG]                 = ' + configFile[i]);
+                        }
                         $.consoleLn('[LAUNCH DEBUG] Launch Key      = ' + launchAPIKey);
                         $.consoleLn('[LAUNCH DEBUG] ***  END OF VARIABLES  ***');
                         return;

@@ -236,7 +236,10 @@
                         $.consoleLn('[JOKES DEBUG] dadJokesHostName             = ' + dadJokesHostName);
                         $.consoleLn('[JOKES DEBUG] dadJokesHostValue            = ' + dadJokesHostValue);
                         $.consoleLn('[JOKES DEBUG] configFile.length            = ' + configFile.length);
-                        $.consoleLn('[JOKES DEBUG] configFile                   = ' + configFile);
+                        $.consoleLn('[JOKES DEBUG] configFile                   = ' + configFile[0]);
+                        for (var i = 1; i < configFile.length; i++) {
+                            $.consoleLn('[JOKES DEBUG]                              = ' + configFile[i]);
+                        }
                         $.consoleLn('[JOKES DEBUG] ***  END OF VARIABLES  ***');
                         return;
                     } else {
