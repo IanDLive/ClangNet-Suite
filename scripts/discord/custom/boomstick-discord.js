@@ -58,7 +58,7 @@
         var action = args[0];
 
         // --- !launch command ---
-        if (command.equalsIgnoreCase('launch') && channelCheck.equalsIgnoreCase('general')) {
+        if (command.equalsIgnoreCase('launch') && channelCheck.equalsIgnoreCase('space-irl')) {
             var keySuccess;
 
             keySuccess = getLaunchKey();
