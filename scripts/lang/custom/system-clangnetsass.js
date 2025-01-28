@@ -174,6 +174,10 @@ $.lang.register('clangnetsass.raided', '.announcepurple If you have just joined 
 // ---------------------
 $.lang.register('clangnetsass.ads', '.announcepurple Ads get played on this channel, and may be coming up soon.  If you don\'t want to see ads while watching the channel, you can get rid of them by subscribing, or alternatively to get rid of ads from all channels you could subscribe to Twitch Turbo. Subscriptions to Twitch Turbo still supports your favourite streamers :)');
 
+// !kofi command response
+// ----------------------
+$.lang.register('clangnetsass.kofi', '.announceorange Help support the channel and also maybe get some previews of things to come over on KoFi --> https://ko-fi.com/iandlive');
+
 // !chattest command response
 // --------------------------
 $.lang.register('clangnetsass.chattest', '.announce This is some test text');
