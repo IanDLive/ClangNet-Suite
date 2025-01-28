@@ -362,6 +362,12 @@
             return;
         }
 
+        // --- !kofi command ---
+        if (command.equalsIgnoreCase('kofi')) {
+            $.say($.lang.get('clangnetsass.kofi'));
+            return;
+        }
+
         // --- !raided command (MOD LEVEL) ---
         if (command.equalsIgnoreCase('raided')) {
             $.say($.lang.get('clangnetsass.raided'));
@@ -483,6 +489,7 @@
         $.registerChatCommand('./custom/clangnetsass.js', 'hype', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'website', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'ads', 7);
+        $.registerChatCommand('./custom/clangnetsass.js', 'kofi', 7);
         $.registerChatCommand('./custom/clangnetsass.js', 'raided', 2);
         $.registerChatCommand('./custom/clangnetsass.js', 'clangnetsass', 0);
         $.registerChatSubcommand('clangnetsass', 'offlinemode', 0);
