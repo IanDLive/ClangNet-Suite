@@ -27,6 +27,7 @@ $.lang.register('edinfo.playing.guardian.ship', 'Guardian Ship Blueprint Locatio
 $.lang.register('edinfo.playing.guardian.beacon', 'Guardian Beacon Location: SYNUEFE KU - F B44 - 4');
 $.lang.register('edinfo.playing.guardian.noreference', 'Please request one of the following locations - MODULE | WEAPONS | SHIP | BEACON');
 $.lang.register('edinfo.playing.guardian.wrongref', 'Couldn\'t find the requested location type $1, please use either MODULE | WEAPONS| SHIP| BEACON');
+$.lang.register('edinfo.playing.bgstick', 'The last recorded BGS tick was on $1 at $2');
 
 // Online, but playing something else
 // ----------------------------------
@@ -39,10 +40,6 @@ $.lang.register('edinfo.offline', '$1 is currently offline.');
 // Ship designations command response
 // ----------------------------------
 $.lang.register('edinfo.designations', 'Want to get hold of a ship designation for the Xebon Syndicate?  Click on the link to get to the Google Document for all of the registered Xebon Syndicate ships --> https://iand.live/elite-ids');
-
-// A.L.I.C.E. Discord command response
-// -----------------------------------
-$.lang.register('edinfo.alicediscord', 'Want to get hold of a copy of the Project A.L.I.C.E. virtual assistant for Elite?  Follow the link to the official Discord and download it from there --> https://discord.gg/EwQHaX6');
 
 // EDInfo offline mode toggle responses
 // ------------------------------------
@@ -64,14 +61,3 @@ $.lang.register('edinfo.needtosetpath', 'A path needs to be set for the location
 // --------------------------
 $.lang.register('edinfo.cmdrname.notspecified', 'A name has to be specified so that it can be changed within the database.');
 $.lang.register('edinfo.cmdrname.nameupdated', 'The CMDR name for the EDInfo module has been updated to: $1');
-
-// EDInfo Discord responses
-// ------------------------
-$.lang.register('edinfo.discord.common.apifail', 'Unable to complete the call to the Background Simulation API');
-$.lang.register('edinfo.discord.factionstatus.usage', 'Please specify the faction that you want to look for.  The faction that you want to search for must be enclosed in quotes (i.e. !edfactionstatus "Xebon Syndicate")');
-$.lang.register('edinfo.discord.edfs.usage', 'Please specify the faction that you want to look for.  The faction that you want to search for must be enclosed in quotes (i.e. !edfs "Xebon Syndicate")');
-$.lang.register('edinfo.discord.factionstatus.factionnotfound', 'I\'m sorry but the faction $1 wasn\'t found, make sure that you spelled it correctly!');
-$.lang.register('edinfo.discord.factionstatus.bgsheader', '$1 BGS Statistics');
-$.lang.register('edinfo.discord.factionstatus.startprocess', 'Processing request for faction data...');
-$.lang.register('edinfo.discord.factionstatus.totalpages', 'Found a total of $1 page(s) of data within the Elite BGS.');
-$.lang.register('edinfo.discord.factionstatus.currentpage', 'Currently processing page $1 of $2.');

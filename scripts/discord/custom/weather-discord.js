@@ -65,20 +65,25 @@
                 var msg;
                 var curW;
                 
-                curW = getWeather(action);
-                $.discordAPI.sendMessageEmbed(channel, new Packages.tv.phantombot.discord.util.EmbedBuilder()
-                    .withColor(39, 114, 172)
-                    .withThumbnail('https:' + curW.current.condition.icon)
-                    .withTitle('Current Weather for ' + curW.location.name + ', ' + curW.location.country)
-                    .appendField('Temperature', curW.current.temp_c + '\u00B0C (' + curW.current.temp_f + '\u00B0F)', true)
-                    .appendField('Feels Like', curW.current.feelslike_c + '\u00B0C (' + curW.current.feelslike_f + '\u00B0F)', true)
-                    .appendField('Condition', curW.current.condition.text, true)
-                    .appendField('Wind Speed', curW.current.wind_mph + 'mph', true)
-                    .appendField('Wind Direction', curW.current.wind_degree + '\u00B0, ' + curW.current.wind_dir, true)
-                    .withTimestamp(Date.now())
-                    .build()
-                );
-                return;
+                if (action === undefined) {
+                    $.discord.say(channel, $.lang.get('weather.noloc'));
+                    return;
+                } else {
+                    curW = getWeather(action);
+                    $.discordAPI.sendMessageEmbed(channel, new Packages.tv.phantombot.discord.util.EmbedBuilder()
+                        .withColor(39, 114, 172)
+                        .withThumbnail('https:' + curW.current.condition.icon)
+                        .withTitle('Current Weather for ' + curW.location.name + ', ' + curW.location.country)
+                        .appendField('Temperature', curW.current.temp_c + '\u00B0C (' + curW.current.temp_f + '\u00B0F)', true)
+                        .appendField('Feels Like', curW.current.feelslike_c + '\u00B0C (' + curW.current.feelslike_f + '\u00B0F)', true)
+                        .appendField('Condition', curW.current.condition.text, true)
+                        .appendField('Wind Speed', curW.current.wind_mph + 'mph', true)
+                        .appendField('Wind Direction', curW.current.wind_degree + '\u00B0, ' + curW.current.wind_dir, true)
+                        .withTimestamp(Date.now())
+                        .build()
+                    );
+                    return;
+                }
             } else {
                 $.discord.say(channel, $.lang.get('weather.discord.failed'));
                 return;

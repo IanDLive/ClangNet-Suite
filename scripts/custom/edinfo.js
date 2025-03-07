@@ -89,6 +89,32 @@
         }
     }
 
+    function getBGSTick() {
+        var jsonObject;
+        var returnText;
+
+        jsonObject = JSON.parse($.cnGetJSON('https://elitebgs.app/api/ebgs/v5/ticks'));
+        returnText = jsonObject[0].updated_at;
+        return returnText;
+    }
+
+    function formatDate(date) {
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var curLongDay = days[date.getDay()];
+        var curDay = date.getDate();
+        var curMonth = months[date.getMonth()];
+        var curYear = 1900 + date.getYear();
+        return curLongDay + ' ' + curDay + ' ' + curMonth + ', ' + curYear;
+    }
+
+    function formatTime(time) {
+        var curHour = time.getHours();
+        var curMinute = time.getMinutes();
+
+        return curHour + ':' + curMinute + ' UTC';
+    }
+
     // Command Event
     $.bind('command', function(event) {
         // All of the default methods are stored in the event argument.
@@ -105,6 +131,10 @@
         var currentGame = $.getGame($.channelName);
         var strShip;
         var strShipInitial;
+        var currentTick;
+        var formatCurrentTick
+        let options = { weeksday: "long", year: "numeric", month: "long", day: "numeric"};
+        let timeOptions = { hour: "2-digit", minute: "2-digit", timeZoneName: "short" };
 
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
 
@@ -222,9 +252,6 @@
                 if (command.equalsIgnoreCase('designations')) {
                     $.say($.lang.get('edinfo.designations'));
                 }
-                if (command.equalsIgnoreCase('alicediscord')) {
-                    $.say($.lang.get('edinfo.alicediscord'));
-                }
                 if (command.equalsIgnoreCase('edtb')) {
                     edTimerBot();
                 }
@@ -253,6 +280,18 @@
                             return;
                         }
                     }
+                }
+                if (command.equalsIgnoreCase('tick')) {
+                    currentTick = new Date(getBGSTick());
+                    var formattedDate = formatDate(currentTick);
+                    var formattedTime = formatTime(currentTick);
+                    if (debugEDInfo) {
+                        $.consoleLn('[EDINFO DEBUG] currentTick       = ' + currentTick);
+                        $.consoleLn('[EDINFO DEBUG] formattedDate     = ' + formattedDate);
+                        $.consoleLn('[EDINFO DEBUG] formattedTime     = ' + formattedTime);
+                    }
+                    $.say($.lang.get('edinfo.playing.bgstick', formattedDate, formattedTime));
+                    return;
                 }
             } else {
                 // Currently online, but playing something else.
@@ -359,12 +398,12 @@
             $.registerChatSubcommand('edshipbuild', 'search', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edcareers', 7);
             $.registerChatCommand('./custom/edinfo.js', 'designations', 7);
-            $.registerChatCommand('./custom/edinfo.js', 'alicediscord', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edguardian', 7);
             $.registerChatSubcommand('edguardian', 'module', 7);
             $.registerChatSubcommand('edguardian', 'weapons', 7);
             $.registerChatSubcommand('edguardian', 'ship', 7);
             $.registerChatSubcommand('edguardian', 'beacon', 7);
+            $.registerChatCommand('./custom/edinfo.js', 'tick', 7);
             $.registerChatCommand('./custom/edinfo.js', 'edinfo', 0);
             $.registerChatSubcommand('edinfo', 'offlinemode', 0);
             $.registerChatSubcommand('edinfo', 'debug', 0);
