@@ -10,8 +10,8 @@
         var jsonObject;
         var returnText;
 
-        jsonObject = JSON.parse($.cnGetJSON('https://elitebgs.app/api/ebgs/v5/ticks'));
-        returnText = jsonObject[0].updated_at;
+        jsonObject = JSON.parse($.cnGetJSON('https://tick.edcd.io/api/tick'));
+        returnText = jsonObject;
         return returnText;
     }
 
@@ -29,7 +29,11 @@
         var curHour = time.getHours();
         var curMinute = time.getMinutes();
 
-        return curHour + ':' + curMinute + ' UTC';
+        function pad(n) {
+            return (n < 10 ? '0' : '') + n;
+        }
+
+        return pad(curHour) + ':' + pad(curMinute) + ' UTC';
     }
 
     function postTick(isBot) {
