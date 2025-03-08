@@ -61,3 +61,12 @@ $.lang.register('edinfo.needtosetpath', 'A path needs to be set for the location
 // --------------------------
 $.lang.register('edinfo.cmdrname.notspecified', 'A name has to be specified so that it can be changed within the database.');
 $.lang.register('edinfo.cmdrname.nameupdated', 'The CMDR name for the EDInfo module has been updated to: $1');
+
+// EDInfo Discord responses
+// ------------------------
+$.lang.register('edinfo.discord.tickupdated', 'The BGS tick has been updated within the last hour!');
+$.lang.register('edinfo.discord.forcetick', 'The stored BGS tick has been forced to update.');
+$.lang.register('edinfo.discord.noreportchannel', 'The channel for the BGS tick reports has not been set.');
+$.lang.register('edinfo.discord.reportchannelset', 'The channel for the BGS tick reports has been set to: $1');
+$.lang.register('edinfo.discord.reportchannelnotset', 'The channel for the BGS tick reports has not been specified.  Which channel do you want to use\?');
+$.lang.register('edinfo.discord.reportchannelcleared', 'The channel for the BGS tick reports has been cleared.');
