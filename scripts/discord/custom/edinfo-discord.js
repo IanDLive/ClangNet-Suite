@@ -8,11 +8,9 @@
 
     function getBGSTick() {
         var jsonObject;
-        var returnText;
 
         jsonObject = JSON.parse($.cnGetJSON('https://tick.edcd.io/api/tick'));
-        returnText = jsonObject;
-        return returnText;
+        return jsonObject;
     }
 
     function formatDate(date) {
