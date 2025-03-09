@@ -27,7 +27,7 @@
 
         // Command event to check for the 'chuck' command.
         if (command.equalsIgnoreCase('chuck') && channel.equalsIgnoreCase('games-room')) {
-            $.discord.say(channel, $.lang.get('clangnetjokes.telljoke.discord', getChuck()));
+            $.discord.say(channel, $.lang.get('chuckjokes.telljoke.discord', getChuck()));
         }
 
     });
