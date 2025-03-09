@@ -62,7 +62,7 @@ $.lang.register('clangnetsass.handle-elite', '$1, if you want to add IanDLive to
 
 // !discord command response
 // -------------------------
-$.lang.register('clangnetsass.discord', 'Come and join in the banter on and offline in the PoR Discord --> https://iand.live/discord');
+$.lang.register('clangnetsass.discord', '.announce Come and join in the banter on and offline in the PoR Discord --> https://iand.live/discord');
 
 // !followed command response
 // --------------------------
@@ -86,60 +86,60 @@ $.lang.register('clangnetsass.howlong.discord', '$1, you have followed the IanDL
 
 // !howserver command response
 // ---------------------------
-$.lang.register('clangnetsass.howserver', '.announcegreen Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
+$.lang.register('clangnetsass.howserver', '.announce Want to get onto our community servers?  You\'ll need to join the PoR Steam Group where the details of the servers that are currently available are listed, follow the link to join --> https://iand.live/SteamGroup');
 
 // !howsong command response
 // -------------------------
-$.lang.register('clangnetsass.howsong', '.announcegreen Type !sr followed by <song name> <song artist> or with a YouTube link to add your track to the song request list.  If you get it wrong, use !wrongsong to remove the track you have just added.');
+$.lang.register('clangnetsass.howsong', '.announce Type !sr followed by <song name> <song artist> or with a YouTube link to add your track to the song request list.  If you get it wrong, use !wrongsong to remove the track you have just added.');
 
 // !notifications command response
 // -------------------------------
-$.lang.register('clangnetsass.notifications', 'Enjoying the stream and want to know when the next one is? Follow the channel and ensure that notifications are turned on; if they already are then IT Crowd it and turn them off and on again, or you can join us on Discord (https://iand.live/discord) and sign up for notifications there!');
+$.lang.register('clangnetsass.notifications', '.announcepurple Enjoying the stream and want to know when the next one is? Follow the channel and ensure that notifications are turned on; if they already are then IT Crowd it and turn them off and on again, or you can join us on Discord (https://iand.live/discord) and sign up for notifications there!');
 
 // !steamgroup command response
 // ----------------------------
-$.lang.register('clangnetsass.steamgroup', 'Want to join the Prophets of Rage Steam group so that you can access the servers?  Follow the link to get to the group page to join up --> https://iand.live/SteamGroup');
+$.lang.register('clangnetsass.steamgroup', '.announce Want to join the Prophets of Rage Steam group so that you can access the servers?  Follow the link to get to the group page to join up --> https://iand.live/SteamGroup');
 
 // !steam command response
 // -----------------------
-$.lang.register('clangnetsass.steam', 'Looking to join Ian on stream in the game?  Click on the link to get to his Steam profile so you can join the game from there --> https://iand.live/steam');
+$.lang.register('clangnetsass.steam', '.announce Looking to join Ian on stream in the game?  Click on the link to get to his Steam profile so you can join the game from there --> https://iand.live/steam');
 
 // !humble command response
 // ------------------------
-$.lang.register('clangnetsass.humble', 'Want to get hold of games at decent prices while supporting a) this channel and b) an awesome charity?  If the answer is yes then pop over to Humble Bundle and check out their latest offers by clicking on this link --> https://iand.live/humble-store');
+$.lang.register('clangnetsass.humble', '.announcegreen Want to get hold of games at decent prices while supporting a) this channel and b) an awesome charity?  If the answer is yes then pop over to Humble Bundle and check out their latest offers by clicking on this link --> https://iand.live/humble-store');
 
 // !humblemonth command response
 // -----------------------------
-$.lang.register('clangnetsass.humblemonth', 'Do you like games?  Do you want a new batch of them each month?  Click on the link to sign up for Humble Bundle Monthly, where games are sent to you each month for a ridiculously low price!! --> https://iand.live/humble-monthly');
+$.lang.register('clangnetsass.humblemonth', '.announcegreen Do you like games?  Do you want a new batch of them each month?  Click on the link to sign up for Humble Bundle Monthly, where games are sent to you each month for a ridiculously low price!! --> https://iand.live/humble-monthly');
 
 // !food command response
 // ----------------------
-$.lang.register('clangnetsass.food', 'Does Ian look a little hungry?  If it\'s enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
+$.lang.register('clangnetsass.food', '.announcegreen Does Ian look a little hungry?  If it\'s enabled, send through a treat, you never know, it might make his day!!! --> https://iand.live/treatstream');
 
 // !youtube command response
 // -------------------------
-$.lang.register('clangnetsass.youtube', 'Belive it or not he has actually got a YouTube channel, if you want to see the cobwebs and what isn\'t there, follow this link --> https://iand.live/YouTube');
+$.lang.register('clangnetsass.youtube', '.announce Belive it or not he has actually got a YouTube channel, if you want to see the cobwebs and what isn\'t there, follow this link --> https://iand.live/YouTube');
 
 // !por-youtube command response
 // -----------------------------
-$.lang.register('clangnetsass.por-youtube', 'There are videos chronicling the explots of this channel and community.  If you\'d like to see them, click on the link to get to the PoR Community YouTube channel --> https://iand.live/PoR-YouTube');
+$.lang.register('clangnetsass.por-youtube', '.announce There are videos chronicling the explots of this channel and community.  If you\'d like to see them, click on the link to get to the PoR Community YouTube channel --> https://iand.live/PoR-YouTube');
 
 // !cdkeys command response
 // ------------------------
-$.lang.register('clangnetsass.cdkeys', 'Would you like to get hold of some of the latest games at cheaper prices while supporting this channel? Head over to CDKeys to see what deals they have on offer --> https://iand.live/cdkeys');
+$.lang.register('clangnetsass.cdkeys', '.announcegreen Would you like to get hold of some of the latest games at cheaper prices while supporting this channel? Head over to CDKeys to see what deals they have on offer --> https://iand.live/cdkeys');
 
 // !merch command response
 // -----------------------
-$.lang.register('clangnetsass.merch', '.announceorange Get your new and latest PoR clothing and merch, or even help support the servers here --> https://iand.live/merch');
+$.lang.register('clangnetsass.merch', '.announcegreen Get your new and latest PoR clothing and merch, or even help support the servers here --> https://iand.live/merch');
 $.lang.register('clangnetsass.merch.discord', 'Want to get the latest PoR merch, or help support the servers?  Get it all here --> https://iand.live/merch');
 
 // !socials command response
 // -------------------------
-$.lang.register('clangnetsass.socials', 'Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://iand.live/socials');
+$.lang.register('clangnetsass.socials', '.announce Want to keep in touch and up to date with the channel and the community?  Consider checking out the links on this page: bleedPurple --> https://iand.live/socials');
 
 // !screenshots command response
 // -----------------------------
-$.lang.register('clangnetsass.screenshots', 'Get hold of some of the coolest screenshots to use as wallpapers, or maybe add some of your own to the PoR website --> https://iand.live/screenshots');
+$.lang.register('clangnetsass.screenshots', '.announceblue Get hold of some of the coolest screenshots to use as wallpapers, or maybe add some of your own to the PoR website --> https://iand.live/screenshots');
 
 // !subs command response
 // ----------------------
@@ -164,7 +164,7 @@ $.lang.register('clangnetsass.website', '.announceblue Are you wanting to find m
 
 // !chatcomm command response
 // --------------------------
-$.lang.register('clangnetsass.chatcomm', 'Do you want to find out what commands that I respond to?  Click the link and find a full list of them --> https://iand.live/chatcomm');
+$.lang.register('clangnetsass.chatcomm', '.announcepurple Do you want to find out what commands that I respond to?  Click the link and find a full list of them --> https://iand.live/chatcomm');
 
 // !raided command response
 // ------------------------
@@ -176,7 +176,7 @@ $.lang.register('clangnetsass.ads', '.announcepurple Ads get played on this chan
 
 // !kofi command response
 // ----------------------
-$.lang.register('clangnetsass.kofi', '.announceorange Help support the channel and also maybe get some previews of things to come over on KoFi --> https://ko-fi.com/iandlive');
+$.lang.register('clangnetsass.kofi', '.announcegreen Help support the channel and also maybe get some previews of things to come over on KoFi --> https://ko-fi.com/iandlive');
 
 // !chattest command response
 // --------------------------
