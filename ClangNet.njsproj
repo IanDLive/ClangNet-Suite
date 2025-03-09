@@ -55,6 +55,7 @@
     <Content Include="scripts\lang\custom\system-boomstick.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\lang\custom\system-chuckjokes.js" />
     <Content Include="scripts\lang\custom\system-clangnetjokes.js">
       <SubType>Code</SubType>
     </Content>
