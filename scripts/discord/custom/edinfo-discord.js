@@ -37,13 +37,15 @@
     function postTick(isBot) {
         currentTick = new Date(getBGSTick());
         if (lastTick === '[none]') {
-            lastTick = $.setIniDbString('edinfo-discord', 'storedTick', currentTick);
+            lastTick = currentTick;
+            $.inidb.set('edinfo-discord', 'storedTick', currentTick);
         }
         formattedDate = formatDate(currentTick);
         formattedTime = formatTime(currentTick);
         if (isBot) {
             if (currentTick > lastTick) {
-                lastTick = $.setIniDbString('edinfo-discord', 'storedTick', currentTick);
+                lastTick = currentTick;
+                $.inidb.set('edinfo-discord', 'storedTick', currentTick);
                 $.discord.say(reportChannel, $.lang.get('edinfo.discord.tickupdated'));
             } else {
                 return;
@@ -73,7 +75,8 @@
 
     function forceTick(curChannel) {
         currentTick = new Date(getBGSTick());
-        lastTick = $.setIniDbString('edinfo-discord', 'storedTick', currentTick);
+        lastTick = currentTick;
+        $.inidb.set('edinfo-discord', 'storedTick', currentTick);
         $.discord.say(curChannel, $.lang.get('edinfo.discord.forcetick'));
         return;
     }
