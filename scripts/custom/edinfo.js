@@ -135,9 +135,6 @@
         var strShip;
         var strShipInitial;
         var currentTick;
-        var formatCurrentTick
-        let options = { weeksday: "long", year: "numeric", month: "long", day: "numeric"};
-        let timeOptions = { hour: "2-digit", minute: "2-digit", timeZoneName: "short" };
 
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
 
