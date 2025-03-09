@@ -42,7 +42,7 @@
         formattedDate = formatDate(currentTick);
         formattedTime = formatTime(currentTick);
         if (isBot) {
-            if (currentTick.getTime() > lastTick.getTime()) {
+            if (currentTick > lastTick) {
                 lastTick = $.setIniDbString('edinfo-discord', 'storedTick', currentTick);
                 $.discord.say(reportChannel, $.lang.get('edinfo.discord.tickupdated'));
             } else {
