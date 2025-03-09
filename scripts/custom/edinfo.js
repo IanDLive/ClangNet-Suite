@@ -91,11 +91,9 @@
 
     function getBGSTick() {
         var jsonObject;
-        var returnText;
 
         jsonObject = JSON.parse($.cnGetJSON('https://tick.edcd.io/api/tick'));
-        returnText = jsonObject;
-        return returnText;
+        return jsonObject;
     }
 
     function formatDate(date) {
@@ -136,9 +134,6 @@
         var strShip;
         var strShipInitial;
         var currentTick;
-        var formatCurrentTick
-        let options = { weeksday: "long", year: "numeric", month: "long", day: "numeric"};
-        let timeOptions = { hour: "2-digit", minute: "2-digit", timeZoneName: "short" };
 
         allowOffline = $.getIniDbBoolean('edInfo', 'allowOffline');
 
