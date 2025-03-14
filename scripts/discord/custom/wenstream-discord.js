@@ -20,7 +20,15 @@
 
 
             // If not online, send response
-            if (!$.isOnline($.channelName)) {
+
+
+
+            if ($.isOnline($.channelName)) {
+                //Say Oi the stream is already running m8
+                $.discord.say(channel, $.lang.get('wenstream.responseOn'));
+
+            } else {
+
                 switch (snarkyComment) {
                     case 0:
                         $.discord.say(channel, $.lang.get('wenstream.response0'));
@@ -41,11 +49,7 @@
                         $.discord.say(channel, $.lang.get('wenstream.response5'));
                         break;
                 }
-            } else {
-                //Say Oi the stream is already running m8
-                $.discord.say(channel, $.lang.get('wenstream.responseOn'));
             }
-
 
         }
 
