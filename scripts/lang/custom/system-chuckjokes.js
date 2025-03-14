@@ -2,4 +2,4 @@
 // ===========================
 
 //Discord Response
-$lang.register('chuckjokes.telljoke.discord', '$1');
+$.lang.register('chuckjokes.telljoke.discord', '$1');
