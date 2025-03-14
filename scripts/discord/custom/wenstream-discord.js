@@ -13,7 +13,7 @@
 
 
         // --- !wenStream command ---
-        if (command.equalsIgnoreCase('wenStream')) {
+        if (command.equalsIgnoreCase('wenstream')) {
 
             // Prepare a snarky comment
             var snarkyComment = Math.floor(Math.random() * 6);
@@ -53,6 +53,6 @@
 
     // Register command
     $.bind('initReady', function () {
-        $.discord.registerCommand('.discord/custom/wenstream-discord.js', 'wenStream', 0);
+        $.discord.registerCommand('.discord/custom/wenstream-discord.js', 'wenstream', 0);
     })
 });
