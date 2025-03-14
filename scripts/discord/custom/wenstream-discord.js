@@ -26,30 +26,30 @@
             if ($.isOnline($.channelName)) {
                 //Say Oi the stream is already running m8
                 $.discord.say(channel, $.lang.get('wenstream.responseOn'));
-                }
+
             } else {
 
-            switch (snarkyComment) {
-                case 0:
-                    $.discord.say(channel, $.lang.get('wenstream.response0'));
-                    break;
-                case 1:
-                    $.discord.say(channel, $.lang.get('wenstream.response1'));
-                    break;
-                case 2:
-                    $.discord.say(channel, $.lang.get('wenstream.response2'));
-                    break;
-                case 3:
-                    $.discord.say(channel, $.lang.get('wenstream.response3'));
-                    break;
-                case 4:
-                    $.discord.say(channel, $.lang.get('wenstream.response4'));
-                    break;
-                case 5:
-                    $.discord.say(channel, $.lang.get('wenstream.response5'));
-                    break;
+                switch (snarkyComment) {
+                    case 0:
+                        $.discord.say(channel, $.lang.get('wenstream.response0'));
+                        break;
+                    case 1:
+                        $.discord.say(channel, $.lang.get('wenstream.response1'));
+                        break;
+                    case 2:
+                        $.discord.say(channel, $.lang.get('wenstream.response2'));
+                        break;
+                    case 3:
+                        $.discord.say(channel, $.lang.get('wenstream.response3'));
+                        break;
+                    case 4:
+                        $.discord.say(channel, $.lang.get('wenstream.response4'));
+                        break;
+                    case 5:
+                        $.discord.say(channel, $.lang.get('wenstream.response5'));
+                        break;
+                }
             }
-
 
         }
 
