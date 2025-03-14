@@ -52,6 +52,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\discord\custom\weather-discord.js" />
+    <Content Include="scripts\discord\custom\wenstream-discord.js" />
     <Content Include="scripts\lang\custom\system-boomstick.js">
       <SubType>Code</SubType>
     </Content>
@@ -60,6 +61,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="scripts\lang\custom\system-weather.js" />
+    <Content Include="scripts\lang\custom\system-wenstream.js" />
     <Content Include="web\panel\js\pages\custom\location.js">
       <SubType>Code</SubType>
     </Content>
