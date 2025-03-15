@@ -61,6 +61,6 @@
 
     // Register command
     $.bind('initReady', function () {
-        $.discord.registerCommand('.discord/custom/wenstream-discord.js', 'wenstream', 0);
+        $.discord.registerCommand('./discord/custom/wenstream-discord.js', 'wenstream', 0);
     })
 });
