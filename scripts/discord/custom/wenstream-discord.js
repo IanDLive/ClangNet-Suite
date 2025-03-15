@@ -23,10 +23,14 @@
 
             // Get Twitch ID
             twitchID = $.username.getID(channelName);
+            $.consoleLn(twitchID);
+
 
             // Check for stream with channelName that is Live
             var query = twitchID.slice(0, 100).join(',') + '&stream_type=live';
+            $.consoleLn(query);
             var jsonObject = $.twitch.getStreams(query);
+            $.consoleLn(jsonObject);
 
             // Check stream running
             if (jsonObject.has('streams')) {
