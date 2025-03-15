@@ -20,6 +20,7 @@
             var twitchCache = Packages.tv.phantombot.cache.TwitchCache;
             if (twitchCache != null) {
                 $.discord.say(channel, twitchCache.getStreamStatus());
+                $.consoleLn(twitchCache.getStreamStatus());
             }
 
        
