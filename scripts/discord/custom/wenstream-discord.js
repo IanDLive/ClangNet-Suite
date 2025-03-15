@@ -17,21 +17,22 @@
             // Prepare a snarky comment
             var snarkyComment = Math.floor(Math.random() * 6);
 
-            var twitchCache = Packages.tv.phantombot.cache.TwitchCache;
-            if (twitchCache != null) {
-                $.discord.say(channel, twitchCache.getStreamStatus());
-                $.consoleLn(twitchCache.getStreamStatus());
-            }
+            
+            var channelName = "iandlive";
+            var twitchID; 
 
-       
+            // Get Twitch ID
+            twitchID = $.username.getID(channelName);
 
-            // If not online, send response
+            // Check for stream with channelName that is Live
+            var query = twitchID.slice(0, 100).join(',') + '&stream_type=live';
+            var jsonObject = $.twitch.getStreams(query);
 
-            if (twitchCache.isStreamOnline()) {
-                //Say Oi the stream is already running m8
+            // Check stream running
+            if (jsonObject.has('streams')) {
                 $.discord.say(channel, $.lang.get('wenstream.responseOn'));
-
-            } else {
+                return;
+            }   else {
 
                 switch (snarkyComment) {
                     case 0:
@@ -61,6 +62,6 @@
 
     // Register command
     $.bind('initReady', function () {
-        $.discord.registerCommand('.discord/custom/wenstream-discord.js', 'wenstream', 0);
+        $.discord.registerCommand('./discord/custom/wenstream-discord.js', 'wenstream', 0);
     })
 });
