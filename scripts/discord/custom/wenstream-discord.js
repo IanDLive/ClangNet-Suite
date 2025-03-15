@@ -11,19 +11,17 @@
         var args = event.getArgs();
         var action = args[0];
 
-
         // --- !wenStream command ---
         if (command.equalsIgnoreCase('wenstream')) {
 
             // Prepare a snarky comment
             var snarkyComment = Math.floor(Math.random() * 6);
 
+            var twitchCache = Packages.tv.phantombot.cache.TwitchCache;
 
             // If not online, send response
 
-
-
-            if ($.isOnline($.channelName)) {
+            if (twitchCache.isStreamOnline()) {
                 //Say Oi the stream is already running m8
                 $.discord.say(channel, $.lang.get('wenstream.responseOn'));
 
