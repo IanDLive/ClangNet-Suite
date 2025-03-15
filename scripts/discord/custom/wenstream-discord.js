@@ -18,6 +18,11 @@
             var snarkyComment = Math.floor(Math.random() * 6);
 
             var twitchCache = Packages.tv.phantombot.cache.TwitchCache;
+            if (twitchCache != null) {
+                $.discord.say(channel, twitchCache.getStreamStatus());
+            }
+
+       
 
             // If not online, send response
 
