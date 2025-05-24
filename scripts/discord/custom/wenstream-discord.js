@@ -17,7 +17,7 @@
             // Prepare a snarky comment
             var snarkyComment = Math.floor(Math.random() * 6);
 
-            
+            /*
             var channelName = "iandlive";
             var twitchID; 
 
@@ -31,9 +31,10 @@
             $.consoleLn(query);
             var jsonObject = $.twitch.getStreams(query);
             $.consoleLn(jsonObject);
+            */
 
             // Check stream running
-            if (jsonObject.has('streams')) {
+            if ($.isOnline($.channelName)) {
                 $.discord.say(channel, $.lang.get('wenstream.responseOn'));
                 return;
             }   else {
@@ -68,4 +69,4 @@
     $.bind('initReady', function () {
         $.discord.registerCommand('./discord/custom/wenstream-discord.js', 'wenstream', 0);
     });
-});
+})();
