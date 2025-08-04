@@ -51,6 +51,7 @@
     <Content Include="scripts\discord\custom\boomstick-discord.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\discord\custom\goingLiveSystem-discord.js" />
     <Content Include="scripts\discord\custom\weather-discord.js" />
     <Content Include="scripts\discord\custom\wenstream-discord.js" />
     <Content Include="scripts\lang\custom\system-boomstick.js">
