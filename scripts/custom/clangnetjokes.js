@@ -119,7 +119,12 @@
         var intEmoteChoice = Math.floor(Math.random() * 4);
         var strEmoteChoice;
 
-        if (jokesEnabled) {
+        if (!jokesEnabled) {
+            if (isCommanded) {
+                $.say($.lang.get('clangnetjokes.jokesdisabled'));
+            }
+            return;
+        } else {
             if ($.isOnline($.channelName) || allowOfflineJokes == true) {
                 switch (intEmoteChoice) {
                     case 0:
@@ -136,15 +141,13 @@
                         break;
                 }
                 $.say(getAnyJoke() + strEmoteChoice);
+                return;
             } else {
                 if (isCommanded) {
                     var atSender = $.cnUserStrings(invokedBy);
                     $.say($.lang.get('clangnetjokes.jokesonline', atSender[0]));
                 }
-            }
-        } else {
-            if (isCommanded) {
-                $.say($.lang.get('clangnetjokes.jokesdisabled'));
+                return;
             }
         }
     }
