@@ -187,6 +187,9 @@
                     case 'elite: dangerous':
                         $.say($.lang.get('clangnetsass.handle-elite', handleSender[0]));
                         break;
+                    case 'dune: awakening':
+                        $.say($.lang.get('clangnetsass.handle-dune', handleSender[0]));
+                        break;
                     default:
                         $.say($.lang.get('clangnetsass.handle-notused'));
                         break;

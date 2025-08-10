@@ -59,6 +59,7 @@ $.lang.register('clangnetsass.handle-notused', 'There isn\'t a gamertag that Ian
 $.lang.register('clangnetsass.handle-starcitizen', '$1, if you want to add IanDLive to your friends list in Star Citizen, just add him in game as \'IanD-Live\'');
 $.lang.register('clangnetsass.handle-eso', '$1, if you want to add IanDLive to your friends list in The Elder Scrolls Online, just add him in game as \'@IanDLive\'');
 $.lang.register('clangnetsass.handle-elite', '$1, if you want to add IanDLive to your friends list in Elite: Dangerous, just add him in game as \'IanD Live\'');
+$.lang.register('clangnetsass.handle-dune', '$1, if you want to add IanDLive to your friends list in Dune: Awakening, just add him in game as \'IanDLive\' with the character name \'Torian Noret\''); 
 
 // !discord command response
 // -------------------------
