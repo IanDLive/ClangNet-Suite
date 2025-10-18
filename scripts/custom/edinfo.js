@@ -345,13 +345,13 @@
                 }
                 // --- setpath command ---
                 if (action.equalsIgnoreCase('setpath')) {
-                    if (action === undefined || action == null) {
+                    if (args[1] === undefined || args[1] == null) {
                         // No path set with the command.
                         $.say($.lang.get('edinfo.nofilepathset'));
                         return;
                     } else {
-                        $.setIniDbString('edInfo', 'filePath', action);
-                        $.say($.lang.get('edinfo.obsfilepathset', action));
+                        $.setIniDbString('edInfo', 'filePath', args[1]);
+                        $.say($.lang.get('edinfo.obsfilepathset', args[1]));
                         elitePBPath = action;
                         return;
                     }
